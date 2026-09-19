@@ -25,13 +25,12 @@ body{font-family:'Inter',sans-serif;background:#EEF2F8;color:#0F172A;display:fle
 .li{width:100%;border:1.5px solid #284E80;border-radius:8px;padding:10px 12px;font-size:13px;background:#0A1628;color:#fff;margin-bottom:10px;font-family:inherit;outline:none;display:block;}
 .li:focus{border-color:#0891B2;}
 .lb{width:100%;background:#0891B2;color:#fff;border:none;border-radius:8px;padding:11px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;}
-.lb:hover{background:#0782A0;}
-.lb:disabled{opacity:.6;}
+.lb:hover{background:#0782A0;}.lb:disabled{opacity:.6;}
 #lErr{color:#FCA5A5;font-size:11px;margin-top:8px;min-height:16px;}
 
 /* LAYOUT */
-#SB{width:224px;min-width:224px;background:#0A1628;display:none;flex-direction:column;position:fixed;top:0;left:0;height:100vh;z-index:100;overflow-y:auto;}
-#MW{margin-left:224px;flex:1;display:none;flex-direction:column;}
+#SB{width:222px;min-width:222px;background:#0A1628;display:none;flex-direction:column;position:fixed;top:0;left:0;height:100vh;z-index:100;overflow-y:auto;}
+#MW{margin-left:222px;flex:1;display:none;flex-direction:column;}
 
 /* SIDEBAR */
 .sb-hd{padding:16px 14px 12px;border-bottom:1px solid rgba(255,255,255,.07);}
@@ -52,17 +51,21 @@ body{font-family:'Inter',sans-serif;background:#EEF2F8;color:#0F172A;display:fle
 .sb-ft{padding:10px 14px;border-top:1px solid rgba(255,255,255,.06);font-size:8px;color:rgba(255,255,255,.17);line-height:1.6;}
 
 /* SYNC */
-#SYN{position:fixed;bottom:0;left:224px;right:0;height:24px;background:#0A1628;border-top:1px solid rgba(255,255,255,.07);display:none;align-items:center;padding:0 14px;gap:8px;z-index:99;}
+#SYN{position:fixed;bottom:0;left:222px;right:0;height:24px;background:#0A1628;border-top:1px solid rgba(255,255,255,.07);display:none;align-items:center;padding:0 14px;gap:8px;z-index:99;}
 #SD{width:6px;height:6px;border-radius:50%;background:#059669;flex-shrink:0;}
-#SM{font-size:10px;color:#90BCDA;}
-#SU{margin-left:auto;font-size:9.5px;color:#475569;}
+#SM{font-size:10px;color:#90BCDA;}#SU{margin-left:auto;font-size:9.5px;color:#475569;}
 .slbtn{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:#90BCDA;border-radius:4px;padding:2px 8px;font-size:9.5px;cursor:pointer;font-family:inherit;}
 
 /* TOPBAR */
-.topbar{background:#fff;border-bottom:1px solid #E2E8F0;padding:0 20px;height:52px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50;box-shadow:0 1px 4px rgba(15,35,65,.04);}
+.topbar{background:#fff;border-bottom:1px solid #E2E8F0;padding:0 20px;height:52px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50;}
 .tb-t{font-size:12.5px;font-weight:700;color:#0A1628;line-height:1.2;}
 .tb-t span{display:block;font-size:10px;font-weight:400;color:#64748B;margin-top:1px;}
 .tb-r{display:flex;align-items:center;gap:6px;}
+
+/* SAVE INDICATOR */
+#saveInd{font-size:10px;padding:3px 9px;border-radius:12px;font-weight:600;transition:.3s;}
+.si-saved{background:#D1FAE5;color:#065F46;}
+.si-saving{background:#FEF3C7;color:#92400E;}
 
 /* CONTENT */
 .content{padding:18px 20px 60px;}
@@ -78,15 +81,13 @@ body{font-family:'Inter',sans-serif;background:#EEF2F8;color:#0F172A;display:fle
 .bO{background:#fff;border-color:#CBD5E1;color:#475569;}.bO:hover{background:#F1F5F9;}
 .bG{background:#059669;border-color:#059669;color:#fff;}
 .bS{padding:4px 9px;font-size:10.5px;}
-.bR{background:transparent;border-color:#FCA5A5;color:#DC2626;}
 
 /* PANELS */
 .pnl{background:#fff;border-radius:12px;border:1px solid #E2E8F0;box-shadow:0 1px 5px rgba(15,35,65,.04);margin-bottom:14px;overflow:hidden;}
 .pnh{padding:12px 16px 10px;border-bottom:1px solid #E2E8F0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
 .pnh h3{font-size:13px;font-weight:700;color:#0A1628;}
 .pnh p{font-size:11px;color:#64748B;margin-top:1px;}
-.pnb{padding:14px 16px;}
-.pnb0{padding:0;}
+.pnb{padding:14px 16px;}.pnb0{padding:0;}
 
 /* KPI CARDS */
 .kgrid{display:grid;gap:10px;margin-bottom:14px;}
@@ -94,17 +95,16 @@ body{font-family:'Inter',sans-serif;background:#EEF2F8;color:#0F172A;display:fle
 .kl{font-size:9px;font-weight:700;color:#64748B;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;}
 .kv{font-family:'JetBrains Mono',monospace;font-size:21px;font-weight:700;color:#0A1628;line-height:1;}
 .ks{font-size:10px;color:#94A3B8;margin-top:3px;}
-.kc2{font-size:11px;font-weight:700;margin-top:5px;}
 
-/* INPUTS */
+/* INPUTS — EASY ENTRY */
 select,input[type=number],input[type=text]{border:1.5px solid #CBD5E1;border-radius:7px;padding:6px 9px;font-size:12px;font-family:inherit;color:#0F172A;background:#fff;outline:none;transition:.15s;}
 select:focus,input:focus{border-color:#0891B2;box-shadow:0 0 0 3px rgba(8,145,178,.1);}
-.ei{text-align:right;font-weight:600;}
-.ei:hover:not(:focus){border-color:#94A3B8;}
-.ei:focus{border-color:#0891B2!important;background:#EFF9FB!important;transform:scale(1.03);}
+.ei{text-align:right;font-weight:600;cursor:text;}
+.ei:hover{border-color:#0891B2;background:#F8FCFF;}
+.ei:focus{border-color:#0891B2!important;background:#EFF9FB!important;box-shadow:0 0 0 3px rgba(8,145,178,.15)!important;}
 
 /* CTRL BAR */
-.cbar{background:#fff;border-radius:10px;padding:10px 14px;border:1px solid #E2E8F0;margin-bottom:12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;box-shadow:0 1px 4px rgba(15,35,65,.04);}
+.cbar{background:#fff;border-radius:10px;padding:10px 14px;border:1px solid #E2E8F0;margin-bottom:12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
 .cg{display:flex;flex-direction:column;gap:3px;}
 .cg label{font-size:9px;font-weight:700;color:#64748B;text-transform:uppercase;letter-spacing:.5px;}
 .csep{width:1px;height:26px;background:#E2E8F0;}
@@ -114,7 +114,7 @@ select:focus,input:focus{border-color:#0891B2;box-shadow:0 0 0 3px rgba(8,145,17
 .mb{padding:4px 10px;border-radius:5px;font-size:10.5px;font-weight:600;cursor:pointer;color:#64748B;border:none;background:transparent;font-family:inherit;transition:.15s;}
 .mb.on{background:#fff;color:#0A1628;box-shadow:0 1px 3px rgba(0,0,0,.1);}
 
-/* CHART TYPES */
+/* CHART TYPE BUTTONS */
 .ctbs{display:flex;gap:3px;}
 .ctb{padding:4px 8px;border-radius:6px;font-size:10px;font-weight:600;cursor:pointer;border:1.5px solid #CBD5E1;background:#fff;color:#475569;transition:.15s;}
 .ctb.on{background:#0A1628;color:#fff;border-color:#0A1628;}
@@ -127,25 +127,33 @@ select:focus,input:focus{border-color:#0891B2;box-shadow:0 0 0 3px rgba(8,145,17
 
 /* TABLE */
 .twrap{overflow-x:auto;}
-table{width:100%;border-collapse:collapse;font-size:11.5px;}
-th{background:#0A1628;color:#fff;padding:8px 10px;text-align:left;font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;white-space:nowrap;}
-td{padding:7px 10px;border-bottom:1px solid #EEF2F8;color:#334155;vertical-align:middle;}
-tr:last-child td{border-bottom:none;}
-tr:hover td{background:#F8FAFF;}
-.sr td{background:#F0FDF4!important;font-weight:700;color:#065F46;border-top:2px solid #059669;}
+table.dt{width:100%;border-collapse:collapse;font-size:11.5px;}
+table.dt th{background:#0A1628;color:#fff;padding:8px 10px;text-align:left;font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;white-space:nowrap;}
+table.dt td{padding:7px 10px;border-bottom:1px solid #EEF2F8;color:#334155;vertical-align:middle;}
+table.dt tr:last-child td{border-bottom:none;}
+table.dt tr:hover td{background:#F8FAFF;}
+table.dt tr.sel-row td{background:#EFF9FB;}
+table.dt tr.sum-row td{background:#F0FDF4!important;font-weight:700;color:#065F46;border-top:2px solid #059669;}
 .mn{font-family:'JetBrains Mono',monospace;font-size:11px;}
 .fw{font-weight:700;color:#0A1628;}
 .tag{display:inline-block;padding:2px 6px;border-radius:7px;font-size:9px;font-weight:700;}
 .tr{background:#FEE2E2;color:#991B1B;}.tc2{background:#DBEAFE;color:#1E40AF;}
-.tg{background:#D1FAE5;color:#065F46;}.ta{background:#FEF3C7;color:#92400E;}
-.tnd{background:#F1F5F9;color:#64748B;}
+.tg{background:#D1FAE5;color:#065F46;}.ta{background:#FEF3C7;color:#92400E;}.tnd{background:#F1F5F9;color:#64748B;}
+
+/* CHECKBOX */
+.ck{width:15px;height:15px;accent-color:#0891B2;cursor:pointer;flex-shrink:0;}
+
+/* QUICK SELECT BUTTONS */
+.qsel{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px;}
+.qbtn{padding:4px 10px;border-radius:6px;font-size:10.5px;font-weight:600;cursor:pointer;border:1.5px solid #CBD5E1;background:#fff;color:#475569;transition:.15s;font-family:inherit;}
+.qbtn:hover{background:#F1F5F9;border-color:#0891B2;color:#0891B2;}
 
 /* GRIDS */
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;}
 .g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px;}
 .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px;}
 
-/* NOTICE */
+/* NOTICES */
 .notice{background:#EFF6FF;border:1.5px solid #93C5FD;border-radius:8px;padding:8px 12px;font-size:11px;color:#1E40AF;margin-bottom:10px;display:flex;gap:7px;line-height:1.5;}
 .disc{background:#FFFBEB;border:1px solid #FCD34D;border-radius:8px;padding:8px 12px;font-size:11px;color:#78350F;margin-bottom:10px;line-height:1.5;}
 .flag{border-radius:8px;padding:8px 12px;display:flex;gap:8px;margin-bottom:7px;border:1.5px solid;font-size:11.5px;line-height:1.45;}
@@ -154,13 +162,28 @@ tr:hover td{background:#F8FAFF;}
 .fg2{background:#F0FDF4;border-color:#86EFAC;}
 .fa{background:#FFF1F2;border-color:#FCA5A5;}
 
-/* PROGRESS */
-.prog-wrap{margin-bottom:10px;}
-.prog-lbl{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;}
-.prog-track{height:10px;background:#EEF2F8;border-radius:5px;overflow:hidden;position:relative;}
+/* PROGRESS BARS */
+.prog-track{height:10px;background:#EEF2F8;border-radius:5px;overflow:hidden;margin-top:7px;position:relative;}
 .prog-fill{height:100%;border-radius:5px;transition:width .5s;}
-.prog-target{position:absolute;left:80%;top:-3px;bottom:-3px;width:2px;background:#DC2626;border-radius:1px;}
-.prog-target::after{content:'80%';position:absolute;top:-16px;left:50%;transform:translateX(-50%);font-size:8px;color:#DC2626;font-weight:700;white-space:nowrap;}
+.prog-target{position:absolute;left:80%;top:0;bottom:0;width:2px;background:#DC2626;}
+.prog-target::after{content:'80%';position:absolute;top:-16px;left:50%;transform:translateX(-50%);font-size:8px;color:#DC2626;font-weight:700;}
+
+/* ANALYSIS FILTERS */
+.an-filter-row{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;margin-bottom:14px;}
+.an-filter-group{display:flex;flex-direction:column;gap:4px;min-width:160px;}
+.an-filter-group label{font-size:9px;font-weight:700;color:#64748B;text-transform:uppercase;letter-spacing:.5px;}
+.multi-sel{background:#fff;border:1.5px solid #CBD5E1;border-radius:8px;padding:6px 8px;font-size:11.5px;max-height:160px;overflow-y:auto;min-width:160px;}
+.multi-sel-item{display:flex;align-items:center;gap:7px;padding:4px 4px;border-radius:5px;cursor:pointer;font-size:11.5px;transition:.1s;}
+.multi-sel-item:hover{background:#EFF9FB;}
+.multi-sel-item.on{background:#EFF9FB;color:#0891B2;font-weight:600;}
+.multi-sel-item input{accent-color:#0891B2;width:13px;height:13px;}
+
+/* HOSPITAL CARDS */
+.hcards{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:14px;}
+.hcard{border:2px solid #E2E8F0;border-radius:10px;padding:11px 13px;cursor:pointer;min-width:165px;background:#fff;transition:.15s;}
+.hcard:hover{border-color:#94A3B8;}
+.hcard.hon{border-color:#0891B2;background:#EFF9FB;}
+.hcard-check{display:flex;align-items:center;gap:6px;margin-top:6px;}
 
 /* MODAL */
 .mov{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:500;display:none;align-items:center;justify-content:center;}
@@ -168,7 +191,7 @@ tr:hover td{background:#F8FAFF;}
 .modal{background:#fff;border-radius:14px;padding:22px;width:460px;max-width:95vw;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.25);}
 .modal h3{font-size:15px;font-weight:800;color:#0A1628;margin-bottom:14px;}
 .fgg{display:grid;grid-template-columns:1fr 1fr;gap:9px;}
-.fg{display:flex;flex-direction:column;gap:4px;margin-bottom:0;}
+.fg{display:flex;flex-direction:column;gap:4px;}
 .fg label{font-size:10px;font-weight:600;color:#475569;}
 .fg select,.fg input{width:100%;}
 .fsp{grid-column:span 2;}
@@ -181,26 +204,11 @@ tr:hover td{background:#F8FAFF;}
 .kbh{background:#EFF9FB;border-bottom:1px solid #BAE6FD;padding:6px 14px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:10px;color:#0C4A6E;}
 kbd{background:#fff;border:1px solid #BAE6FD;border-radius:3px;padding:1px 4px;font-family:monospace;font-size:9.5px;}
 
-/* HOSP CARDS */
-.hcards{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:12px;}
-.hcard{border:2px solid #E2E8F0;border-radius:10px;padding:11px 13px;cursor:pointer;min-width:165px;background:#fff;transition:.15s;}
-.hcard:hover{border-color:#94A3B8;}
-.hcard.hon{border-color:#0891B2;background:#EFF9FB;}
-
-/* ANALYSIS METRIC PILLS */
-.mpick{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px;}
-.mpill{padding:4px 10px;border-radius:16px;font-size:11px;font-weight:600;cursor:pointer;border:1.5px solid #E2E8F0;background:#fff;color:#475569;transition:.15s;}
-.mpill.on{background:#0A1628;color:#fff;border-color:#0A1628;}
-.mpill:hover:not(.on){background:#F1F5F9;}
-
 @media(max-width:860px){
   #SB{display:none!important;}#MW{margin-left:0!important;}#SYN{left:0!important;}
   .g2,.g3,.g4{grid-template-columns:1fr 1fr;}
 }
-@media print{
-  #SB,.topbar,#SYN,.btn,.cbar,.kbh,.mov{display:none!important;}
-  #MW{margin-left:0;}.sec{display:block!important;}
-}
+@media print{#SB,.topbar,#SYN,.btn,.cbar,.kbh,.mov{display:none!important;}#MW{margin-left:0;}.sec{display:block!important;}}
 </style>
 </head>
 <body>
@@ -238,7 +246,7 @@ kbd{background:#fff;border:1px solid #BAE6FD;border-radius:3px;padding:1px 4px;f
     <div class="sb-btn on" onclick="nav('consumption',this)"><span class="sbi">💊</span>Consumption<span class="spill pbi">Biannual</span></div>
     <div class="sb-btn" onclick="nav('outcomes',this)"><span class="sbi">📊</span>Quality Outcomes<span class="spill pq">Quarterly</span></div>
     <div class="sb-btn" onclick="nav('amr',this)"><span class="sbi">🦠</span>AMR & Infection<span class="spill pa">Annual/Q</span></div>
-    <div class="sb-btn" onclick="nav('process',this)"><span class="sbi">⚙️</span>Process Measures<span class="spill pq">Quarterly</span></div>
+    <div class="sb-btn" onclick="nav('process',this)"><span class="sbi">⚙️</span>Surgical Prophylaxis<span class="spill pq">Quarterly</span></div>
     <div class="sb-grp">Analytics</div>
     <div class="sb-btn" onclick="nav('analysis',this)"><span class="sbi">📈</span>Analysis & Compare</div>
     <div class="sb-grp">Settings</div>
@@ -253,77 +261,112 @@ kbd{background:#fff;border:1px solid #BAE6FD;border-radius:3px;padding:1px 4px;f
 <div class="topbar">
   <div class="tb-t">Measuring Success: KPIs for Effective Antimicrobial Stewardship<span>Salmaniya Medical Complex · ASP Dashboard</span></div>
   <div class="tb-r">
-    <button class="btn bO bS" onclick="expXLS()">📊 Excel</button>
+    <span id="saveInd" class="si-saved">✓ Saved</span>
+    <button class="btn bO bS" onclick="expCSV()">📊 CSV</button>
     <button class="btn bO bS" onclick="expPDF()">📄 PDF</button>
-    <button class="btn bO bS" id="pptBtn" onclick="expPPT()">📑 PPT</button>
+    <button class="btn bO bS" onclick="expPPT()">📑 PPT</button>
     <button class="btn bO bS" onclick="resetAll()">↺ Reset</button>
     <button class="btn bT bS" onclick="openM('mDrug')">+ Drug</button>
   </div>
 </div>
+
 <div class="content">
 
-<!-- ══════════ CONSUMPTION ══════════ -->
+<!-- ════════════════════════ CONSUMPTION ════════════════════════ -->
 <div class="sec on" id="sec-consumption">
 <div class="ph1">💊 Antimicrobial Consumption</div>
-<div class="ph2">DDD/1000PD and DOT/1000PD · Table 26 · WHO ATC/DDD 2025</div>
-<div class="ftag" style="background:#EFF9FB;color:#0891B2;border:1px solid #BAE6FD">📅 Biannual — enter H1 or H2 per year</div>
+<div class="ph2">DDD/1000PD and DOT/1000PD · Table 26 · WHO ATC/DDD 2025 · Tick drugs to compare in chart</div>
+<div class="ftag" style="background:#EFF9FB;color:#0891B2;border:1px solid #BAE6FD">📅 Biannual</div>
+
 <div class="cbar">
   <div class="cg"><label>Period Type</label>
-    <select id="cPT" onchange="cPeriodOpts();cRender()">
+    <select id="cPT" onchange="cBuildPeriods();cLoad()">
       <option value="H">Half-Year (H1/H2)</option>
-      <option value="Q">Quarterly (Q1–Q4)</option>
+      <option value="Q">Quarterly</option>
       <option value="A">Annual</option>
     </select>
   </div>
-  <div class="cg"><label>Period</label><select id="cP" onchange="cRender()"></select></div>
-  <div class="cg"><label>Year</label><select id="cY" onchange="cRender()"><option>2025</option><option>2026</option><option>2027</option></select></div>
-  <div class="cg"><label>Patient-Days</label><input type="number" id="cPD" style="width:120px" oninput="savePD('c');cRender()"></div>
+  <div class="cg"><label>Period</label><select id="cP" onchange="cLoad()"></select></div>
+  <div class="cg"><label>Year</label>
+    <select id="cY" onchange="cLoad()">
+      <option>2025</option><option>2026</option><option>2027</option>
+      <option>2028</option><option>2029</option><option>2030</option>
+    </select>
+  </div>
+  <div class="cg"><label>Patient-Days</label>
+    <input type="number" id="cPD" style="width:120px" placeholder="e.g. 161425"
+      onclick="this.select()" onfocus="this.select()"
+      oninput="cSavePD();cRenderKPIs();cDrawChart()">
+  </div>
   <div class="csep"></div>
-  <div class="cg">
-    <label>Location <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
-    <div style="display:flex;gap:6px;align-items:center">
-      <input type="checkbox" id="cLocOn" onchange="togLoc('c')" style="width:14px;height:14px;accent-color:#0891B2;cursor:pointer">
+  <div class="cg"><label>Location <span style="font-weight:400;letter-spacing:0;text-transform:none">(optional)</span></label>
+    <div style="display:flex;gap:5px;align-items:center">
+      <input type="checkbox" class="ck" id="cLocOn" onchange="togLoc('c')">
       <select id="cLocT" style="display:none" onchange="locList('c')"><option value="W">Ward</option><option value="S">Specialty</option><option value="C">Consultant</option></select>
       <select id="cLocV" style="display:none"></select>
     </div>
   </div>
 </div>
+
+<!-- KPI CARDS -->
 <div class="kgrid" style="grid-template-columns:repeat(4,1fr)">
   <div class="kc" style="border-top-color:#0891B2"><div class="kl">Restricted DDD/1000PD</div><div class="kv" id="ck1">—</div><div class="ks" id="ck1s">—</div></div>
   <div class="kc" style="border-top-color:#7C3AED"><div class="kl">Restricted DOT/1000PD</div><div class="kv" id="ck2">—</div><div class="ks">Not dose-dependent</div></div>
   <div class="kc" style="border-top-color:#0A1628"><div class="kl">Comparator DDD/1000PD</div><div class="kv" id="ck3">—</div><div class="ks">MEM + TZP</div></div>
-  <div class="kc" style="border-top-color:#D97706"><div class="kl">Top Agent</div><div class="kv" id="ck4" style="font-size:16px">—</div><div class="ks" id="ck4s">—</div></div>
+  <div class="kc" style="border-top-color:#D97706"><div class="kl">Top Agent (DDD)</div><div class="kv" id="ck4" style="font-size:16px">—</div><div class="ks" id="ck4s">—</div></div>
 </div>
-<div class="pnl">
-  <div class="pnh"><div><h3>Data Entry — DDD &amp; DOT per Drug</h3><p>All calculations live · DDD:DOT ratio auto-computed</p></div></div>
-  <div class="kbh"><strong>Keyboard:</strong><span><kbd>Enter</kbd>/<kbd>↓</kbd> Next</span><span><kbd>↑</kbd> Prev</span><span><kbd>→</kbd><kbd>←</kbd> Switch col</span><span style="color:#059669;font-weight:700">✦ Click → type to replace</span></div>
-  <div class="pnb0"><div class="twrap"><table id="cTbl">
-    <thead><tr><th>Antimicrobial</th><th>Type</th><th>WHO DDD</th><th>Vials/Units</th><th>Strength/Unit</th><th>Total Drug</th><th>Total DDD</th><th>DDD/1000PD</th><th>DOT (days)</th><th>DOT/1000PD</th><th>DDD:DOT</th><th>Interpretation</th><th>vs Prev Period</th></tr></thead>
-    <tbody id="cTB"></tbody>
-  </table></div></div>
-</div>
+
+<!-- ENTRY TABLE -->
 <div class="pnl">
   <div class="pnh">
-    <div><h3>Trend Chart</h3><p id="cChartSub">All periods with data</p></div>
-    <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap">
-      <div class="cg"><label>Drug Filter</label>
-        <select id="cChDrug" onchange="drawCChart()">
-          <option value="ALL">All Drugs</option>
-          <option value="R">Restricted Only</option>
-          <option value="C">Comparators Only</option>
-        </select>
-      </div>
-      <div class="cg"><label>Metric</label>
-        <select id="cChMetric" onchange="drawCChart()">
-          <option value="DDD">DDD/1000PD</option>
-          <option value="DOT">DOT/1000PD</option>
+    <div><h3>Data Entry</h3><p>Tick drugs to include in chart · Enter vials + DOT · All calculations live</p></div>
+    <div style="display:flex;gap:6px">
+      <button class="btn bO bS" onclick="selAllDrugs(true)">☑ All</button>
+      <button class="btn bO bS" onclick="selDrugType('restricted')">Restricted</button>
+      <button class="btn bO bS" onclick="selDrugType('comparator')">Comparators</button>
+      <button class="btn bO bS" onclick="selAllDrugs(false)">☐ Clear</button>
+    </div>
+  </div>
+  <div class="kbh">
+    <strong>⌨️</strong>
+    <span><kbd>Enter</kbd>/<kbd>↓</kbd> Next drug</span>
+    <span><kbd>↑</kbd> Previous</span>
+    <span><kbd>→</kbd><kbd>←</kbd> Switch column</span>
+    <span><kbd>Ctrl+S</kbd> Save now</span>
+    <span style="color:#059669;font-weight:700">✦ Click field → entire number selected → type to replace</span>
+  </div>
+  <div class="pnb0"><div class="twrap">
+    <table class="dt" id="cTable">
+      <thead><tr>
+        <th style="width:30px">✓</th>
+        <th>Antimicrobial</th><th>Type</th><th>WHO DDD</th>
+        <th>Vials/Units</th><th>Strength</th><th>Total Drug</th><th>Total DDD</th><th>DDD/1000PD</th>
+        <th>DOT (days)</th><th>DOT/1000PD</th><th>DDD:DOT</th><th>Interpretation</th>
+      </tr></thead>
+      <tbody id="cTB"></tbody>
+    </table>
+  </div></div>
+</div>
+
+<!-- CHART SECTION -->
+<div class="pnl">
+  <div class="pnh">
+    <div><h3>Consumption Chart</h3><p id="cChartSub">Showing ticked drugs</p></div>
+    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+      <div class="cg"><label>Chart Shows</label>
+        <select id="cChMode" onchange="cDrawChart()">
+          <option value="DDD">DDD/1000PD per drug</option>
+          <option value="DOT">DOT/1000PD per drug</option>
+          <option value="BOTH">DDD vs DOT side by side</option>
+          <option value="RAGG">Restricted Total vs Comparator Total</option>
+          <option value="TREND">Trend — all periods</option>
         </select>
       </div>
       <div class="ctbs" id="cCTB">
-        <div class="ctb on" onclick="setCT('cCTB','bar',drawCChart)">Bar</div>
-        <div class="ctb" onclick="setCT('cCTB','line',drawCChart)">Line</div>
-        <div class="ctb" onclick="setCT('cCTB','area',drawCChart)">Area</div>
-        <div class="ctb" onclick="setCT('cCTB','scatter',drawCChart)">Scatter</div>
+        <div class="ctb on" onclick="setCTB('cCTB',this,'bar');cDrawChart()">Bar</div>
+        <div class="ctb" onclick="setCTB('cCTB',this,'line');cDrawChart()">Line</div>
+        <div class="ctb" onclick="setCTB('cCTB',this,'area');cDrawChart()">Area</div>
+        <div class="ctb" onclick="setCTB('cCTB',this,'scatter');cDrawChart()">Scatter</div>
       </div>
     </div>
   </div>
@@ -331,71 +374,106 @@ kbd{background:#fff;border:1px solid #BAE6FD;border-radius:3px;padding:1px 4px;f
 </div>
 </div>
 
-<!-- ══════════ QUALITY OUTCOMES ══════════ -->
+<!-- ════════════════════════ QUALITY OUTCOMES ════════════════════════ -->
 <div class="sec" id="sec-outcomes">
 <div class="ph1">📊 Quality Outcomes</div>
-<div class="ph2">Table 30 · LOS · Hospital Mortality · Sepsis Mortality · 30-Day Readmission</div>
-<div class="ftag" style="background:#F0FDF4;color:#059669;border:1px solid #86EFAC">📅 Quarterly (default) · Optional: Annual / Biannual</div>
+<div class="ph2">Table 30 · LOS · Hospital Mortality · Sepsis Mortality · 30-Day Readmission · Tick metrics to chart</div>
+<div class="ftag" style="background:#F0FDF4;color:#059669;border:1px solid #86EFAC">📅 Quarterly (default) · Optional Annual / Biannual</div>
+
 <div class="cbar">
-  <div class="cg"><label>Period Type</label><select id="oPT" onchange="oPeriodOpts();oRender()"><option value="Q">Quarterly</option><option value="H">Half-Year</option><option value="A">Annual</option></select></div>
-  <div class="cg"><label>Period</label><select id="oP" onchange="oRender()"></select></div>
-  <div class="cg"><label>Year</label><select id="oY" onchange="oRender()"><option>2025</option><option>2026</option><option>2027</option></select></div>
+  <div class="cg"><label>Period Type</label>
+    <select id="oPT" onchange="oBuildPeriods();oLoad()">
+      <option value="Q">Quarterly</option><option value="H">Half-Year</option><option value="A">Annual</option>
+    </select>
+  </div>
+  <div class="cg"><label>Period</label><select id="oP" onchange="oLoad()"></select></div>
+  <div class="cg"><label>Year</label>
+    <select id="oY" onchange="oLoad()">
+      <option>2025</option><option>2026</option><option>2027</option>
+      <option>2028</option><option>2029</option><option>2030</option>
+    </select>
+  </div>
   <div class="csep"></div>
-  <div class="cg"><label>Location <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
-    <div style="display:flex;gap:6px;align-items:center">
-      <input type="checkbox" id="oLocOn" onchange="togLoc('o')" style="width:14px;height:14px;accent-color:#0891B2;cursor:pointer">
+  <div class="cg"><label>Location <span style="font-weight:400;letter-spacing:0;text-transform:none">(optional)</span></label>
+    <div style="display:flex;gap:5px;align-items:center">
+      <input type="checkbox" class="ck" id="oLocOn" onchange="togLoc('o')">
       <select id="oLocT" style="display:none" onchange="locList('o')"><option value="W">Ward</option><option value="S">Specialty</option></select>
       <select id="oLocV" style="display:none"></select>
     </div>
   </div>
 </div>
+
 <div class="kgrid" style="grid-template-columns:repeat(4,1fr)">
-  <div class="kc" style="border-top-color:#0A1628"><div class="kl">Mean LOS</div><div class="kv" id="ok1">—</div><div class="ks">Days per admission</div></div>
+  <div class="kc" style="border-top-color:#0A1628"><div class="kl">Mean LOS</div><div class="kv" id="ok1">—</div><div class="ks">Days / admission</div></div>
   <div class="kc" style="border-top-color:#DC2626"><div class="kl">Hospital Mortality</div><div class="kv" id="ok2">—</div><div class="ks">(Deaths ÷ Hosp) × 100</div></div>
   <div class="kc" style="border-top-color:#D97706"><div class="kl">Sepsis Mortality</div><div class="kv" id="ok3">—</div><div class="ks">(Deaths ÷ Cases) × 100</div></div>
   <div class="kc" style="border-top-color:#7C3AED"><div class="kl">30-Day Readmission</div><div class="kv" id="ok4">—</div><div class="ks">(Readmit ÷ Discharge) × 100</div></div>
 </div>
-<div class="disc">⚠ LOS and mortality are influenced by case-mix and non-antimicrobial factors. Interpret with clinical context.</div>
-<div class="pnl">
-  <div class="pnh"><div><h3>Data Entry</h3><p>Raw mode: enter numerator + denominator · Direct mode: enter final value</p></div></div>
-  <div class="pnb0"><div class="twrap"><table><thead><tr><th>KPI (Table 30)</th><th>Input Mode</th><th>Numerator</th><th>Denominator</th><th>Direct Value</th><th>Formula</th><th>Result</th><th>vs Prev</th></tr></thead><tbody id="oTB"></tbody></table></div></div>
-</div>
+<div class="disc">⚠ LOS and mortality are influenced by case-mix. Interpret with clinical context.</div>
+
 <div class="pnl">
   <div class="pnh">
-    <div><h3>Outcomes Trend</h3></div>
+    <div><h3>Data Entry</h3><p>Tick metrics to chart · Raw (num+denom) or Direct value · Click field to select all and type</p></div>
+    <div style="display:flex;gap:5px">
+      <button class="btn bO bS" onclick="selAllOutcomes(true)">☑ All</button>
+      <button class="btn bO bS" onclick="selAllOutcomes(false)">☐ Clear</button>
+    </div>
+  </div>
+  <div class="kbh"><strong>✦</strong><span>Click any number field → entire value selected → type new value immediately</span><span><kbd>Ctrl+S</kbd> to save</span></div>
+  <div class="pnb0"><div class="twrap">
+    <table class="dt">
+      <thead><tr><th style="width:30px">✓</th><th>KPI (Table 30)</th><th>Input Mode</th><th>Numerator</th><th>Denominator</th><th>Direct Value</th><th>Formula</th><th>Result</th><th>vs Prev</th></tr></thead>
+      <tbody id="oTB"></tbody>
+    </table>
+  </div></div>
+</div>
+
+<div class="pnl">
+  <div class="pnh">
+    <div><h3>Outcomes Chart</h3><p>Showing ticked metrics</p></div>
     <div style="display:flex;gap:6px;align-items:center">
-      <select id="oChM" onchange="drawOChart()"><option value="all">All Metrics</option><option value="los">LOS Only</option><option value="mort">Mortality Only</option><option value="sepsis">Sepsis Only</option><option value="read">Readmission Only</option></select>
-      <div class="ctbs" id="oCTB"><div class="ctb on" onclick="setCT('oCTB','line',drawOChart)">Line</div><div class="ctb" onclick="setCT('oCTB','bar',drawOChart)">Bar</div><div class="ctb" onclick="setCT('oCTB','area',drawOChart)">Area</div></div>
+      <select id="oChMode" onchange="oDrawChart()">
+        <option value="current">Current Period Values</option>
+        <option value="trend">Trend — All Periods</option>
+      </select>
+      <div class="ctbs" id="oCTB">
+        <div class="ctb on" onclick="setCTB('oCTB',this,'line');oDrawChart()">Line</div>
+        <div class="ctb" onclick="setCTB('oCTB',this,'bar');oDrawChart()">Bar</div>
+        <div class="ctb" onclick="setCTB('oCTB',this,'area');oDrawChart()">Area</div>
+      </div>
     </div>
   </div>
   <div class="pnb"><div style="height:260px;position:relative"><canvas id="oCV"></canvas></div></div>
 </div>
 </div>
 
-<!-- ══════════ AMR & INFECTION ══════════ -->
+<!-- ════════════════════════ AMR ════════════════════════ -->
 <div class="sec" id="sec-amr">
 <div class="ph1">🦠 AMR & Infection Rates</div>
-<div class="ph2">Table 27 &amp; 29 · Resistance proportions · MRSA bacteraemia · MDRO · CDI · SSI</div>
+<div class="ph2">Table 27 & 29 · Resistance · MRSA bacteraemia · MDRO · CDI · SSI · Tick to chart</div>
+
 <div class="cbar">
   <div class="cg"><label>Section</label>
     <div class="mtog">
-      <button class="mb on" onclick="setAmrSec('R',this)">Resistance Rates</button>
+      <button class="mb on" onclick="setAmrSec('R',this)">Resistance</button>
       <button class="mb" onclick="setAmrSec('I',this)">Infection Rates</button>
     </div>
   </div>
   <div class="csep"></div>
-  <div class="cg"><label>Period Type</label><select id="aPT" onchange="aPeriodOpts();aRender()"><option value="A">Annual (Resistance)</option><option value="Q">Quarterly (Infection)</option><option value="H">Half-Year</option></select></div>
-  <div class="cg"><label>Period</label><select id="aP" onchange="aRender()"></select></div>
-  <div class="cg"><label>Year</label><select id="aY" onchange="aRender()"><option>2025</option><option>2026</option><option>2027</option></select></div>
-  <div class="csep"></div>
-  <div class="cg"><label>Location <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
-    <div style="display:flex;gap:6px;align-items:center">
-      <input type="checkbox" id="aLocOn" onchange="togLoc('a')" style="width:14px;height:14px;accent-color:#0891B2;cursor:pointer">
-      <select id="aLocT" style="display:none" onchange="locList('a')"><option value="W">Ward</option><option value="S">Specialty</option></select>
-      <select id="aLocV" style="display:none"></select>
-    </div>
+  <div class="cg"><label>Period Type</label>
+    <select id="aPT" onchange="aBuildPeriods();aLoad()">
+      <option value="A">Annual</option><option value="Q">Quarterly</option><option value="H">Half-Year</option>
+    </select>
+  </div>
+  <div class="cg"><label>Period</label><select id="aP" onchange="aLoad()"></select></div>
+  <div class="cg"><label>Year</label>
+    <select id="aY" onchange="aLoad()">
+      <option>2025</option><option>2026</option><option>2027</option>
+      <option>2028</option><option>2029</option><option>2030</option>
+    </select>
   </div>
 </div>
+
 <!-- RESISTANCE -->
 <div id="amrR">
   <div class="kgrid" style="grid-template-columns:repeat(3,1fr)">
@@ -404,10 +482,17 @@ kbd{background:#fff;border:1px solid #BAE6FD;border-radius:3px;padding:1px 4px;f
     <div class="kc" style="border-top-color:#D97706"><div class="kl">MRSA Rate</div><div class="kv" id="ak3">—</div><div class="ks">% of S. aureus isolates</div></div>
   </div>
   <div class="pnl">
-    <div class="pnh"><div><h3>Resistance Rates — Data Entry</h3><p>Table 27 · Raw or Direct % per row</p></div></div>
-    <div class="pnb0"><div class="twrap"><table><thead><tr><th>KPI</th><th>Mode</th><th>Resistant Isolates</th><th>Total Isolates</th><th>Direct %</th><th>Formula</th><th>Result</th><th>vs Prev Year</th></tr></thead><tbody id="rTB"></tbody></table></div></div>
+    <div class="pnh"><div><h3>Resistance Rates</h3><p>Table 27 · Raw or Direct % · Tick to chart</p></div>
+      <div style="display:flex;gap:5px"><button class="btn bO bS" onclick="selAllAmr(true)">☑ All</button><button class="btn bO bS" onclick="selAllAmr(false)">☐ Clear</button></div>
+    </div>
+    <div class="kbh"><strong>✦</strong><span>Click number → select all → type to replace</span></div>
+    <div class="pnb0"><div class="twrap">
+      <table class="dt"><thead><tr><th style="width:30px">✓</th><th>KPI</th><th>Mode</th><th>Resistant Isolates</th><th>Total Isolates</th><th>Direct %</th><th>Formula</th><th>Result</th><th>vs Prev Year</th></tr></thead>
+      <tbody id="rTB"></tbody></table>
+    </div></div>
   </div>
 </div>
+
 <!-- INFECTION -->
 <div id="amrI" style="display:none">
   <div class="kgrid" style="grid-template-columns:repeat(4,1fr)">
@@ -417,96 +502,122 @@ kbd{background:#fff;border:1px solid #BAE6FD;border-radius:3px;padding:1px 4px;f
     <div class="kc" style="border-top-color:#7C3AED"><div class="kl">SSI Rate</div><div class="kv" id="ak7">—</div><div class="ks">/100 procedures</div></div>
   </div>
   <div class="pnl">
-    <div class="pnh"><div><h3>Infection Rates — Data Entry</h3><p>Table 29 · CDI/MRSA/MDRO plus SSI (aggregated or by surgery type)</p></div></div>
+    <div class="pnh"><div><h3>Infection Rates</h3><p>Table 29 · Raw or Direct · SSI by type or aggregated</p></div>
+      <div style="display:flex;gap:5px"><button class="btn bO bS" onclick="selAllInf(true)">☑ All</button><button class="btn bO bS" onclick="selAllInf(false)">☐ Clear</button></div>
+    </div>
     <div class="pnb">
       <div class="tabrow">
         <div class="tab on" onclick="stab(this,'itab1')">CDI · MRSA · MDRO</div>
         <div class="tab" onclick="stab(this,'itab2')">SSI — Aggregated</div>
         <div class="tab" onclick="stab(this,'itab3')">SSI — By Surgery Type</div>
       </div>
-      <div class="tc on" id="itab1"><table><thead><tr><th>KPI</th><th>Mode</th><th>Events</th><th>Patient-Days</th><th>Direct Rate</th><th>Formula</th><th>Result</th><th>vs Prev</th></tr></thead><tbody id="iTB"></tbody></table></div>
-      <div class="tc" id="itab2"><table><thead><tr><th>Parameter</th><th>SSI Events</th><th>Total Procedures</th><th>SSI Rate</th><th>Status</th></tr></thead><tbody id="ssiATB"></tbody></table></div>
+      <div class="tc on" id="itab1">
+        <table class="dt"><thead><tr><th style="width:30px">✓</th><th>KPI</th><th>Mode</th><th>Events</th><th>Patient-Days</th><th>Direct Rate</th><th>Formula</th><th>Result</th><th>vs Prev</th></tr></thead>
+        <tbody id="iTB"></tbody></table>
+      </div>
+      <div class="tc" id="itab2">
+        <table class="dt"><thead><tr><th style="width:30px">✓</th><th>Parameter</th><th>SSI Events</th><th>Total Procedures</th><th>Direct %</th><th>SSI Rate</th><th>Status</th></tr></thead>
+        <tbody id="ssiATB"></tbody></table>
+      </div>
       <div class="tc" id="itab3">
         <div style="display:flex;justify-content:flex-end;margin-bottom:8px"><button class="btn bT bS" onclick="openM('mST')">+ Add Surgery Type</button></div>
-        <div class="twrap"><table><thead>
-          <tr><th>Surgery Type</th><th>SSI Events</th><th>Procedures</th><th>SSI Rate</th><th>Status</th></tr>
-        </thead><tbody id="ssiTTB"></tbody></table></div>
+        <div class="notice">ℹ️ Enter compliant/total OR direct % per row · Dashboard auto-aggregates total</div>
+        <div class="twrap"><table class="dt"><thead><tr><th>Surgery Type</th><th>SSI Events</th><th>Procedures</th><th>Direct %</th><th>SSI Rate</th><th>Status</th></tr></thead>
+        <tbody id="ssiTTB"></tbody></table></div>
       </div>
     </div>
   </div>
 </div>
+
+<!-- AMR CHART -->
 <div class="pnl">
   <div class="pnh">
-    <div><h3>AMR Trend Chart</h3></div>
-    <div class="ctbs" id="aCTB"><div class="ctb on" onclick="setCT('aCTB','bar',drawAChart)">Bar</div><div class="ctb" onclick="setCT('aCTB','line',drawAChart)">Line</div></div>
+    <div><h3>AMR Trend Chart</h3><p>Ticked metrics across all periods</p></div>
+    <div class="ctbs" id="aCTB">
+      <div class="ctb on" onclick="setCTB('aCTB',this,'bar');aDrawChart()">Bar</div>
+      <div class="ctb" onclick="setCTB('aCTB',this,'line');aDrawChart()">Line</div>
+    </div>
   </div>
   <div class="pnb"><div style="height:250px;position:relative"><canvas id="aCV"></canvas></div></div>
 </div>
 </div>
 
-<!-- ══════════ PROCESS MEASURES ══════════ -->
+<!-- ════════════════════════ SURGICAL PROPHYLAXIS ════════════════════════ -->
 <div class="sec" id="sec-process">
-<div class="ph1">⚙️ Process Measures</div>
-<div class="ph2">Table 28 · Surgical Prophylaxis (3 KPIs) · ASP Interventions · Guideline Compliance</div>
-<div class="ftag" style="background:#F0FDF4;color:#059669;border:1px solid #86EFAC">📅 Quarterly (default) · Optional period types</div>
+<div class="ph1">⚙️ Surgical Prophylaxis</div>
+<div class="ph2">Table 28 · Timing · Choice · Stopping · Target ≥80% · Aggregated or by surgery type</div>
+<div class="ftag" style="background:#F0FDF4;color:#059669;border:1px solid #86EFAC">📅 Quarterly</div>
+
 <div class="cbar">
-  <div class="cg"><label>Period Type</label><select id="pPT" onchange="pPeriodOpts();pRender()"><option value="Q">Quarterly</option><option value="H">Half-Year</option><option value="A">Annual</option></select></div>
-  <div class="cg"><label>Period</label><select id="pP" onchange="pRender()"></select></div>
-  <div class="cg"><label>Year</label><select id="pY" onchange="pRender()"><option>2025</option><option>2026</option><option>2027</option></select></div>
+  <div class="cg"><label>Period Type</label>
+    <select id="pPT" onchange="pBuildPeriods();pLoad()">
+      <option value="Q">Quarterly</option><option value="H">Half-Year</option><option value="A">Annual</option>
+    </select>
+  </div>
+  <div class="cg"><label>Period</label><select id="pP" onchange="pLoad()"></select></div>
+  <div class="cg"><label>Year</label>
+    <select id="pY" onchange="pLoad()">
+      <option>2025</option><option>2026</option><option>2027</option>
+      <option>2028</option><option>2029</option><option>2030</option>
+    </select>
+  </div>
   <div class="csep"></div>
-  <div class="cg"><label>Location <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
-    <div style="display:flex;gap:6px;align-items:center">
-      <input type="checkbox" id="pLocOn" onchange="togLoc('p')" style="width:14px;height:14px;accent-color:#0891B2;cursor:pointer">
+  <div class="cg"><label>Location <span style="font-weight:400;letter-spacing:0;text-transform:none">(optional)</span></label>
+    <div style="display:flex;gap:5px;align-items:center">
+      <input type="checkbox" class="ck" id="pLocOn" onchange="togLoc('p')">
       <select id="pLocT" style="display:none" onchange="locList('p')"><option value="W">Ward</option><option value="S">Specialty</option><option value="C">Consultant</option></select>
       <select id="pLocV" style="display:none"></select>
     </div>
   </div>
 </div>
+
+<!-- SP KPI CARDS WITH PROGRESS -->
 <div class="g3">
   <div class="kc" style="border-top-color:#059669">
-    <div class="kl">Timing Compliance</div><div class="kv" id="pk1" style="color:#059669">—</div>
-    <div class="ks">Within 60 min · Target ≥80%</div>
-    <div class="prog-wrap" style="margin-top:8px">
-      <div class="prog-track"><div id="pk1f" class="prog-fill" style="width:0%;background:#059669"></div><div class="prog-target"></div></div>
-    </div>
-    <div id="pk1s" style="font-size:9px;margin-top:3px;font-weight:700;color:#059669"></div>
+    <div class="kl">Timing Compliance</div>
+    <div class="kv" id="pk1">—</div>
+    <div class="ks">Within 60 min pre-surgery · Target ≥80%</div>
+    <div class="prog-track"><div id="pk1f" class="prog-fill" style="width:0%;background:#059669"></div><div class="prog-target"></div></div>
+    <div id="pk1s" style="font-size:9px;margin-top:4px;font-weight:700"></div>
   </div>
   <div class="kc" style="border-top-color:#DC2626">
-    <div class="kl">Choice Compliance</div><div class="kv" id="pk2" style="color:#DC2626">—</div>
+    <div class="kl">Choice Compliance</div>
+    <div class="kv" id="pk2">—</div>
     <div class="ks">Correct antibiotic · Target ≥80%</div>
-    <div class="prog-wrap" style="margin-top:8px">
-      <div class="prog-track"><div id="pk2f" class="prog-fill" style="width:0%;background:#DC2626"></div><div class="prog-target"></div></div>
-    </div>
-    <div id="pk2s" style="font-size:9px;margin-top:3px;font-weight:700;color:#DC2626"></div>
+    <div class="prog-track"><div id="pk2f" class="prog-fill" style="width:0%;background:#DC2626"></div><div class="prog-target"></div></div>
+    <div id="pk2s" style="font-size:9px;margin-top:4px;font-weight:700"></div>
   </div>
   <div class="kc" style="border-top-color:#0891B2">
-    <div class="kl">Stopping Compliance</div><div class="kv" id="pk3" style="color:#0891B2">—</div>
+    <div class="kl">Stopping Compliance</div>
+    <div class="kv" id="pk3">—</div>
     <div class="ks">Within 24h post-op · Target ≥80%</div>
-    <div class="prog-wrap" style="margin-top:8px">
-      <div class="prog-track"><div id="pk3f" class="prog-fill" style="width:0%;background:#0891B2"></div><div class="prog-target"></div></div>
-    </div>
-    <div id="pk3s" style="font-size:9px;margin-top:3px;font-weight:700;color:#0891B2"></div>
+    <div class="prog-track"><div id="pk3f" class="prog-fill" style="width:0%;background:#0891B2"></div><div class="prog-target"></div></div>
+    <div id="pk3s" style="font-size:9px;margin-top:4px;font-weight:700"></div>
   </div>
 </div>
+
 <div class="pnl">
-  <div class="pnh"><div><h3>Surgical Prophylaxis</h3><p>Aggregated or by surgery type — both modes</p></div></div>
+  <div class="pnh"><div><h3>Surgical Prophylaxis Data Entry</h3><p>Aggregated or by surgery type · Per row: Raw (num+denom) or Direct %</p></div></div>
+  <div class="kbh"><strong>✦</strong><span>Click number → select all → type to replace immediately</span><span><kbd>Ctrl+S</kbd> saves</span></div>
   <div class="pnb">
     <div class="tabrow">
-      <div class="tab on" onclick="stab(this,'ptab1')">📋 Aggregated Entry</div>
+      <div class="tab on" onclick="stab(this,'ptab1')">📋 Aggregated</div>
       <div class="tab" onclick="stab(this,'ptab2')">🔪 By Surgery Type</div>
     </div>
     <div class="tc on" id="ptab1">
-      <div class="notice">ℹ️ Enter totals across all surgery types · Choose Raw (num+denom) or Direct (%) per row</div>
-      <table><thead><tr><th>Parameter (Table 28)</th><th>Mode</th><th>Compliant</th><th>Total Patients</th><th>Direct %</th><th>Formula</th><th>Result</th><th>Target</th><th>Status</th></tr></thead><tbody id="spATB"></tbody></table>
+      <table class="dt">
+        <thead><tr><th>Parameter</th><th>Mode</th><th>Compliant</th><th>Total Patients</th><th>Direct %</th><th>Formula</th><th>Result</th><th>Target</th><th>Status</th></tr></thead>
+        <tbody id="spATB"></tbody>
+      </table>
     </div>
     <div class="tc" id="ptab2">
-      <div class="notice">ℹ️ Enter per surgery type · Dashboard auto-aggregates to overall total</div>
       <div style="display:flex;justify-content:flex-end;margin-bottom:8px"><button class="btn bT bS" onclick="openM('mST')">+ Add Surgery Type</button></div>
-      <div class="twrap"><table id="spTTbl">
+      <div class="notice">ℹ️ Per row: enter Compliant + Total OR toggle to Direct % · Total row auto-calculated</div>
+      <div class="twrap"><table class="dt" id="spTTbl">
         <thead>
-          <tr><th>Surgery Type</th><th colspan="2">Timing</th><th colspan="2">Choice</th><th colspan="2">Stopping</th><th>Timing %</th><th>Choice %</th><th>Stop %</th></tr>
+          <tr><th>Surgery Type</th><th>Mode</th><th colspan="2">Timing</th><th colspan="2">Choice</th><th colspan="2">Stopping</th><th>Timing%</th><th>Choice%</th><th>Stop%</th></tr>
           <tr style="background:#162D50">
-            <th style="background:#162D50"></th>
+            <th style="background:#162D50"></th><th style="background:#162D50"></th>
             <th style="background:#162D50;font-size:8px">Compliant</th><th style="background:#162D50;font-size:8px">Total</th>
             <th style="background:#162D50;font-size:8px">Compliant</th><th style="background:#162D50;font-size:8px">Total</th>
             <th style="background:#162D50;font-size:8px">Compliant</th><th style="background:#162D50;font-size:8px">Total</th>
@@ -518,135 +629,126 @@ kbd{background:#fff;border:1px solid #BAE6FD;border-radius:3px;padding:1px 4px;f
     </div>
   </div>
 </div>
-<div class="pnl">
-  <div class="pnh"><div><h3>Other ASP Process Measures</h3><p>Table 28 · Interventions · Guideline compliance · Appropriateness · % restricted</p></div></div>
-  <div class="pnb0"><div class="twrap"><table><thead><tr><th>KPI</th><th>Mode</th><th>Numerator</th><th>Denominator</th><th>Direct %</th><th>Formula</th><th>Result</th><th>vs Prev</th></tr></thead><tbody id="procOTB"></tbody></table></div></div>
-</div>
+
 <div class="pnl">
   <div class="pnh">
-    <div><h3>Process Measures Trend</h3></div>
-    <div class="ctbs" id="pCTB"><div class="ctb on" onclick="setCT('pCTB','bar',drawPChart)">Bar</div><div class="ctb" onclick="setCT('pCTB','line',drawPChart)">Line</div></div>
+    <div><h3>Compliance Trend</h3></div>
+    <div class="ctbs" id="pCTB">
+      <div class="ctb on" onclick="setCTB('pCTB',this,'bar');pDrawChart()">Bar</div>
+      <div class="ctb" onclick="setCTB('pCTB',this,'line');pDrawChart()">Line</div>
+    </div>
   </div>
   <div class="pnb"><div style="height:250px;position:relative"><canvas id="pCV"></canvas></div></div>
 </div>
 </div>
 
-<!-- ══════════ ANALYSIS ══════════ -->
+<!-- ════════════════════════ ANALYSIS ════════════════════════ -->
 <div class="sec" id="sec-analysis">
 <div class="ph1">📈 Analysis & Comparison</div>
-<div class="ph2">Compare any metric · Any period · Any hospital · Filter by drug · Export chart</div>
-<div class="g2">
-  <div class="pnl" style="margin:0">
-    <div class="pnh"><div><h3>1 — Select Pillar</h3></div></div>
-    <div class="pnb">
-      <div class="mpick" id="aPillarPick">
-        <div class="mpill on" onclick="setPillar(this,'consumption')">💊 Consumption</div>
-        <div class="mpill" onclick="setPillar(this,'outcomes')">📊 Quality Outcomes</div>
-        <div class="mpill" onclick="setPillar(this,'amr')">🦠 AMR & Infection</div>
-        <div class="mpill" onclick="setPillar(this,'process')">⚙️ Process Measures</div>
-      </div>
-    </div>
-  </div>
-  <div class="pnl" style="margin:0">
-    <div class="pnh"><div><h3>2 — Select Metric</h3></div></div>
-    <div class="pnb"><div class="mpick" id="aMetricPick"></div></div>
-  </div>
-</div>
+<div class="ph2">Select hospitals · Choose metrics · Filter periods · Compare freely · Export</div>
+
+<!-- HOSPITAL SELECTOR -->
 <div class="pnl">
-  <div class="pnh"><div><h3>3 — Configure</h3></div></div>
+  <div class="pnh">
+    <div><h3>1 — Select Hospitals to Compare</h3><p>Tick one or more · All their metrics appear below</p></div>
+    <button class="btn bT bS" onclick="openM('mHosp')">+ Add Hospital</button>
+  </div>
+  <div class="pnb"><div class="hcards" id="anHospCards"></div></div>
+</div>
+
+<!-- FILTERS -->
+<div class="pnl">
+  <div class="pnh"><div><h3>2 — Select Metrics & Filters</h3><p>Multi-select in each category · Combine freely</p></div></div>
   <div class="pnb">
-    <div class="cbar" style="margin:0">
-      <div class="cg"><label>Compare By</label>
-        <select id="anMode" onchange="runAn()">
-          <option value="periods">All Periods (Trend)</option>
-          <option value="hospitals">Hospitals</option>
-          <option value="locations">Locations</option>
-        </select>
-      </div>
-      <div class="cg"><label>Hospital</label><select id="anHosp" onchange="runAn()"></select></div>
-      <div class="cg"><label>Location Filter</label>
-        <div style="display:flex;gap:5px">
-          <select id="anLocT" onchange="locList('an');runAn()"><option value="ALL">All Hospital</option><option value="W">Ward</option><option value="S">Specialty</option></select>
-          <select id="anLocV" onchange="runAn()"></select>
+    <div class="an-filter-row">
+      <div class="an-filter-group">
+        <label>Metric Category</label>
+        <div class="multi-sel" id="anCatSel">
+          <div class="multi-sel-item on" onclick="togAnCat(this,'consumption')"><input type="checkbox" checked>💊 Consumption</div>
+          <div class="multi-sel-item" onclick="togAnCat(this,'outcomes')"><input type="checkbox">📊 Quality Outcomes</div>
+          <div class="multi-sel-item" onclick="togAnCat(this,'amr_r')"><input type="checkbox">🦠 AMR Resistance</div>
+          <div class="multi-sel-item" onclick="togAnCat(this,'amr_i')"><input type="checkbox">🔴 Infection Rates</div>
+          <div class="multi-sel-item" onclick="togAnCat(this,'process')"><input type="checkbox">⚙️ Surgical Prophylaxis</div>
         </div>
       </div>
-      <div class="ctbs" id="anCTB">
-        <div class="ctb on" onclick="setCT('anCTB','bar',runAn)">Bar</div>
-        <div class="ctb" onclick="setCT('anCTB','line',runAn)">Line</div>
-        <div class="ctb" onclick="setCT('anCTB','area',runAn)">Area</div>
-        <div class="ctb" onclick="setCT('anCTB','scatter',runAn)">Scatter</div>
-        <div class="ctb" onclick="setCT('anCTB','horiz',runAn)">Horiz</div>
+      <div class="an-filter-group" style="min-width:200px">
+        <label>Specific Metrics</label>
+        <div class="multi-sel" id="anMetricSel" style="min-height:120px"></div>
       </div>
-      <button class="btn bT" onclick="runAn()">▶ Run</button>
+      <div class="an-filter-group">
+        <label>Antimicrobials (Consumption)</label>
+        <div class="multi-sel" id="anDrugSel">
+          <!-- filled by JS -->
+        </div>
+      </div>
+      <div class="an-filter-group">
+        <label>Periods</label>
+        <div class="multi-sel" id="anPeriodSel">
+          <!-- filled by JS -->
+        </div>
+      </div>
+      <div class="an-filter-group">
+        <label>Chart Type</label>
+        <div class="ctbs" id="anCTB" style="flex-direction:column;gap:4px">
+          <div class="ctb on" onclick="setCTB('anCTB',this,'bar')">Bar</div>
+          <div class="ctb" onclick="setCTB('anCTB',this,'line')">Line</div>
+          <div class="ctb" onclick="setCTB('anCTB',this,'area')">Area</div>
+          <div class="ctb" onclick="setCTB('anCTB',this,'scatter')">Scatter</div>
+          <div class="ctb" onclick="setCTB('anCTB',this,'horiz')">Horizontal</div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<div class="pnl" id="anOut">
-  <div class="pnh">
-    <div><h3 id="anTitle">Analysis Output</h3><p id="anSub">Select metric and click Run</p></div>
-    <div style="display:flex;gap:5px">
-      <button class="btn bO bS" onclick="expXLS()">📊 Excel</button>
+    <div style="display:flex;gap:8px;align-items:center">
+      <button class="btn bT" onclick="runAnalysis()">▶ Generate Chart</button>
+      <button class="btn bO bS" onclick="expCSV()">📊 CSV</button>
       <button class="btn bO bS" onclick="expPDF()">📄 PDF</button>
-      <button class="btn bO bS" onclick="expPPTChart()">📑 PPT Chart</button>
+      <button class="btn bO bS" onclick="expPPT()">📑 PPT</button>
     </div>
   </div>
-  <div class="pnb"><div style="height:340px;position:relative"><canvas id="anCV"></canvas></div></div>
 </div>
+
+<!-- OUTPUT CHART -->
 <div class="pnl">
-  <div class="pnh"><div><h3>Hospital Comparison Table</h3><p id="hcSub">All hospitals · All periods</p></div></div>
-  <div class="pnb0"><div class="twrap"><table><thead><tr id="hcHdr"></tr></thead><tbody id="hcTB"></tbody></table></div></div>
+  <div class="pnh"><div><h3 id="anTitle">Analysis Chart</h3><p id="anSub">Configure filters above and click Generate</p></div></div>
+  <div class="pnb"><div style="height:360px;position:relative"><canvas id="anCV"></canvas></div></div>
 </div>
+
+<!-- COMPARISON TABLE -->
 <div class="pnl">
-  <div class="pnh"><div><h3>🚩 Auto Insights</h3><p>Generated from selected data</p></div></div>
-  <div class="pnb" id="insBox"><div style="text-align:center;padding:24px;color:#94A3B8">Run analysis to generate insights</div></div>
+  <div class="pnh"><div><h3>Comparison Table</h3><p id="anTblSub">All selected metrics · All hospitals · Flags missing data</p></div></div>
+  <div class="pnb0"><div class="twrap"><table class="dt"><thead><tr id="anTblHdr"></tr></thead><tbody id="anTblBody"></tbody></table></div></div>
+</div>
+
+<!-- INSIGHTS -->
+<div class="pnl">
+  <div class="pnh"><div><h3>🚩 Auto Insights</h3></div></div>
+  <div class="pnb" id="anInsights"><div style="text-align:center;padding:20px;color:#94A3B8">Generate chart to see insights</div></div>
 </div>
 </div>
 
-<!-- ══════════ HOSPITALS ══════════ -->
+<!-- ════════════════════════ HOSPITALS ════════════════════════ -->
 <div class="sec" id="sec-hospitals">
 <div class="ph1">🏥 Hospital Management</div>
-<div class="ph2">Manage hospitals · Enter data per hospital · Compare in Analysis section</div>
+<div class="ph2">Add hospitals · Data for each hospital entered in the Analysis section</div>
 <div style="display:flex;justify-content:flex-end;margin-bottom:10px"><button class="btn bT" onclick="openM('mHosp')">+ Add Hospital</button></div>
 <div class="hcards" id="hCards"></div>
-<div class="pnl" id="hEntryP" style="display:none">
-  <div class="pnh"><div><h3 id="hEntryT">Hospital Data Entry</h3><p>Data stored separately · Used in comparison</p></div></div>
-  <div class="pnb">
-    <div class="notice">ℹ️ Select a pillar to enter data for this hospital. All formulas are the same.</div>
-    <div class="cbar" style="margin:0">
-      <div class="cg"><label>Pillar</label>
-        <select id="hePillar" onchange="renderHospEntry()">
-          <option value="consumption">Consumption (DDD/DOT)</option>
-          <option value="outcomes">Quality Outcomes</option>
-          <option value="amr">AMR & Infection</option>
-          <option value="process">Process Measures</option>
-        </select>
-      </div>
-      <div class="cg"><label>Period</label><select id="hePeriod"></select></div>
-      <div class="cg"><label>Year</label><select id="heYear"><option>2025</option><option>2026</option><option>2027</option></select></div>
-      <div class="cg"><label>Patient-Days</label><input type="number" id="hePD" placeholder="e.g. 150000" style="width:120px"></div>
-    </div>
-    <div id="hEntryC" style="margin-top:14px"></div>
-  </div>
-</div>
+<div class="notice" style="margin-top:10px">ℹ️ To enter data for other hospitals, go to <strong>Analysis & Compare</strong> → select the hospital → use the data entry fields in the Comparison Table below the chart.</div>
 </div>
 
-<!-- ══════════ METHODOLOGY ══════════ -->
+<!-- ════════════════════════ METHODOLOGY ════════════════════════ -->
 <div class="sec" id="sec-methodology">
 <div class="ph1">📖 Methodology & References</div>
-<div class="ph2">Formulas · Data sources · Interpretation · Gulf Guide AMR 2025 Tables 26–30</div>
 <div class="fbox">
-  <div class="fl">Table 26 — Consumption KPIs</div>
+  <div class="fl">Table 26 — Consumption</div>
   DOT/1000PD = ( Total antimicrobial days ÷ Patient-days ) × 1,000<br>
   DDD/1000PD = ( Vials × Strength ÷ WHO DDD ÷ Patient-days ) × 1,000<br>
-  DDD:DOT Ratio = DDD/1000PD ÷ DOT/1000PD<br><br>
-  <div class="fl">Table 27 — AMR KPIs</div>
+  DDD:DOT = DDD/1000PD ÷ DOT/1000PD  [>1=above-standard; <1=shorter; =1=standard]<br><br>
+  <div class="fl">Table 27 — AMR Resistance</div>
   Resistance % = ( Resistant isolates ÷ Total isolates ) × 100<br>
-  MRSA Bacteraemia = ( Hospital-onset MRSA events ÷ Patient-days ) × 1,000<br>
-  MDRO Incidence = ( Hospital-onset MDRO events ÷ Patient-days ) × 10,000<br><br>
-  <div class="fl">Table 28 — Process KPIs</div>
-  Surgical Compliance = ( Compliant ÷ Total surgical patients ) × 100 [Target ≥80%]<br>
-  ASP Acceptance = ( Accepted interventions ÷ Recommended ) × 100<br>
-  Appropriateness = ( Appropriate ÷ Total evaluated ) × 100<br><br>
+  MRSA Bacteraemia = ( Events ÷ Patient-days ) × 1,000<br>
+  MDRO Incidence = ( Events ÷ Patient-days ) × 10,000<br><br>
+  <div class="fl">Table 28 — Surgical Prophylaxis [Target ≥80%]</div>
+  Compliance % = ( Compliant ÷ Total surgical patients ) × 100<br><br>
   <div class="fl">Table 29 — Infection Outcomes</div>
   CDI Rate = ( Hospital-onset CDI ÷ Patient-days ) × 1,000<br>
   SSI Rate = ( SSI events ÷ Total procedures ) × 100<br><br>
@@ -654,9 +756,9 @@ kbd{background:#fff;border:1px solid #BAE6FD;border-radius:3px;padding:1px 4px;f
   Hospital LOS = Days of hospitalisation ÷ Total patients<br>
   Hospital Mortality = ( Deaths ÷ Hospitalisations ) × 100<br>
   Sepsis Mortality = ( Sepsis deaths ÷ Sepsis cases ) × 100<br>
-  Readmission (30d) = ( Readmissions within 30d ÷ Discharges ) × 100
+  Readmission 30d = ( Readmissions ÷ Discharges ) × 100
 </div>
-<div class="disc">⚠ DDD/1000PD measures consumption quantity — not appropriateness. Lower values ≠ better stewardship. CAZ-AVI WHO DDD 6,000 mg refers to ceftazidime component only — 2,000 mg per vial used in calculations (Option B, WHO-aligned).</div>
+<div class="disc">⚠ DDD/1000PD measures consumption quantity — not clinical appropriateness. Lower values ≠ better stewardship. CAZ-AVI: WHO DDD 6,000 mg refers to ceftazidime component — 2,000 mg/vial used (Option B, WHO-aligned).</div>
 </div>
 
 </div></div>
@@ -668,13 +770,13 @@ kbd{background:#fff;border:1px solid #BAE6FD;border-radius:3px;padding:1px 4px;f
     <div class="fg fsp"><label>Drug Name</label><input type="text" id="nd-nm" placeholder="e.g. Voriconazole IV"></div>
     <div class="fg"><label>Short Name</label><input type="text" id="nd-sh" placeholder="VOR"></div>
     <div class="fg"><label>ATC Code</label><input type="text" id="nd-atc" placeholder="J02AC03"></div>
-    <div class="fg"><label>WHO DDD Value</label><input type="number" id="nd-ddd" placeholder="400"></div>
-    <div class="fg"><label>Unit</label><select id="nd-unt"><option value="mg">mg</option><option value="g">g</option><option value="MIU">MIU</option></select></div>
+    <div class="fg"><label>WHO DDD</label><input type="number" id="nd-ddd" placeholder="400"></div>
+    <div class="fg"><label>Unit</label><select id="nd-unt"><option>mg</option><option>g</option><option>MIU</option></select></div>
     <div class="fg"><label>Vial Strength</label><input type="number" id="nd-str" placeholder="200"></div>
-    <div class="fg"><label>Presentation Note</label><input type="text" id="nd-nt" placeholder="200 mg/vial"></div>
+    <div class="fg"><label>Note</label><input type="text" id="nd-nt" placeholder="200 mg/vial"></div>
     <div class="fg"><label>Type</label><select id="nd-ty"><option value="restricted">Restricted</option><option value="comparator">Comparator</option></select></div>
   </div>
-  <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:8px">
+  <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:10px">
     <button class="btn bO" onclick="closeM('mDrug')">Cancel</button>
     <button class="btn bT" onclick="addDrug()">Add Drug</button>
   </div>
@@ -685,10 +787,10 @@ kbd{background:#fff;border:1px solid #BAE6FD;border-radius:3px;padding:1px 4px;f
   <div class="fgg">
     <div class="fg fsp"><label>Hospital Name</label><input type="text" id="nh-nm" placeholder="e.g. King Hamad University Hospital"></div>
     <div class="fg"><label>Short Code</label><input type="text" id="nh-cd" placeholder="KHUH"></div>
-    <div class="fg"><label>Country / Region</label><input type="text" id="nh-cy" placeholder="Bahrain"></div>
+    <div class="fg"><label>Country</label><input type="text" id="nh-cy" placeholder="Bahrain"></div>
     <div class="fg"><label>Type</label><select id="nh-ty"><option>Government</option><option>Private</option><option>Military</option><option>University</option></select></div>
   </div>
-  <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:8px">
+  <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:10px">
     <button class="btn bO" onclick="closeM('mHosp')">Cancel</button>
     <button class="btn bT" onclick="addHospital()">Add Hospital</button>
   </div>
@@ -696,7 +798,7 @@ kbd{background:#fff;border:1px solid #BAE6FD;border-radius:3px;padding:1px 4px;f
 
 <div class="mov" id="mST"><div class="modal">
   <h3>🔪 Add Surgery Type</h3>
-  <div class="fg" style="margin-bottom:10px"><label>Surgery Type Name</label><input type="text" id="ns-nm" placeholder="e.g. Colorectal Surgery" style="width:100%"></div>
+  <div class="fg" style="margin-bottom:12px"><label>Surgery Type Name</label><input type="text" id="ns-nm" placeholder="e.g. Colorectal Surgery" style="width:100%"></div>
   <div style="display:flex;gap:8px;justify-content:flex-end">
     <button class="btn bO" onclick="closeM('mST')">Cancel</button>
     <button class="btn bT" onclick="addST()">Add</button>
@@ -704,187 +806,127 @@ kbd{background:#fff;border:1px solid #BAE6FD;border-radius:3px;padding:1px 4px;f
 </div></div>
 
 <script>
-// ══════════════════════════════════════════════════════════════════════
-// CONSTANTS & DEFAULTS
-// ══════════════════════════════════════════════════════════════════════
+// ════════════════════════════════════════════════════════
+// CONSTANTS
+// ════════════════════════════════════════════════════════
 const PX=window.devicePixelRatio||1;
 const COLS=['#0891B2','#7C3AED','#059669','#D97706','#DC2626','#0A1628','#DB2777','#2563EB','#16A34A','#EA580C','#0E7490','#6D28D9'];
 const WARDS=['ICU / Critical Care','Medical Ward 1','Medical Ward 2','Surgical Ward','Oncology Ward','Emergency Dept','Maternity Ward','Paediatric Ward','Burns Unit'];
 const SPECS=['Internal Medicine','General Surgery','Obs & Gynaecology','Oncology','Infectious Disease','Orthopaedics','Cardiology','Intensive Care','Haematology'];
+const YEARS=['2025','2026','2027','2028','2029','2030'];
+const P_OPTS={H:['H1 (Jan–Jun)','H2 (Jul–Dec)'],Q:['Q1 (Jan–Mar)','Q2 (Apr–Jun)','Q3 (Jul–Sep)','Q4 (Oct–Dec)'],A:['Full Year']};
 
-const PERIOD_OPTS={H:['H1 (Jan–Jun)','H2 (Jul–Dec)'],Q:['Q1 (Jan–Mar)','Q2 (Apr–Jun)','Q3 (Jul–Sep)','Q4 (Oct–Dec)'],A:['Full Year']};
-const YEARS=['2025','2026','2027'];
-
-// ══════════════════════════════════════════════════════════════════════
+// ════════════════════════════════════════════════════════
 // MASTER DATA
-// ══════════════════════════════════════════════════════════════════════
+// ════════════════════════════════════════════════════════
 let DRUGS=[
-  {id:'amphoB', nm:'Liposomal amphotericin B',sh:'Ampho-B', atc:'J02AA01',ddd:210,  unt:'mg', str:50,   note:'50 mg/vial',                   ty:'restricted'},
-  {id:'colist', nm:'Colistin',                sh:'Colistin',atc:'J01XB01',ddd:9,    unt:'MIU',str:1,    note:'1 MIU/vial',                   ty:'restricted'},
-  {id:'lzdIV',  nm:'Linezolid IV',            sh:'LZD-IV',  atc:'J01XX08',ddd:1200, unt:'mg', str:600,  note:'600 mg/bag',                   ty:'restricted'},
-  {id:'lzdPO',  nm:'Linezolid PO',            sh:'LZD-PO',  atc:'J01XX08',ddd:1200, unt:'mg', str:600,  note:'600 mg/tablet',                ty:'restricted'},
-  {id:'cazAvi', nm:'Ceftazidime/avibactam',   sh:'CAZ-AVI', atc:'J01DD52',ddd:6000, unt:'mg', str:2000, note:'2 g ceftaz component (WHO)',    ty:'restricted'},
-  {id:'azt',    nm:'Aztreonam',               sh:'ATM',     atc:'J01DF01',ddd:4000, unt:'mg', str:1000, note:'1 g/vial',                     ty:'restricted'},
-  {id:'tgc',    nm:'Tigecycline',             sh:'TGC',     atc:'J01AA12',ddd:100,  unt:'mg', str:50,   note:'50 mg/vial',                  ty:'restricted'},
-  {id:'anid',   nm:'Anidulafungin',           sh:'ANID',    atc:'J02AX06',ddd:100,  unt:'mg', str:100,  note:'100 mg/vial',                 ty:'restricted'},
-  {id:'casp',   nm:'Caspofungin',             sh:'CASP',    atc:'J02AX04',ddd:50,   unt:'mg', str:50,   note:'50 mg/vial',                  ty:'restricted'},
-  {id:'dap',    nm:'Daptomycin',              sh:'DAP',     atc:'J01XX09',ddd:280,  unt:'mg', str:500,  note:'500 mg/vial',                 ty:'restricted'},
-  {id:'mem',    nm:'Meropenem',               sh:'MEM',     atc:'J01DH02',ddd:3000, unt:'mg', str:500,  note:'500 mg/vial',                 ty:'comparator'},
-  {id:'tzp',    nm:'Pip/Tazobactam',          sh:'TZP',     atc:'J01CR05',ddd:14000,unt:'mg', str:4500, note:'4.5 g/vial',                  ty:'comparator'},
+  {id:'amphoB', nm:'Liposomal Amphotericin B',sh:'Ampho-B', atc:'J02AA01',ddd:210,  unt:'mg', str:50,   note:'50 mg/vial',                  ty:'restricted',sel:true},
+  {id:'colist', nm:'Colistin',                sh:'Colistin',atc:'J01XB01',ddd:9,    unt:'MIU',str:1,    note:'1 MIU/vial',                  ty:'restricted',sel:true},
+  {id:'lzdIV',  nm:'Linezolid IV',            sh:'LZD-IV',  atc:'J01XX08',ddd:1200, unt:'mg', str:600,  note:'600 mg/bag',                  ty:'restricted',sel:true},
+  {id:'lzdPO',  nm:'Linezolid PO',            sh:'LZD-PO',  atc:'J01XX08',ddd:1200, unt:'mg', str:600,  note:'600 mg/tablet',               ty:'restricted',sel:false},
+  {id:'cazAvi', nm:'Ceftazidime/Avibactam',   sh:'CAZ-AVI', atc:'J01DD52',ddd:6000, unt:'mg', str:2000, note:'2 g ceftaz (WHO ref)',         ty:'restricted',sel:true},
+  {id:'azt',    nm:'Aztreonam',               sh:'ATM',     atc:'J01DF01',ddd:4000, unt:'mg', str:1000, note:'1 g/vial',                    ty:'restricted',sel:true},
+  {id:'tgc',    nm:'Tigecycline',             sh:'TGC',     atc:'J01AA12',ddd:100,  unt:'mg', str:50,   note:'50 mg/vial',                 ty:'restricted',sel:true},
+  {id:'anid',   nm:'Anidulafungin',           sh:'ANID',    atc:'J02AX06',ddd:100,  unt:'mg', str:100,  note:'100 mg/vial',                ty:'restricted',sel:true},
+  {id:'casp',   nm:'Caspofungin',             sh:'CASP',    atc:'J02AX04',ddd:50,   unt:'mg', str:50,   note:'50 mg/vial',                 ty:'restricted',sel:false},
+  {id:'dap',    nm:'Daptomycin',              sh:'DAP',     atc:'J01XX09',ddd:280,  unt:'mg', str:500,  note:'500 mg/vial',                ty:'restricted',sel:false},
+  {id:'mem',    nm:'Meropenem',               sh:'MEM',     atc:'J01DH02',ddd:3000, unt:'mg', str:500,  note:'500 mg/vial',                ty:'comparator',sel:true},
+  {id:'tzp',    nm:'Pip/Tazobactam',          sh:'TZP',     atc:'J01CR05',ddd:14000,unt:'mg', str:4500, note:'4.5 g/vial',                 ty:'comparator',sel:true},
 ];
 
-let HOSPITALS=[{id:'smc',nm:'Salmaniya Medical Complex',cd:'SMC',cy:'Bahrain',ty:'Government',primary:true}];
+let HOSPITALS=[{id:'smc',nm:'Salmaniya Medical Complex',cd:'SMC',cy:'Bahrain',ty:'Government',primary:true,anSel:true}];
 let SURG_TYPES=['Caesarean Section','Vaginal Delivery (Op)','Hysterectomy','Colorectal Surgery','Hip/Knee Replacement','Cardiac Surgery','Vascular Surgery'];
 
-// ══════════════════════════════════════════════════════════════════════
-// DATA STORE — KEY-BASED ISOLATION
-// Key format: "{hospId}|{pillar}|{year}|{period}|{locKey}"
-// ══════════════════════════════════════════════════════════════════════
+// OUTCOME METRICS
+const OMET=[
+  {id:'los', lbl:'Hospital LOS',              fn:(a,b)=>b?a/b:null,     unt:'days',aL:'Total Hosp. Days',  bL:'Total Patients',    sel:true},
+  {id:'mort',lbl:'Hospital Mortality',        fn:(a,b)=>b?a/b*100:null, unt:'%',   aL:'Deaths',            bL:'Hospitalisations',  sel:true},
+  {id:'sep', lbl:'Sepsis-Related Mortality',  fn:(a,b)=>b?a/b*100:null, unt:'%',   aL:'Sepsis Deaths',     bL:'Sepsis Cases',      sel:true},
+  {id:'read',lbl:'30-Day Readmission',        fn:(a,b)=>b?a/b*100:null, unt:'%',   aL:'Readmissions',      bL:'Discharges',        sel:true},
+];
+const RMET=[
+  {id:'ecoli',lbl:'E. coli 3rd Gen Resistance', kEl:'ak1',sel:true},
+  {id:'klebs',lbl:'Klebsiella 3rd Gen Resistance',kEl:'ak2',sel:true},
+  {id:'mrsa', lbl:'MRSA Rate (S. aureus)',       kEl:'ak3',sel:true},
+];
+const IMET=[
+  {id:'mrsab',lbl:'MRSA Bacteraemia',fn:(a,b)=>b?a/b*1000:null,   unt:'/1000PD', kEl:'ak4',sel:true},
+  {id:'mdro', lbl:'MDRO Incidence',  fn:(a,b)=>b?a/b*10000:null,  unt:'/10kPD',  kEl:'ak5',sel:true},
+  {id:'cdiff',lbl:'C. diff Rate',    fn:(a,b)=>b?a/b*1000:null,   unt:'/1000PD', kEl:'ak6',sel:true},
+];
+const SPMET=[
+  {id:'timing',lbl:'Timing — within 60 min',   pk:'pk1',pf:'pk1f',ps:'pk1s',col:'#059669'},
+  {id:'choice',lbl:'Choice — correct antibiotic',pk:'pk2',pf:'pk2f',ps:'pk2s',col:'#DC2626'},
+  {id:'stop',  lbl:'Stopping — within 24h',     pk:'pk3',pf:'pk3f',ps:'pk3s',col:'#0891B2'},
+];
+
+// DATA STORE — key: "hospId|pillar|year|period|locKey"
 let DB={};
-let chartCT={c:'bar',o:'line',a:'bar',p:'bar',an:'bar'};
-let curPillar='consumption',curMetric='';
-let amrSec='R',activeHosp='smc';
 let _user=null,_saveT=null;
+let amrSec='R';
+let anSelCats=new Set(['consumption']);
+let anSelMetrics=new Set();
+let anSelDrugs=new Set();
+let anSelPeriods=new Set();
+let chartCT={c:'bar',o:'line',a:'bar',p:'bar',an:'bar'};
 
-// ── KEY BUILDER ──────────────────────────────────────────────────────
-function getKey(pillar,period,year,hospId='smc',locKey='ALL'){
-  return `${hospId}|${pillar}|${year}|${period}|${locKey}`;
-}
+// ════════════════════════════════════════════════════════
+// HELPERS
+// ════════════════════════════════════════════════════════
+const g=id=>document.getElementById(id);
+const fmt=(n,d=2)=>n===null||n===undefined||isNaN(n)?'—':Number(n).toFixed(d);
+const fN=n=>(!n&&n!==0)?'—':Math.round(n).toLocaleString();
+const chgH=ch=>{if(ch===null||ch===undefined)return'<span style="color:#94A3B8">—</span>';const s=(ch>=0?'+':'')+ch.toFixed(1)+'%';return`<span style="font-weight:700;color:${ch>5?'#DC2626':ch<-5?'#059669':'#D97706'}">${ch>5?'▲':ch<-5?'▼':'→'} ${s}</span>`;};
+const ddtI=r=>{if(!r||isNaN(r))return{t:'—',c:'#94A3B8'};if(r>1.2)return{t:'Above-standard doses',c:'#D97706'};if(r<0.8)return{t:'Shorter than standard',c:'#7C3AED'};return{t:'Standard dosing',c:'#059669'};};
+
+// ── DATA STORE ───────────────────────────────────────────
+function mk(pillar,period,year,hosp='smc',loc='ALL'){return`${hosp}|${pillar}|${year}|${period}|${loc}`;}
 function gv(k,f){return DB[k]?.[f]??null;}
-function sv(k,f,v){if(!DB[k])DB[k]={};DB[k][f]=v;save();}
+function sv(k,f,v){if(!DB[k])DB[k]={};DB[k][f]=v;queueSave();}
 
-// ── PERIOD KEY FROM CONTROLS ─────────────────────────────────────────
-function pkey(pfx,pillar,hospId='smc'){
+// ── PERIOD KEY FROM CONTROLS ─────────────────────────────
+function pk(pfx,pillar,hosp='smc'){
   const pt=g(pfx+'PT')?.value||'H';
-  const p=g(pfx+'P')?.value||PERIOD_OPTS[pt][0];
+  const p=g(pfx+'P')?.value||P_OPTS[pt][0];
   const yr=g(pfx+'Y')?.value||'2025';
-  const locT=g(pfx+'LocT')?.value||'ALL';
-  const locV=g(pfx+'LocOn')?.checked&&locT!=='ALL'?(g(pfx+'LocV')?.value||'ALL'):'ALL';
-  const locKey=g(pfx+'LocOn')?.checked&&locT!=='ALL'?`${locT}:${locV}`:'ALL';
-  return getKey(pillar,p,yr,hospId,locKey);
+  const locOn=g(pfx+'LocOn')?.checked;
+  const locT=g(pfx+'LocT')?.value||'W';
+  const locV=g(pfx+'LocV')?.value||'';
+  const loc=locOn&&locV?`${locT}:${locV}`:'ALL';
+  return mk(pillar,p,yr,hosp,loc);
 }
 
-// ── PERIOD PD STORAGE ────────────────────────────────────────────────
-function pdKey(pfx){
+// ── PATIENT DAYS ─────────────────────────────────────────
+function pdK(pfx){
   const pt=g(pfx+'PT')?.value||'H';
-  const p=g(pfx+'P')?.value||PERIOD_OPTS[pt][0];
+  const p=g(pfx+'P')?.value||P_OPTS[pt][0];
   const yr=g(pfx+'Y')?.value||'2025';
-  return `pd|${pfx}|${yr}|${p}`;
+  return`_pd|${pfx}|${yr}|${p}`;
 }
-function savePD(pfx){const v=parseFloat(g(pfx+'PD')?.value)||0;sv(pdKey(pfx),'pd',v);}
-function loadPD(pfx){const v=gv(pdKey(pfx),'pd');const el=g(pfx+'PD');if(el&&v)el.value=v;else if(el)el.value='';}
-function getPD(pfx){return parseFloat(g(pfx+'PD')?.value)||gv(pdKey(pfx),'pd')||0;}
+function savePD(pfx){const v=parseFloat(g(pfx+'PD')?.value)||0;sv(pdK(pfx),'v',v);}
+function cSavePD(){savePD('c');cRenderKPIs();}
+function getPD(pfx){const el=g(pfx+'PD');if(el?.value)return parseFloat(el.value)||0;return gv(pdK(pfx),'v')||0;}
+function getPDForPeriod(pfx,yr,p){return gv(`_pd|${pfx}|${yr}|${p}`,'v')||0;}
 
-function g(id){return document.getElementById(id);}
-function fmt(n,d=2){if(n===null||n===undefined||isNaN(n))return'—';return Number(n).toFixed(d);}
-function fN(n){if(!n&&n!==0)return'—';return Math.round(n).toLocaleString();}
-function pct(a,b){if(!a||!b)return null;return(a/b)*100;}
-function per1k(e,pd){if(!e||!pd)return null;return(e/pd)*1000;}
-function per10k(e,pd){if(!e||!pd)return null;return(e/pd)*10000;}
-function los(d,p){if(!d||!p)return null;return d/p;}
-function chgH(ch){if(ch===null||ch===undefined)return'<span style="color:#94A3B8">—</span>';const s=(ch>=0?'+':'')+ch.toFixed(1)+'%';return`<span style="font-weight:700;color:${ch>5?'#DC2626':ch<-5?'#059669':'#D97706'}">${ch>5?'▲':ch<-5?'▼':'→'} ${s}</span>`;}
-function ddtInterp(r){if(!r||isNaN(r))return{t:'No data',c:'#94A3B8'};if(r>1.2)return{t:'Above-standard doses',c:'#D97706'};if(r<0.8)return{t:'Shorter than standard',c:'#7C3AED'};return{t:'Standard dosing',c:'#059669'};}
-
-// ══════════════════════════════════════════════════════════════════════
-// DEMO DATA — PRE-FILLED (Realistic but synthetic)
-// ══════════════════════════════════════════════════════════════════════
-function loadDemoData(){
-  // Only load if no existing data
-  if(Object.keys(DB).length>0)return;
-
-  // ── CONSUMPTION: H1 2025, H2 2025, H1 2026 (SMC) ──
-  const cData={
-    'h1-2025':{pd:161425,d:{amphoB:[304,50,290],colist:[10617,1,9800],lzdIV:[3219,600,3100],lzdPO:[291,600,280],cazAvi:[2132,2000,2000],azt:[228,1000,210],tgc:[951,50,900],anid:[571,100,550],casp:[124,50,120],dap:[71,500,65],mem:[74856,500,72000],tzp:[30195,4500,28000]}},
-    'h2-2025':{pd:151382,d:{amphoB:[129,50,120],colist:[12776,1,12000],lzdIV:[3053,600,2950],lzdPO:[361,600,340],cazAvi:[1983,2000,1900],azt:[562,1000,540],tgc:[971,50,930],anid:[988,100,950],casp:[55,50,50],dap:[61,500,58],mem:[82106,500,79000],tzp:[26061,4500,24000]}},
-    'h1-2026':{pd:152218,d:{amphoB:[492,50,480],colist:[14168,1,13500],lzdIV:[1618,600,1550],lzdPO:[427,600,400],cazAvi:[1292,2000,1250],azt:[408,1000,390],tgc:[1768,50,1700],anid:[1016,100,980],casp:[110,50,105],dap:[129,500,125],mem:[79092,500,76000],tzp:[26650,4500,25000]}},
-  };
-  // Map period labels to keys
-  const cPMap={'h1-2025':'H1 (Jan–Jun)','h2-2025':'H2 (Jul–Dec)','h1-2026':'H1 (Jan–Jun)'};
-  const cYMap={'h1-2025':'2025','h2-2025':'2025','h1-2026':'2026'};
-  Object.entries(cData).forEach(([dk,{pd,d}])=>{
-    const p=cPMap[dk],yr=cYMap[dk];
-    sv(`pd|c|${yr}|${p}`,'pd',pd);
-    const k=getKey('consumption',p,yr,'smc','ALL');
-    Object.entries(d).forEach(([did,[vials,str,dot]])=>{
-      sv(k,did+'_v',vials);sv(k,did+'_s',str);sv(k,did+'_dot',dot);
-    });
-  });
-
-  // ── OUTCOMES: Q1–Q4 2025, Q1–Q2 2026 ──
-  const oData=[
-    {p:'Q1 (Jan–Mar)',yr:'2025',los:[18240,2942],mort:[141,2942],sep:[42,229],read:[204,2831]},
-    {p:'Q2 (Apr–Jun)',yr:'2025',los:[19110,3080],mort:[128,3080],sep:[38,215],read:[198,2960]},
-    {p:'Q3 (Jul–Sep)',yr:'2025',los:[17850,2880],mort:[152,2880],sep:[48,241],read:[221,2760]},
-    {p:'Q4 (Oct–Dec)',yr:'2025',los:[18600,3010],mort:[136,3010],sep:[39,220],read:[192,2890]},
-    {p:'Q1 (Jan–Mar)',yr:'2026',los:[17920,2910],mort:[118,2910],sep:[35,208],read:[186,2800]},
-    {p:'Q2 (Apr–Jun)',yr:'2026',los:[18340,2990],mort:[122,2990],sep:[37,212],read:[194,2870]},
-  ];
-  oData.forEach(({p,yr,los:l,mort:m,sep:s,read:r})=>{
-    const k=getKey('outcomes',p,yr,'smc','ALL');
-    sv(k,'los_mode','raw');sv(k,'los_a',l[0]);sv(k,'los_b',l[1]);
-    sv(k,'mort_mode','raw');sv(k,'mort_a',m[0]);sv(k,'mort_b',m[1]);
-    sv(k,'sep_mode','raw');sv(k,'sep_a',s[0]);sv(k,'sep_b',s[1]);
-    sv(k,'read_mode','raw');sv(k,'read_a',r[0]);sv(k,'read_b',r[1]);
-  });
-
-  // ── AMR: 2025, 2026 ──
-  const amrData=[
-    {yr:'2025',ecoli:[387,620],klebs:[241,501],mrsa:[94,301],mrsab:[52,161425],mdro:[68,161425],cdiff:[39,161425]},
-    {yr:'2026',ecoli:[362,598],klebs:[228,488],mrsa:[88,298],mrsab:[44,152218],mdro:[58,152218],cdiff:[31,152218]},
-  ];
-  amrData.forEach(({yr,ecoli,klebs,mrsa,mrsab,mdro,cdiff})=>{
-    const kR=getKey('amr','Full Year',yr,'smc','ALL');
-    sv(kR,'ecoli_mode','raw');sv(kR,'ecoli_a',ecoli[0]);sv(kR,'ecoli_b',ecoli[1]);
-    sv(kR,'klebs_mode','raw');sv(kR,'klebs_a',klebs[0]);sv(kR,'klebs_b',klebs[1]);
-    sv(kR,'mrsa_mode','raw');sv(kR,'mrsa_a',mrsa[0]);sv(kR,'mrsa_b',mrsa[1]);
-    // Infection (quarterly — use Q1)
-    const kI=getKey('amr','Q1 (Jan–Mar)',yr,'smc','ALL');
-    sv(kI,'mrsab_mode','raw');sv(kI,'mrsab_a',mrsab[0]);sv(kI,'mrsab_b',mrsab[1]);
-    sv(kI,'mdro_mode','raw');sv(kI,'mdro_a',mdro[0]);sv(kI,'mdro_b',mdro[1]);
-    sv(kI,'cdiff_mode','raw');sv(kI,'cdiff_a',cdiff[0]);sv(kI,'cdiff_b',cdiff[1]);
-    // SSI
-    sv(kI,'ssi_ev',21);sv(kI,'ssi_pr',1000);
-  });
-
-  // ── PROCESS: Q1–Q4 2025, Q1 2026 ──
-  const pData=[
-    {p:'Q1 (Jan–Mar)',yr:'2025',tim:[421,500],cho:[359,500],stp:[457,500],acc:[82,90],clin:[310,420],app:[298,380],restr:[142,772]},
-    {p:'Q2 (Apr–Jun)',yr:'2025',tim:[408,490],cho:[375,490],stp:[460,490],acc:[85,92],clin:[325,430],app:[312,395],restr:[158,800]},
-    {p:'Q3 (Jul–Sep)',yr:'2025',tim:[432,510],cho:[368,510],stp:[472,510],acc:[78,88],clin:[298,405],app:[285,370],restr:[148,815]},
-    {p:'Q4 (Oct–Dec)',yr:'2025',tim:[442,520],cho:[394,520],stp:[480,520],acc:[89,96],clin:[340,445],app:[328,410],restr:[162,840]},
-    {p:'Q1 (Jan–Mar)',yr:'2026',tim:[455,530],cho:[412,530],stp:[492,530],acc:[92,100],clin:[362,460],app:[348,425],restr:[170,860]},
-  ];
-  pData.forEach(({p,yr,tim,cho,stp,acc,clin,app,restr})=>{
-    const k=getKey('process',p,yr,'smc','ALL');
-    sv(k,'timing_mode','raw');sv(k,'timing_a',tim[0]);sv(k,'timing_b',tim[1]);
-    sv(k,'choice_mode','raw');sv(k,'choice_a',cho[0]);sv(k,'choice_b',cho[1]);
-    sv(k,'stop_mode','raw');sv(k,'stop_a',stp[0]);sv(k,'stop_b',stp[1]);
-    sv(k,'asp_acc_mode','raw');sv(k,'asp_acc_a',acc[0]);sv(k,'asp_acc_b',acc[1]);
-    sv(k,'clin_comp_mode','raw');sv(k,'clin_comp_a',clin[0]);sv(k,'clin_comp_b',clin[1]);
-    sv(k,'approp_mode','raw');sv(k,'approp_a',app[0]);sv(k,'approp_b',app[1]);
-    sv(k,'restr_pct_mode','raw');sv(k,'restr_pct_a',restr[0]);sv(k,'restr_pct_b',restr[1]);
-  });
-
-  // SSI by surgery type Q1 2025
-  const kSSI=getKey('amr','Q1 (Jan–Mar)','2025','smc','ALL');
-  [['Caesarean_Section',2,142],['Hysterectomy',4,88],['Hip_Knee_Replacement',3,115],['Cardiac_Surgery',5,96],['Vascular_Surgery',4,75]].forEach(([s,e,p])=>{
-    sv(kSSI,`ssi_${s}_e`,e);sv(kSSI,`ssi_${s}_p`,p);
-  });
-  // SP by surgery type Q1 2025
-  const kSP=getKey('process','Q1 (Jan–Mar)','2025','smc','ALL');
-  [['Caesarean_Section',112,120,98,120,118,120],['Hysterectomy',68,80,49,80,74,80],['Hip_Knee_Replacement',88,110,95,110,108,110]].forEach(([s,tc,tt,cc,ct,sc,st])=>{
-    sv(kSP,`sp_${s}_tc`,tc);sv(kSP,`sp_${s}_tt`,tt);sv(kSP,`sp_${s}_cc`,cc);sv(kSP,`sp_${s}_ct`,ct);sv(kSP,`sp_${s}_sc`,sc);sv(kSP,`sp_${s}_st`,st);
-  });
+// ── SAVE INDICATOR ───────────────────────────────────────
+let _saveQ=false;
+function queueSave(){
+  const ind=g('saveInd');
+  if(ind){ind.textContent='● Unsaved';ind.className='si-saving';}
+  _saveQ=true;
+  clearTimeout(_saveT);
+  _saveT=setTimeout(()=>cloudSave(),1500);
 }
+function forceSave(){cloudSave();}
 
-// ══════════════════════════════════════════════════════════════════════
-// FIREBASE AUTH
-// ══════════════════════════════════════════════════════════════════════
+// ════════════════════════════════════════════════════════
+// FIREBASE
+// ════════════════════════════════════════════════════════
 function ss(msg,col){const d=g('SD');const t=g('SM');if(d)d.style.background=col||'#059669';if(t)t.textContent=msg;}
 
 async function doLogin(){
-  const em=g('lEm').value.trim(),pw=g('lPw').value,er=g('lErr'),bt=g('lBtn');
-  er.textContent='';
+  const em=g('lEm').value.trim(),pw=g('lPw').value;
+  const er=g('lErr'),bt=g('lBtn');er.textContent='';
   if(!em||!pw){er.textContent='Enter email and password.';return;}
   if(!window._FB){er.textContent='Firebase not loaded.';return;}
   bt.textContent='Signing in…';bt.disabled=true;
@@ -893,124 +935,205 @@ async function doLogin(){
     _user=c.user;bt.textContent='Sign In';bt.disabled=false;showDash();
   }catch(e){
     bt.textContent='Sign In';bt.disabled=false;
-    const M={'auth/invalid-credential':'Wrong email or password.','auth/user-not-found':'No account found.','auth/wrong-password':'Wrong password.','auth/too-many-requests':'Too many attempts — wait.','auth/network-request-failed':'No internet.'};
+    const M={'auth/invalid-credential':'Wrong email or password.','auth/user-not-found':'No account found.','auth/wrong-password':'Wrong password.','auth/too-many-requests':'Too many attempts.','auth/network-request-failed':'No internet.'};
     er.textContent=M[e.code]||'Error: '+e.code;
   }
 }
 async function doLogout(){
   if(window._FB)try{await window._FB.signOut(window._FB.auth);}catch(e){}
-  _user=null;g('loginWrap').style.display='flex';g('SB').style.display='none';g('MW').style.display='none';g('SYN').style.display='none';
+  _user=null;
+  g('loginWrap').style.display='flex';g('SB').style.display='none';g('MW').style.display='none';g('SYN').style.display='none';
 }
 async function showDash(){
   g('loginWrap').style.display='none';g('SB').style.display='flex';g('MW').style.display='flex';g('SYN').style.display='flex';
   const su=g('SU');if(su&&_user)su.textContent='👤 '+_user.email;
-  await cloudLoad();loadDemoData();initAll();
+  await cloudLoad();
+  loadDemoData();
+  initAll();
 }
 
 function cloudSave(){
-  try{localStorage.setItem('aspKPI',JSON.stringify({DB,DRUGS,HOSPITALS,SURG_TYPES}));}catch(e){}
-  if(!_user||!window._FB)return;
-  clearTimeout(_saveT);ss('Saving…','#D97706');
-  _saveT=setTimeout(async()=>{
-    try{const{db,ref,set}=window._FB;await set(ref(db,'asp_kpi2'),{d:JSON.stringify({DB,DRUGS,HOSPITALS,SURG_TYPES}),t:new Date().toISOString(),u:_user.email});ss('Saved ✓','#059669');}
-    catch(e){ss('Cloud save failed — saved locally','#D97706');}
-  },1500);
+  const payload={DB,DRUGS,HOSPITALS,SURG_TYPES};
+  try{localStorage.setItem('aspKPI3',JSON.stringify(payload));}catch(e){}
+  const ind=g('saveInd');
+  if(!_user||!window._FB){if(ind){ind.textContent='✓ Saved locally';ind.className='si-saved';}return;}
+  ss('Saving…','#D97706');
+  window._FB.set(window._FB.ref(window._FB.db,'asp_kpi3'),{d:JSON.stringify(payload),t:new Date().toISOString(),u:_user.email})
+    .then(()=>{ss('Saved to cloud ✓','#059669');if(ind){ind.textContent='✓ Saved';ind.className='si-saved';}_saveQ=false;})
+    .catch(()=>{ss('Cloud save failed — saved locally','#D97706');if(ind){ind.textContent='✓ Saved locally';ind.className='si-saved';}});
 }
-function save(){cloudSave();}
+
 async function cloudLoad(){
-  try{const s=localStorage.getItem('aspKPI');if(s){const d=JSON.parse(s);if(d.DB)DB=d.DB;if(d.DRUGS)DRUGS=d.DRUGS;if(d.HOSPITALS)HOSPITALS=d.HOSPITALS;if(d.SURG_TYPES)SURG_TYPES=d.SURG_TYPES;}}catch(e){}
+  try{const s=localStorage.getItem('aspKPI3');if(s){const d=JSON.parse(s);if(d.DB)DB=d.DB;if(d.DRUGS)DRUGS=d.DRUGS;if(d.HOSPITALS)HOSPITALS=d.HOSPITALS;if(d.SURG_TYPES)SURG_TYPES=d.SURG_TYPES;}}catch(e){}
   if(!_user||!window._FB)return;
   try{
     ss('Loading…','#0891B2');
-    const{db,ref,get}=window._FB;const snap=await get(ref(db,'asp_kpi2'));
-    if(snap.exists()){const val=JSON.parse(snap.val().d||'{}');if(val.DB)DB=val.DB;if(val.DRUGS)DRUGS=val.DRUGS;if(val.HOSPITALS)HOSPITALS=val.HOSPITALS;if(val.SURG_TYPES)SURG_TYPES=val.SURG_TYPES;
-    try{localStorage.setItem('aspKPI',JSON.stringify({DB,DRUGS,HOSPITALS,SURG_TYPES}));}catch(e){}
-    ss('Loaded ✓ — '+(new Date(snap.val().t)).toLocaleString(),'#059669');}
-    else{ss('No cloud data — using local','#D97706');}
+    const snap=await window._FB.get(window._FB.ref(window._FB.db,'asp_kpi3'));
+    if(snap.exists()){
+      const val=JSON.parse(snap.val().d||'{}');
+      if(val.DB)DB=val.DB;if(val.DRUGS)DRUGS=val.DRUGS;if(val.HOSPITALS)HOSPITALS=val.HOSPITALS;if(val.SURG_TYPES)SURG_TYPES=val.SURG_TYPES;
+      try{localStorage.setItem('aspKPI3',JSON.stringify(val));}catch(e){}
+      ss('Loaded ✓  '+new Date(snap.val().t).toLocaleString(),'#059669');
+    }else{ss('No cloud data — using local','#D97706');}
   }catch(e){ss('Cloud unavailable — using local','#D97706');}
 }
 
-// ══════════════════════════════════════════════════════════════════════
-// PERIOD OPTION BUILDERS
-// ══════════════════════════════════════════════════════════════════════
-function buildPOpts(pfx){
-  const pt=g(pfx+'PT')?.value||'H';
-  const sel=g(pfx+'P');if(!sel)return;
-  const cur=sel.value;sel.innerHTML=PERIOD_OPTS[pt].map(p=>`<option value="${p}">${p}</option>`).join('');
-  if(cur&&PERIOD_OPTS[pt].includes(cur))sel.value=cur;
-}
-function cPeriodOpts(){buildPOpts('c');}
-function oPeriodOpts(){buildPOpts('o');}
-function aPeriodOpts(){buildPOpts('a');}
-function pPeriodOpts(){buildPOpts('p');}
+// ════════════════════════════════════════════════════════
+// DEMO DATA
+// ════════════════════════════════════════════════════════
+function loadDemoData(){
+  if(Object.keys(DB).filter(k=>!k.startsWith('_pd')).length>5)return;
 
-// ══════════════════════════════════════════════════════════════════════
-// LOCATION
-// ══════════════════════════════════════════════════════════════════════
-function togLoc(pfx){
-  const on=g(pfx+'LocOn')?.checked;
-  const lt=g(pfx+'LocT'),lv=g(pfx+'LocV');
-  if(lt)lt.style.display=on?'inline-block':'none';
-  if(lv)lv.style.display=on?'inline-block':'none';
-  if(on)locList(pfx);
-}
-function locList(pfx){
-  const lt=g(pfx+'LocT')?.value||'W';
-  const lv=g(pfx+'LocV');if(!lv)return;
-  if(lt==='W')lv.innerHTML=WARDS.map(w=>`<option>${w}</option>`).join('');
-  else if(lt==='S')lv.innerHTML=SPECS.map(s=>`<option>${s}</option>`).join('');
-  else lv.innerHTML='<option>— Type name —</option>';
-}
-function locList2(pfx){
-  const lt=g(pfx+'LocT')?.value||'ALL';
-  const lv=g(pfx+'LocV');if(!lv)return;
-  if(lt==='ALL'){lv.style.display='none';return;}
-  lv.style.display='inline-block';
-  if(lt==='W')lv.innerHTML=WARDS.map(w=>`<option>${w}</option>`).join('');
-  else if(lt==='S')lv.innerHTML=SPECS.map(s=>`<option>${s}</option>`).join('');
+  // Consumption — H1 & H2 for 2025 and 2026
+  const cRaw={
+    '2025|H1 (Jan–Jun)':{pd:161425,v:{amphoB:[304,50,290],colist:[10617,1,9800],lzdIV:[3219,600,3100],lzdPO:[291,600,280],cazAvi:[2132,2000,2000],azt:[228,1000,210],tgc:[951,50,900],anid:[571,100,550],casp:[124,50,120],dap:[71,500,65],mem:[74856,500,72000],tzp:[30195,4500,28000]}},
+    '2025|H2 (Jul–Dec)':{pd:151382,v:{amphoB:[129,50,120],colist:[12776,1,12000],lzdIV:[3053,600,2950],lzdPO:[361,600,340],cazAvi:[1983,2000,1900],azt:[562,1000,540],tgc:[971,50,930],anid:[988,100,950],casp:[55,50,50],dap:[61,500,58],mem:[82106,500,79000],tzp:[26061,4500,24000]}},
+    '2026|H1 (Jan–Jun)':{pd:152218,v:{amphoB:[492,50,480],colist:[14168,1,13500],lzdIV:[1618,600,1550],lzdPO:[427,600,400],cazAvi:[1292,2000,1250],azt:[408,1000,390],tgc:[1768,50,1700],anid:[1016,100,980],casp:[110,50,105],dap:[129,500,125],mem:[79092,500,76000],tzp:[26650,4500,25000]}},
+    '2026|H2 (Jul–Dec)':{pd:148920,v:{amphoB:[380,50,360],colist:[13200,1,12500],lzdIV:[1820,600,1750],lzdPO:[390,600,370],cazAvi:[1180,2000,1150],azt:[520,1000,500],tgc:[1920,50,1850],anid:[1100,100,1060],casp:[95,50,90],dap:[145,500,140],mem:[81200,500,78000],tzp:[27400,4500,26000]}},
+  };
+  Object.entries(cRaw).forEach(([yrp,{pd,v}])=>{
+    const[yr,p]=yrp.split('|');
+    DB[`_pd|c|${yr}|${p}`]={v:pd};
+    const k=mk('consumption',p,yr,'smc','ALL');
+    if(!DB[k])DB[k]={};
+    Object.entries(v).forEach(([did,[vials,str,dot]])=>{DB[k][did+'_v']=vials;DB[k][did+'_s']=str;DB[k][did+'_dot']=dot;});
+  });
+
+  // Outcomes — Q1–Q4 2025, Q1–Q2 2026
+  [
+    {yr:'2025',p:'Q1 (Jan–Mar)',los:[18240,2942],mort:[141,2942],sep:[42,229],read:[204,2831]},
+    {yr:'2025',p:'Q2 (Apr–Jun)',los:[19110,3080],mort:[128,3080],sep:[38,215],read:[198,2960]},
+    {yr:'2025',p:'Q3 (Jul–Sep)',los:[17850,2880],mort:[152,2880],sep:[48,241],read:[221,2760]},
+    {yr:'2025',p:'Q4 (Oct–Dec)',los:[18600,3010],mort:[136,3010],sep:[39,220],read:[192,2890]},
+    {yr:'2026',p:'Q1 (Jan–Mar)',los:[17920,2910],mort:[118,2910],sep:[35,208],read:[186,2800]},
+    {yr:'2026',p:'Q2 (Apr–Jun)',los:[18340,2990],mort:[122,2990],sep:[37,212],read:[194,2870]},
+  ].forEach(({yr,p,los,mort,sep,read})=>{
+    const k=mk('outcomes',p,yr,'smc','ALL');
+    DB[k]={los_m:'raw',los_a:los[0],los_b:los[1],mort_m:'raw',mort_a:mort[0],mort_b:mort[1],sep_m:'raw',sep_a:sep[0],sep_b:sep[1],read_m:'raw',read_a:read[0],read_b:read[1]};
+  });
+
+  // AMR Resistance — 2025, 2026
+  [{yr:'2025',ecoli:[387,620],klebs:[241,501],mrsa:[94,301]},{yr:'2026',ecoli:[362,598],klebs:[228,488],mrsa:[88,298]}]
+  .forEach(({yr,ecoli,klebs,mrsa})=>{
+    const k=mk('amr','Full Year',yr,'smc','ALL');
+    DB[k]={ecoli_m:'raw',ecoli_a:ecoli[0],ecoli_b:ecoli[1],klebs_m:'raw',klebs_a:klebs[0],klebs_b:klebs[1],mrsa_m:'raw',mrsa_a:mrsa[0],mrsa_b:mrsa[1]};
+  });
+
+  // AMR Infection — Q1 each year
+  [{yr:'2025',mrsab:[52,161425],mdro:[68,161425],cdiff:[39,161425],ssi_ev:21,ssi_pr:1000},
+   {yr:'2026',mrsab:[44,152218],mdro:[58,152218],cdiff:[31,152218],ssi_ev:18,ssi_pr:980}]
+  .forEach(({yr,mrsab,mdro,cdiff,ssi_ev,ssi_pr})=>{
+    const k=mk('amr','Q1 (Jan–Mar)',yr,'smc','ALL');
+    DB[k]={mrsab_m:'raw',mrsab_a:mrsab[0],mrsab_b:mrsab[1],mdro_m:'raw',mdro_a:mdro[0],mdro_b:mdro[1],cdiff_m:'raw',cdiff_a:cdiff[0],cdiff_b:cdiff[1],ssi_ev,ssi_pr};
+  });
+
+  // Process — Q1–Q4 2025 + Q1–Q2 2026
+  [
+    {yr:'2025',p:'Q1 (Jan–Mar)',tim:[421,500],cho:[359,500],stp:[457,500]},
+    {yr:'2025',p:'Q2 (Apr–Jun)',tim:[408,490],cho:[375,490],stp:[460,490]},
+    {yr:'2025',p:'Q3 (Jul–Sep)',tim:[432,510],cho:[368,510],stp:[472,510]},
+    {yr:'2025',p:'Q4 (Oct–Dec)',tim:[442,520],cho:[394,520],stp:[480,520]},
+    {yr:'2026',p:'Q1 (Jan–Mar)',tim:[455,530],cho:[412,530],stp:[492,530]},
+    {yr:'2026',p:'Q2 (Apr–Jun)',tim:[468,540],cho:[425,540],stp:[505,540]},
+  ].forEach(({yr,p,tim,cho,stp})=>{
+    const k=mk('process',p,yr,'smc','ALL');
+    DB[k]={timing_m:'raw',timing_a:tim[0],timing_b:tim[1],choice_m:'raw',choice_a:cho[0],choice_b:cho[1],stop_m:'raw',stop_a:stp[0],stop_b:stp[1]};
+  });
+
+  // SP by surgery type — Q1 2025
+  const kSP=mk('process','Q1 (Jan–Mar)','2025','smc','ALL');
+  [['Caesarean_Section',112,120,98,120,118,120],['Hysterectomy',68,80,49,80,74,80],['Hip_Knee_Replacement',88,110,95,110,108,110],['Cardiac_Surgery',42,55,38,55,50,55],['Vascular_Surgery',35,40,28,40,37,40]]
+  .forEach(([s,tc,tt,cc,ct,sc,st])=>{
+    DB[kSP][`sp_${s}_tm`]='raw';DB[kSP][`sp_${s}_tc`]=tc;DB[kSP][`sp_${s}_tt`]=tt;
+    DB[kSP][`sp_${s}_cm`]='raw';DB[kSP][`sp_${s}_cc`]=cc;DB[kSP][`sp_${s}_ct`]=ct;
+    DB[kSP][`sp_${s}_sm`]='raw';DB[kSP][`sp_${s}_sc`]=sc;DB[kSP][`sp_${s}_st`]=st;
+  });
+
+  // SSI by type — Q1 2025
+  const kSSI=mk('amr','Q1 (Jan–Mar)','2025','smc','ALL');
+  if(!DB[kSSI])DB[kSSI]={};
+  [['Caesarean_Section',2,142],['Hysterectomy',4,88],['Hip_Knee_Replacement',3,115],['Cardiac_Surgery',5,96],['Vascular_Surgery',4,75]]
+  .forEach(([s,e,p])=>{DB[kSSI][`ssi_${s}_e`]=e;DB[kSSI][`ssi_${s}_p`]=p;});
 }
 
-// ══════════════════════════════════════════════════════════════════════
+// ════════════════════════════════════════════════════════
 // NAV + TABS + MODALS
-// ══════════════════════════════════════════════════════════════════════
+// ════════════════════════════════════════════════════════
 function nav(id,el){
   document.querySelectorAll('.sec').forEach(s=>s.classList.remove('on'));
-  document.getElementById('sec-'+id).classList.add('on');
+  g('sec-'+id).classList.add('on');
   document.querySelectorAll('.sb-btn').forEach(b=>b.classList.remove('on'));
   if(el)el.classList.add('on');
-  if(id==='consumption')cRender();
-  if(id==='outcomes')oRender();
-  if(id==='amr')aRender();
-  if(id==='process')pRender();
-  if(id==='hospitals')renderHCards();
-  if(id==='analysis'){buildAnPicker();renderAnHospSel();}
+  if(id==='consumption'){cBuildPeriods();cLoad();}
+  if(id==='outcomes'){oBuildPeriods();oLoad();}
+  if(id==='amr'){aBuildPeriods();aLoad();}
+  if(id==='process'){pBuildPeriods();pLoad();}
+  if(id==='analysis'){buildAnPanels();}
+  if(id==='hospitals'){renderHCards();}
 }
+
 function stab(el,id){
-  const p=el.closest('.pnl')||el.parentElement.parentElement;
+  const p=el.closest('.pnl');if(!p)return;
   p.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));el.classList.add('on');
-  p.querySelectorAll('.tc').forEach(c=>c.classList.remove('on'));
-  const tc=g(id);if(tc)tc.classList.add('on');
+  p.querySelectorAll('.tc').forEach(c=>c.classList.remove('on'));const tc=g(id);if(tc)tc.classList.add('on');
 }
 function openM(id){g(id).classList.add('open');}
 function closeM(id){g(id).classList.remove('open');}
-function setCT(ctbId,type,drawFn){
-  chartCT[ctbId.slice(0,ctbId.indexOf('CTB')).toLowerCase()]= type;
+function setCTB(ctbId,el,type){
+  chartCT[ctbId]=type;
   document.querySelectorAll('#'+ctbId+' .ctb').forEach(b=>b.classList.remove('on'));
-  event.target.classList.add('on');
-  if(drawFn)drawFn();
+  el.classList.add('on');
 }
-// Override setCT for named refs
-const _setCT=setCT;
-function setCT(ctbId,type,fn){chartCT[ctbId]=type;document.querySelectorAll('#'+ctbId+' .ctb').forEach(b=>b.classList.remove('on'));event.currentTarget.classList.add('on');if(fn)fn();}
 
-// ══════════════════════════════════════════════════════════════════════
+// ════════════════════════════════════════════════════════
+// LOCATION
+// ════════════════════════════════════════════════════════
+function togLoc(pfx){
+  const on=g(pfx+'LocOn')?.checked;
+  ['LocT','LocV'].forEach(s=>{const el=g(pfx+s);if(el)el.style.display=on?'inline-block':'none';});
+  if(on)locList(pfx);
+}
+function locList(pfx){
+  const t=g(pfx+'LocT')?.value||'W';const sel=g(pfx+'LocV');if(!sel)return;
+  const opts=t==='W'?WARDS:t==='S'?SPECS:[];
+  sel.innerHTML=opts.map(o=>`<option>${o}</option>`).join('');
+  if(t==='C')sel.innerHTML='<option>Enter name</option>';
+}
+
+// ════════════════════════════════════════════════════════
+// PERIOD BUILDERS + LOADERS
+// ════════════════════════════════════════════════════════
+function buildPeriods(pfx){
+  const pt=g(pfx+'PT')?.value||'H';
+  const sel=g(pfx+'P');if(!sel)return;
+  const cur=sel.value;
+  sel.innerHTML=P_OPTS[pt].map(p=>`<option value="${p}">${p}</option>`).join('');
+  if(P_OPTS[pt].includes(cur))sel.value=cur;
+}
+function cBuildPeriods(){buildPeriods('c');}
+function oBuildPeriods(){buildPeriods('o');}
+function aBuildPeriods(){buildPeriods('a');}
+function pBuildPeriods(){buildPeriods('p');}
+
+// ── LOAD: when period changes, load saved data into fields ──
+function cLoad(){
+  const k=pk('c','consumption');
+  const pd=gv(pdK('c'),'v');
+  const pdEl=g('cPD');if(pdEl){pdEl.value=pd||'';}
+  cRender();
+}
+function oLoad(){oRender();}
+function aLoad(){aRender();}
+function pLoad(){pRender();}
+
+// ════════════════════════════════════════════════════════
 // CONSUMPTION SECTION
-// ══════════════════════════════════════════════════════════════════════
+// ════════════════════════════════════════════════════════
 function cRender(){
-  loadPD('c');
-  const k=pkey('c','consumption');
+  const k=pk('c','consumption');
   const pd=getPD('c');
   const tbody=g('cTB');if(!tbody)return;
+
   let rDDD=0,rDOT=0,cDDD=0,topV=0,topNm='';
   tbody.innerHTML=DRUGS.map((d,ri)=>{
     const vials=gv(k,d.id+'_v')||0;
@@ -1021,38 +1144,49 @@ function cRender(){
     const dddP=pd>0?(tDDD/pd)*1000:0;
     const dotP=pd>0?(dot/pd)*1000:0;
     const ratio=dotP>0?dddP/dotP:null;
-    const interp=ddtInterp(ratio);
+    const interp=ddtI(ratio);
     if(d.ty==='restricted'){rDDD+=dddP;rDOT+=dotP;}
     if(d.ty==='comparator')cDDD+=dddP;
     if(dddP>topV){topV=dddP;topNm=d.sh;}
     const tg=d.ty==='restricted'?'<span class="tag tr">Restricted</span>':'<span class="tag tc2">Comparator</span>';
-    return`<tr>
-      <td class="fw">${d.nm}</td><td>${tg}</td><td class="mn">${d.ddd.toLocaleString()} ${d.unt}</td>
-      <td><input type="number" class="ei" id="cv_${d.id}" value="${vials||''}" placeholder="0" style="width:82px"
-        onfocus="this.select()" oninput="cSave('${d.id}','_v',this.value,'${k}');cLive('${d.id}','${k}')" onkeydown="cNav(event,${ri},0)"></td>
+
+    return`<tr id="crow_${d.id}" class="${d.sel?'sel-row':''}">
+      <td style="text-align:center"><input type="checkbox" class="ck" ${d.sel?'checked':''} onchange="togDrug('${d.id}',this.checked)"></td>
+      <td class="fw">${d.nm}</td>
+      <td>${tg}</td>
+      <td class="mn">${d.ddd.toLocaleString()} ${d.unt}</td>
+      <td><input type="number" class="ei" id="cv_${d.id}" value="${vials||''}" placeholder="0" style="width:85px"
+        onclick="this.select()" onfocus="this.select()"
+        oninput="cSave('${d.id}','_v',this.value,'${k}');cLive(${ri},'${d.id}','${k}')"
+        onkeydown="cNav(event,${ri},0)"></td>
       <td><input type="number" class="ei" id="cs_${d.id}" value="${str||d.str}" step="any" style="width:78px"
-        onfocus="this.select()" oninput="cSave('${d.id}','_s',this.value,'${k}');cLive('${d.id}','${k}')" onkeydown="cNav(event,${ri},1)"></td>
+        onclick="this.select()" onfocus="this.select()"
+        oninput="cSave('${d.id}','_s',this.value,'${k}');cLive(${ri},'${d.id}','${k}')"
+        onkeydown="cNav(event,${ri},1)"></td>
       <td class="mn" id="ct_${d.id}">${vials?fN(tot)+' '+d.unt:'—'}</td>
       <td class="mn" id="cd_${d.id}">${vials?fmt(tDDD,1):'—'}</td>
       <td class="mn fw" id="cdp_${d.id}" style="color:${vials?'#0A1628':'#94A3B8'}">${vials?fmt(dddP,2):'—'}</td>
-      <td><input type="number" class="ei" id="cdot_${d.id}" value="${dot||''}" placeholder="0" style="width:82px"
-        onfocus="this.select()" oninput="cSave('${d.id}','_dot',this.value,'${k}');cLive('${d.id}','${k}')" onkeydown="cNav(event,${ri},2)"></td>
+      <td><input type="number" class="ei" id="cdot_${d.id}" value="${dot||''}" placeholder="0" style="width:85px"
+        onclick="this.select()" onfocus="this.select()"
+        oninput="cSave('${d.id}','_dot',this.value,'${k}');cLive(${ri},'${d.id}','${k}')"
+        onkeydown="cNav(event,${ri},2)"></td>
       <td class="mn fw" id="cdotp_${d.id}" style="color:#7C3AED">${dot?fmt(dotP,2):'—'}</td>
       <td class="mn" id="crat_${d.id}" style="color:${interp.c}">${ratio?fmt(ratio,2):'—'}</td>
       <td style="font-size:11px;color:${interp.c};font-weight:600" id="cint_${d.id}">${interp.t}</td>
-      <td id="cchg_${d.id}">—</td>
     </tr>`;
   }).join('');
+
   // KPIs
-  const sk=id=>{const el=g(id);return el?v=>el.textContent=v:()=>{}};
-  sk('ck1')(fmt(rDDD,1));sk('ck2')(fmt(rDOT,1));sk('ck3')(fmt(cDDD,1));
-  sk('ck4')(topNm||'—');sk('ck4s')(topV?fmt(topV,2)+' DDD/1000PD':'No data');
   const pt=g('cPT')?.value||'H';const p=g('cP')?.value||'';const yr=g('cY')?.value||'';
-  sk('ck1s')(`${p} ${yr}`);
-  drawCChart();
+  const setT=(id,v)=>{const el=g(id);if(el)el.textContent=v;};
+  setT('ck1',fmt(rDDD,1));setT('ck2',fmt(rDOT,1));setT('ck3',fmt(cDDD,1));
+  setT('ck1s',`${p} ${yr}`);setT('ck4',topNm||'—');setT('ck4s',topV?fmt(topV,2)+' DDD/1000PD':'—');
+  cDrawChart();
 }
+
 function cSave(did,f,v,k){sv(k,did+f,parseFloat(v)||0);}
-function cLive(did,k){
+
+function cLive(ri,did,k){
   const d=DRUGS.find(x=>x.id===did);if(!d)return;
   const pd=getPD('c');
   const vials=parseFloat(g('cv_'+did)?.value)||0;
@@ -1060,539 +1194,672 @@ function cLive(did,k){
   const dot=parseFloat(g('cdot_'+did)?.value)||0;
   const tot=vials*str;const tDDD=d.ddd>0?tot/d.ddd:0;
   const dddP=pd>0?(tDDD/pd)*1000:0;const dotP=pd>0?(dot/pd)*1000:0;
-  const ratio=dotP>0?dddP/dotP:null;const interp=ddtInterp(ratio);
-  const setT=(id,v)=>{const el=g(id);if(el)el.textContent=v;};
+  const ratio=dotP>0?dddP/dotP:null;const interp=ddtI(ratio);
+  const setT=(id,v,col)=>{const el=g(id);if(el){el.textContent=v;if(col)el.style.color=col;}};
   setT('ct_'+did,vials?fN(tot)+' '+d.unt:'—');
   setT('cd_'+did,vials?fmt(tDDD,1):'—');
-  const dddEl=g('cdp_'+did);if(dddEl){dddEl.textContent=vials?fmt(dddP,2):'—';dddEl.style.color=vials?'#0A1628':'#94A3B8';}
+  setT('cdp_'+did,vials?fmt(dddP,2):'—',vials?'#0A1628':'#94A3B8');
   setT('cdotp_'+did,dot?fmt(dotP,2):'—');
-  const rEl=g('crat_'+did);if(rEl){rEl.textContent=ratio?fmt(ratio,2):'—';rEl.style.color=interp.c;}
-  const iEl=g('cint_'+did);if(iEl){iEl.textContent=interp.t;iEl.style.color=interp.c;}
-  // update KPIs
-  cRender();
+  setT('crat_'+did,ratio?fmt(ratio,2):'—',interp.c);
+  setT('cint_'+did,interp.t,interp.c);
+  cRenderKPIs();cDrawChart();
 }
+
+function cRenderKPIs(){
+  const k=pk('c','consumption');const pd=getPD('c');
+  let rDDD=0,rDOT=0,cDDD=0,topV=0,topNm='';
+  DRUGS.forEach(d=>{
+    const vials=gv(k,d.id+'_v')||0;const str=gv(k,d.id+'_s')||d.str;const dot=gv(k,d.id+'_dot')||0;
+    const tot=vials*str;const tDDD=d.ddd>0?tot/d.ddd:0;
+    const dddP=pd>0?(tDDD/pd)*1000:0;const dotP=pd>0?(dot/pd)*1000:0;
+    if(d.ty==='restricted'){rDDD+=dddP;rDOT+=dotP;}
+    if(d.ty==='comparator')cDDD+=dddP;
+    if(dddP>topV){topV=dddP;topNm=d.sh;}
+  });
+  const setT=(id,v)=>{const el=g(id);if(el)el.textContent=v;};
+  setT('ck1',fmt(rDDD,1));setT('ck2',fmt(rDOT,1));setT('ck3',fmt(cDDD,1));
+  setT('ck4',topNm||'—');setT('ck4s',topV?fmt(topV,2)+' DDD/1000PD':'—');
+}
+
 function cNav(e,ri,col){
   const n=DRUGS.length;
-  const ids=[DRUGS.map(d=>'cv_'+d.id),DRUGS.map(d=>'cs_'+d.id),DRUGS.map(d=>'cdot_'+d.id)];
-  if(e.key==='Enter'||e.key==='ArrowDown'){e.preventDefault();const nx=g(ids[col][Math.min(ri+1,n-1)]);if(nx){nx.focus();nx.select();}}
-  else if(e.key==='ArrowUp'){e.preventDefault();const pv=g(ids[col][Math.max(ri-1,0)]);if(pv){pv.focus();pv.select();}}
-  else if(e.key==='ArrowRight'&&col<2){e.preventDefault();const nx=g(ids[col+1][ri]);if(nx){nx.focus();nx.select();}}
-  else if(e.key==='ArrowLeft'&&col>0){e.preventDefault();const pv=g(ids[col-1][ri]);if(pv){pv.focus();pv.select();}}
+  const cols=[DRUGS.map(d=>'cv_'+d.id),DRUGS.map(d=>'cs_'+d.id),DRUGS.map(d=>'cdot_'+d.id)];
+  if(e.key==='Enter'||e.key==='ArrowDown'){e.preventDefault();const nx=g(cols[col][Math.min(ri+1,n-1)]);if(nx){nx.focus();nx.select();}}
+  else if(e.key==='ArrowUp'){e.preventDefault();const pv=g(cols[col][Math.max(ri-1,0)]);if(pv){pv.focus();pv.select();}}
+  else if(e.key==='ArrowRight'&&col<2){e.preventDefault();const nx=g(cols[col+1][ri]);if(nx){nx.focus();nx.select();}}
+  else if(e.key==='ArrowLeft'&&col>0){e.preventDefault();const pv=g(cols[col-1][ri]);if(pv){pv.focus();pv.select();}}
 }
 
-function getAllCKeys(pfx,pillar,hosp='smc'){
-  const res=[];
-  YEARS.forEach(yr=>{
-    Object.values(PERIOD_OPTS).flat().forEach(p=>{
-      const k=getKey(pillar,p,yr,hosp,'ALL');
-      if(Object.keys(DB).some(dk=>dk===k&&Object.keys(DB[dk]).length>0)){
-        res.push({k,label:`${p.slice(0,2)} ${yr}`,p,yr});
-      }
-    });
-  });
-  // dedup by label
-  const seen=new Set();return res.filter(r=>{if(seen.has(r.label))return false;seen.add(r.label);return true;});
+function togDrug(id,checked){
+  const d=DRUGS.find(x=>x.id===id);if(d)d.sel=checked;
+  const row=g('crow_'+id);if(row)row.className=checked?'sel-row':'';
+  cDrawChart();
 }
-function getPDForKey(pillar,p,yr,pfx){
-  const pdK=`pd|${pfx}|${yr}|${p}`;
-  return gv(pdK,'pd')||0;
-}
+function selAllDrugs(v){DRUGS.forEach(d=>d.sel=v);cRender();}
+function selDrugType(ty){DRUGS.forEach(d=>d.sel=d.ty===ty);cRender();}
 
-function drawCChart(){
-  const metric=g('cChMetric')?.value||'DDD';
-  const filter=g('cChDrug')?.value||'ALL';
+// ── CONSUMPTION CHART ────────────────────────────────────
+function cDrawChart(){
+  const mode=g('cChMode')?.value||'DDD';
   const type=chartCT['cCTB']||'bar';
-  const allKeys=getAllCKeys('c','consumption');
-  if(!allKeys.length){const s=setupC('cCV',300);if(s)noDataMsg(s,'No consumption data entered yet');return;}
-  const drugs=DRUGS.filter(d=>filter==='ALL'||(filter==='R'&&d.ty==='restricted')||(filter==='C'&&d.ty==='comparator'));
-  const labels=allKeys.map(x=>x.label);
-  const ds=drugs.slice(0,10).map((d,i)=>({
-    label:d.sh,color:COLS[i%COLS.length],
-    data:allKeys.map(({k,p,yr})=>{
-      const pd=getPDForKey('consumption',p,yr,'c')||1;
-      const vials=gv(k,d.id+'_v')||0;const str=gv(k,d.id+'_s')||d.str;const dot=gv(k,d.id+'_dot')||0;
-      const tot=vials*str;const tDDD=d.ddd>0?tot/d.ddd:0;const dddP=pd>0?(tDDD/pd)*1000:0;const dotP=pd>0?(dot/pd)*1000:0;
-      return parseFloat((metric==='DDD'?dddP:dotP).toFixed(2));
-    })
-  })).filter(d=>d.data.some(v=>v>0));
-  g('cChartSub').textContent=`${metric}/1000PD · ${labels.join(' · ')}`;
+  const selDrugs=DRUGS.filter(d=>d.sel);
+  const k=pk('c','consumption');
+  const pd=getPD('c');
+  const yr=g('cY')?.value||'2025';
+  const p=g('cP')?.value||'H1 (Jan–Jun)';
+
+  if(mode==='TREND'){
+    // All periods for selected drugs
+    const allPeriods=[];
+    YEARS.forEach(yr2=>P_OPTS['H'].forEach(p2=>{
+      const k2=mk('consumption',p2,yr2,'smc','ALL');
+      const pd2=gv(`_pd|c|${yr2}|${p2}`,'v')||0;
+      if(selDrugs.some(d=>gv(k2,d.id+'_v')>0))allPeriods.push({k:k2,lbl:`${p2.slice(0,2)} ${yr2}`,pd:pd2});
+    }));
+    if(!allPeriods.length){drawNoData('cCV','No data for selected drugs');return;}
+    const ds=selDrugs.slice(0,10).map((d,i)=>({
+      label:d.sh,color:COLS[i%COLS.length],
+      data:allPeriods.map(({k:k2,pd:pd2})=>{const v=gv(k2,d.id+'_v')||0;const s=gv(k2,d.id+'_s')||d.str;const tot=v*s;const tDDD=d.ddd>0?tot/d.ddd:0;return pd2>0?(tDDD/pd2)*1000:0;})
+    })).filter(d=>d.data.some(v=>v>0));
+    g('cChartSub').textContent=`Trend: ${selDrugs.map(d=>d.sh).join(', ')}`;
+    drawChart('cCV',ds,allPeriods.map(x=>x.lbl),type,300);return;
+  }
+
+  if(mode==='RAGG'){
+    const rDDD=DRUGS.filter(d=>d.ty==='restricted').reduce((s,d)=>{const v=gv(k,d.id+'_v')||0;const str=gv(k,d.id+'_s')||d.str;const tot=v*str;const tDDD=d.ddd>0?tot/d.ddd:0;return s+(pd>0?(tDDD/pd)*1000:0);},0);
+    const cDDD=DRUGS.filter(d=>d.ty==='comparator').reduce((s,d)=>{const v=gv(k,d.id+'_v')||0;const str=gv(k,d.id+'_s')||d.str;const tot=v*str;const tDDD=d.ddd>0?tot/d.ddd:0;return s+(pd>0?(tDDD/pd)*1000:0);},0);
+    g('cChartSub').textContent='Restricted vs Comparator Total DDD/1000PD';
+    drawChart('cCV',[{label:'Restricted Total',color:'#DC2626',data:[parseFloat(fmt(rDDD,2))]},{label:'Comparator Total',color:'#2563EB',data:[parseFloat(fmt(cDDD,2))]}],[`${p.slice(0,2)} ${yr}`],type,300);return;
+  }
+
+  if(!selDrugs.length){drawNoData('cCV','Tick at least one drug above');return;}
+  if(!pd){drawNoData('cCV','Enter patient-days in the filter bar');return;}
+
+  if(mode==='BOTH'){
+    // DDD and DOT side by side per drug
+    const labels=selDrugs.map(d=>d.sh);
+    const dddData=selDrugs.map(d=>{const v=gv(k,d.id+'_v')||0;const s=gv(k,d.id+'_s')||d.str;const tot=v*s;const tDDD=d.ddd>0?tot/d.ddd:0;return pd>0?parseFloat(fmt((tDDD/pd)*1000,2)):0;});
+    const dotData=selDrugs.map(d=>{const dot=gv(k,d.id+'_dot')||0;return pd>0?parseFloat(fmt((dot/pd)*1000,2)):0;});
+    g('cChartSub').textContent='DDD/1000PD vs DOT/1000PD side by side';
+    drawChart('cCV',[{label:'DDD/1000PD',color:'#0891B2',data:dddData},{label:'DOT/1000PD',color:'#7C3AED',data:dotData}],labels,type,300);return;
+  }
+
+  // DDD or DOT per selected drug
+  const labels=selDrugs.map(d=>d.sh);
+  const data=selDrugs.map((d,i)=>{
+    const v=gv(k,d.id+'_v')||0;const s=gv(k,d.id+'_s')||d.str;const dot=gv(k,d.id+'_dot')||0;
+    if(mode==='DOT')return pd>0?parseFloat(fmt((dot/pd)*1000,2)):0;
+    const tot=v*s;const tDDD=d.ddd>0?tot/d.ddd:0;return pd>0?parseFloat(fmt((tDDD/pd)*1000,2)):0;
+  });
+  g('cChartSub').textContent=`${mode==='DDD'?'DDD':'DOT'}/1000PD · ${p.slice(0,2)} ${yr} · Ticked drugs`;
+  const ds=selDrugs.map((d,i)=>({label:d.sh,color:COLS[i%COLS.length],data:[data[i]]}));
   drawChart('cCV',ds,labels,type,300);
 }
 
-// ══════════════════════════════════════════════════════════════════════
+// ════════════════════════════════════════════════════════
 // OUTCOMES SECTION
-// ══════════════════════════════════════════════════════════════════════
-const OMET=[
-  {id:'los', lbl:'Hospital LOS',           form:'Days ÷ Patients',       unt:'days', fn:los,    aL:'Total Hosp. Days',  bL:'Total Patients'},
-  {id:'mort',lbl:'Hospital Mortality',      form:'(Deaths÷Hosp)×100',    unt:'%',    fn:pct,    aL:'Deaths',            bL:'Total Hospitalisations'},
-  {id:'sep', lbl:'Sepsis-Related Mortality',form:'(Deaths÷Cases)×100',   unt:'%',    fn:pct,    aL:'Sepsis Deaths',     bL:'Sepsis Cases'},
-  {id:'read',lbl:'30-Day Readmission',      form:'(Readmit÷Discharged)×100',unt:'%', fn:pct,    aL:'Readmissions',      bL:'Patients Discharged'},
-];
+// ════════════════════════════════════════════════════════
 function oRender(){
-  loadPD('o');
-  const k=pkey('o','outcomes');
+  const k=pk('o','outcomes');
   const tbody=g('oTB');if(!tbody)return;
   tbody.innerHTML=OMET.map(m=>{
-    const mode=gv(k,m.id+'_mode')||'raw';
+    const mode=gv(k,m.id+'_m')||'raw';
     const a=gv(k,m.id+'_a')||'';const b=gv(k,m.id+'_b')||'';const dir=gv(k,m.id+'_dir')||'';
     let res=null;
     if(mode==='raw'&&a&&b)res=m.fn(parseFloat(a),parseFloat(b));
     if(mode==='dir'&&dir)res=parseFloat(dir);
-    const el=g('ok'+{los:'1',mort:'2',sep:'3',read:'4'}[m.id]);
-    if(el)el.textContent=res!==null?fmt(res,m.unt==='days'?1:1)+' '+m.unt:'—';
-    return`<tr>
+    const el=g('ok'+{los:'1',mort:'2',sep:'3',read:'4'}[m.id]);if(el)el.textContent=res!==null?fmt(res,m.unt==='days'?1:1)+' '+m.unt:'—';
+    return`<tr class="${m.sel?'sel-row':''}">
+      <td style="text-align:center"><input type="checkbox" class="ck" ${m.sel?'checked':''} onchange="togOutcome('${m.id}',this.checked)"></td>
       <td class="fw">${m.lbl}</td>
       <td><div class="mtog"><button class="mb ${mode==='raw'?'on':''}" onclick="oMode('${m.id}','raw','${k}')">Raw</button><button class="mb ${mode==='dir'?'on':''}" onclick="oMode('${m.id}','dir','${k}')">Direct</button></div></td>
-      <td>${mode==='raw'?`<input type="number" class="ei" value="${a}" placeholder="${m.aL}" style="width:100px" oninput="oSave('${m.id}','_a',this.value,'${k}');oRender()">`:'—'}</td>
-      <td>${mode==='raw'?`<input type="number" class="ei" value="${b}" placeholder="${m.bL}" style="width:100px" oninput="oSave('${m.id}','_b',this.value,'${k}');oRender()">`:'—'}</td>
-      <td>${mode==='dir'?`<input type="number" class="ei" value="${dir}" placeholder="${m.unt}" step="any" style="width:90px" oninput="oSave('${m.id}','_dir',this.value,'${k}');oRender()">`:'—'}</td>
-      <td style="font-size:10px;color:#64748B;white-space:nowrap">${m.form}</td>
+      <td>${mode==='raw'?`<input type="number" class="ei" value="${a}" placeholder="${m.aL}" style="width:110px" onclick="this.select()" onfocus="this.select()" oninput="oSave('${m.id}','_a',this.value,'${k}');oRender()">`:'—'}</td>
+      <td>${mode==='raw'?`<input type="number" class="ei" value="${b}" placeholder="${m.bL}" style="width:110px" onclick="this.select()" onfocus="this.select()" oninput="oSave('${m.id}','_b',this.value,'${k}');oRender()">`:'—'}</td>
+      <td>${mode==='dir'?`<input type="number" class="ei" value="${dir}" placeholder="${m.unt}" step="any" style="width:90px" onclick="this.select()" onfocus="this.select()" oninput="oSave('${m.id}','_dir',this.value,'${k}');oRender()">`:'—'}</td>
+      <td style="font-size:10px;color:#64748B;white-space:nowrap">${m.fn.toString().includes('100')?'(A÷B)×100':'A÷B'}</td>
       <td class="mn fw" style="color:${res!==null?'#0A1628':'#94A3B8'}">${res!==null?fmt(res,m.unt==='days'?1:1)+' '+m.unt:'—'}</td>
       <td>—</td>
     </tr>`;
   }).join('');
-  drawOChart();
+  oDrawChart();
 }
-function oMode(id,mode,k){sv(k,id+'_mode',mode);oRender();}
+function oMode(id,mode,k){sv(k,id+'_m',mode);oRender();}
 function oSave(id,f,v,k){sv(k,id+f,parseFloat(v)||0);}
-function getOResult(k,m){
-  const mode=gv(k,m.id+'_mode')||'raw';
+function togOutcome(id,v){const m=OMET.find(x=>x.id===id);if(m)m.sel=v;oDrawChart();}
+function selAllOutcomes(v){OMET.forEach(m=>m.sel=v);oRender();}
+
+function getORes(k,m){
+  const mode=gv(k,m.id+'_m')||'raw';
   const a=gv(k,m.id+'_a');const b=gv(k,m.id+'_b');const dir=gv(k,m.id+'_dir');
   if(mode==='raw'&&a&&b)return m.fn(parseFloat(a),parseFloat(b));
   if(mode==='dir'&&dir)return parseFloat(dir);
   return null;
 }
-function drawOChart(){
-  const filter=g('oChM')?.value||'all';
+
+function oDrawChart(){
+  const mode=g('oChMode')?.value||'current';
   const type=chartCT['oCTB']||'line';
-  const allKeys=[];
-  YEARS.forEach(yr=>PERIOD_OPTS['Q'].forEach(p=>{const k=getKey('outcomes',p,yr,'smc','ALL');if(OMET.some(m=>getOResult(k,m)!==null))allKeys.push({k,label:`${p.slice(0,2)} ${yr}`});}));
-  if(!allKeys.length)return;
-  const mets=filter==='all'?OMET:OMET.filter(m=>m.id===filter);
-  const ds=mets.map((m,i)=>({label:m.lbl.split(' ').slice(0,2).join(' '),color:COLS[i%COLS.length],data:allKeys.map(({k})=>getOResult(k,m)||0)}));
-  drawChart('oCV',ds,allKeys.map(x=>x.label),type,260);
+  const selM=OMET.filter(m=>m.sel);
+  if(!selM.length){drawNoData('oCV','Tick at least one metric');return;}
+  if(mode==='current'){
+    const k=pk('o','outcomes');
+    const ds=selM.map((m,i)=>({label:m.lbl,color:COLS[i%COLS.length],data:[getORes(k,m)||0]}));
+    const yr=g('oY')?.value||'2025';const p=g('oP')?.value||'Q1';
+    drawChart('oCV',ds,selM.map(m=>m.lbl.split(' ').slice(0,2).join(' ')),type,260);
+  }else{
+    // Trend across all Q periods
+    const allKeys=[];
+    YEARS.forEach(yr=>P_OPTS['Q'].forEach(p=>{const k=mk('outcomes',p,yr,'smc','ALL');if(selM.some(m=>getORes(k,m)!==null))allKeys.push({k,lbl:`${p.slice(0,2)} ${yr}`});}));
+    if(!allKeys.length){drawNoData('oCV','No data found');return;}
+    const ds=selM.map((m,i)=>({label:m.lbl.split(' ').slice(0,2).join(' '),color:COLS[i%COLS.length],data:allKeys.map(({k})=>getORes(k,m)||0)}));
+    drawChart('oCV',ds,allKeys.map(x=>x.lbl),type,260);
+  }
 }
 
-// ══════════════════════════════════════════════════════════════════════
+// ════════════════════════════════════════════════════════
 // AMR SECTION
-// ══════════════════════════════════════════════════════════════════════
-const RMET=[
-  {id:'ecoli',lbl:'E. coli — 3rd Gen Cephalosporin Resistance',kEl:'ak1'},
-  {id:'klebs',lbl:'Klebsiella — 3rd Gen Cephalosporin Resistance',kEl:'ak2'},
-  {id:'mrsa', lbl:'S. aureus — Methicillin Resistant (MRSA Rate)',kEl:'ak3'},
-];
-const IMET=[
-  {id:'mrsab',lbl:'MRSA Bacteraemia Rate',   form:'Events÷PD×1,000',   fn:per1k,  unt:'/1000PD',kEl:'ak4'},
-  {id:'mdro', lbl:'MDRO Incidence Rate',     form:'Events÷PD×10,000', fn:per10k, unt:'/10,000PD',kEl:'ak5'},
-  {id:'cdiff',lbl:'C. difficile (CDI) Rate', form:'Events÷PD×1,000',  fn:per1k,  unt:'/1000PD',kEl:'ak6'},
-];
+// ════════════════════════════════════════════════════════
 function aRender(){
-  const k=pkey('a','amr');
+  const k=pk('a','amr');
   // Resistance
-  const rTB=g('rTB');if(rTB)rTB.innerHTML=RMET.map(m=>{
-    const mode=gv(k,m.id+'_mode')||'raw';
+  const rTB=g('rTB');
+  if(rTB)rTB.innerHTML=RMET.map(m=>{
+    const mode=gv(k,m.id+'_m')||'raw';
     const a=gv(k,m.id+'_a')||'';const b=gv(k,m.id+'_b')||'';const dir=gv(k,m.id+'_dir')||'';
-    let res=null;if(mode==='raw'&&a&&b)res=pct(parseFloat(a),parseFloat(b));if(mode==='dir'&&dir)res=parseFloat(dir);
+    let res=null;if(mode==='raw'&&a&&b)res=parseFloat(a)/parseFloat(b)*100;if(mode==='dir'&&dir)res=parseFloat(dir);
     const el=g(m.kEl);if(el)el.textContent=res!==null?fmt(res,1)+'%':'—';
-    return`<tr><td class="fw">${m.lbl}</td>
+    return`<tr class="${m.sel?'sel-row':''}">
+      <td style="text-align:center"><input type="checkbox" class="ck" ${m.sel?'checked':''} onchange="togAmrR('${m.id}',this.checked)"></td>
+      <td class="fw">${m.lbl}</td>
       <td><div class="mtog"><button class="mb ${mode==='raw'?'on':''}" onclick="aMode('${m.id}','raw','${k}')">Raw</button><button class="mb ${mode==='dir'?'on':''}" onclick="aMode('${m.id}','dir','${k}')">Direct %</button></div></td>
-      <td>${mode==='raw'?`<input type="number" class="ei" value="${a}" placeholder="Resistant isolates" style="width:110px" oninput="aSave('${m.id}','_a',this.value,'${k}');aRender()">`:'—'}</td>
-      <td>${mode==='raw'?`<input type="number" class="ei" value="${b}" placeholder="Total isolates" style="width:110px" oninput="aSave('${m.id}','_b',this.value,'${k}');aRender()">`:'—'}</td>
-      <td>${mode==='dir'?`<input type="number" class="ei" value="${dir}" placeholder="%" step="any" style="width:80px" oninput="aSave('${m.id}','_dir',this.value,'${k}');aRender()">`:'—'}</td>
+      <td>${mode==='raw'?`<input type="number" class="ei" value="${a}" placeholder="Resistant" style="width:100px" onclick="this.select()" onfocus="this.select()" oninput="aSave('${m.id}','_a',this.value,'${k}');aRender()">`:'—'}</td>
+      <td>${mode==='raw'?`<input type="number" class="ei" value="${b}" placeholder="Total isolates" style="width:100px" onclick="this.select()" onfocus="this.select()" oninput="aSave('${m.id}','_b',this.value,'${k}');aRender()">`:'—'}</td>
+      <td>${mode==='dir'?`<input type="number" class="ei" value="${dir}" placeholder="%" step="any" style="width:80px" onclick="this.select()" onfocus="this.select()" oninput="aSave('${m.id}','_dir',this.value,'${k}');aRender()">`:'—'}</td>
       <td style="font-size:10px;color:#64748B">Resistant÷Total×100</td>
       <td class="mn fw" style="color:${res!==null?'#DC2626':'#94A3B8'}">${res!==null?fmt(res,1)+'%':'—'}</td>
       <td>—</td></tr>`;
   }).join('');
+
   // Infection
-  const iTB=g('iTB');if(iTB)iTB.innerHTML=IMET.map(m=>{
-    const mode=gv(k,m.id+'_mode')||'raw';
+  const iTB=g('iTB');
+  if(iTB)iTB.innerHTML=IMET.map(m=>{
+    const mode=gv(k,m.id+'_m')||'raw';
     const a=gv(k,m.id+'_a')||'';const b=gv(k,m.id+'_b')||'';const dir=gv(k,m.id+'_dir')||'';
     let res=null;if(mode==='raw'&&a&&b)res=m.fn(parseFloat(a),parseFloat(b));if(mode==='dir'&&dir)res=parseFloat(dir);
     const el=g(m.kEl);if(el)el.textContent=res!==null?fmt(res,2):'—';
-    return`<tr><td class="fw">${m.lbl}</td>
+    return`<tr class="${m.sel?'sel-row':''}">
+      <td style="text-align:center"><input type="checkbox" class="ck" ${m.sel?'checked':''} onchange="togAmrI('${m.id}',this.checked)"></td>
+      <td class="fw">${m.lbl}</td>
       <td><div class="mtog"><button class="mb ${mode==='raw'?'on':''}" onclick="aMode('${m.id}','raw','${k}')">Raw</button><button class="mb ${mode==='dir'?'on':''}" onclick="aMode('${m.id}','dir','${k}')">Direct</button></div></td>
-      <td>${mode==='raw'?`<input type="number" class="ei" value="${a}" placeholder="Events" style="width:100px" oninput="aSave('${m.id}','_a',this.value,'${k}');aRender()">`:'—'}</td>
-      <td>${mode==='raw'?`<input type="number" class="ei" value="${b}" placeholder="Patient-Days" style="width:110px" oninput="aSave('${m.id}','_b',this.value,'${k}');aRender()">`:'—'}</td>
-      <td>${mode==='dir'?`<input type="number" class="ei" value="${dir}" placeholder="${m.unt}" step="any" style="width:90px" oninput="aSave('${m.id}','_dir',this.value,'${k}');aRender()">`:'—'}</td>
-      <td style="font-size:10px;color:#64748B;white-space:nowrap">${m.form}</td>
+      <td>${mode==='raw'?`<input type="number" class="ei" value="${a}" placeholder="Events" style="width:100px" onclick="this.select()" onfocus="this.select()" oninput="aSave('${m.id}','_a',this.value,'${k}');aRender()">`:'—'}</td>
+      <td>${mode==='raw'?`<input type="number" class="ei" value="${b}" placeholder="Patient-Days" style="width:110px" onclick="this.select()" onfocus="this.select()" oninput="aSave('${m.id}','_b',this.value,'${k}');aRender()">`:'—'}</td>
+      <td>${mode==='dir'?`<input type="number" class="ei" value="${dir}" placeholder="${m.unt}" step="any" style="width:90px" onclick="this.select()" onfocus="this.select()" oninput="aSave('${m.id}','_dir',this.value,'${k}');aRender()">`:'—'}</td>
+      <td style="font-size:10px;color:#64748B;white-space:nowrap">${m.fn.toString().includes('10000')?'Events÷PD×10,000':'Events÷PD×1,000'}</td>
       <td class="mn fw" style="color:${res!==null?'#DC2626':'#94A3B8'}">${res!==null?fmt(res,2)+' '+m.unt:'—'}</td>
       <td>—</td></tr>`;
   }).join('');
-  // SSI
-  const ssiEl=g('ssiATB');if(ssiEl){
+
+  // SSI aggregated
+  const ssiATB=g('ssiATB');
+  if(ssiATB){
     const ev=gv(k,'ssi_ev')||'';const pr=gv(k,'ssi_pr')||'';
-    const rate=ev&&pr?pct(parseFloat(ev),parseFloat(pr)):null;
+    const rate=ev&&pr?parseFloat(ev)/parseFloat(pr)*100:null;
     const el=g('ak7');if(el)el.textContent=rate!==null?fmt(rate,2)+'%':'—';
-    ssiEl.innerHTML=`<tr>
+    ssiATB.innerHTML=`<tr>
+      <td style="text-align:center"><input type="checkbox" class="ck" checked></td>
       <td class="fw">SSI Rate (Overall)</td>
-      <td><input type="number" class="ei" value="${ev}" placeholder="SSI events" style="width:100px" oninput="aSave('ssi','_ev',this.value,'${k}');aRender()"></td>
-      <td><input type="number" class="ei" value="${pr}" placeholder="Total procedures" style="width:120px" oninput="aSave('ssi','_pr',this.value,'${k}');aRender()"></td>
+      <td><input type="number" class="ei" value="${ev}" placeholder="SSI events" style="width:100px" onclick="this.select()" onfocus="this.select()" oninput="sv('${k}','ssi_ev',this.value);aRender()"></td>
+      <td><input type="number" class="ei" value="${pr}" placeholder="Total procedures" style="width:110px" onclick="this.select()" onfocus="this.select()" oninput="sv('${k}','ssi_pr',this.value);aRender()"></td>
+      <td>—</td>
       <td class="mn fw" style="color:${rate!==null?'#D97706':'#94A3B8'}">${rate!==null?fmt(rate,2)+'%':'—'}</td>
       <td>${rate!==null?(rate<2?'<span class="tag tg">Low</span>':rate<5?'<span class="tag ta">Monitor</span>':'<span class="tag tr">High</span>'):'<span class="tag tnd">No data</span>'}</td>
     </tr>`;
   }
+
   // SSI by type
-  const ssiTB=g('ssiTTB');if(ssiTB){
+  const ssiTTB=g('ssiTTB');
+  if(ssiTTB){
     let totE=0,totP=0;
-    ssiTB.innerHTML=SURG_TYPES.map(st=>{
+    ssiTTB.innerHTML=SURG_TYPES.map(st=>{
       const sid=st.replace(/[^a-z0-9]/gi,'_');
       const ev=gv(k,'ssi_'+sid+'_e')||'';const pr=gv(k,'ssi_'+sid+'_p')||'';
-      const rate=ev&&pr?pct(parseFloat(ev),parseFloat(pr)):null;
+      const dirP=gv(k,'ssi_'+sid+'_dir')||'';
+      let rate=null;
+      if(ev&&pr)rate=parseFloat(ev)/parseFloat(pr)*100;
+      else if(dirP)rate=parseFloat(dirP);
       if(ev)totE+=parseFloat(ev);if(pr)totP+=parseFloat(pr);
       return`<tr>
         <td class="fw" style="font-size:11px">${st}</td>
-        <td><input type="number" class="ei" value="${ev}" placeholder="0" style="width:75px" oninput="sv('${k}','ssi_${sid}_e',this.value);aRender()"></td>
-        <td><input type="number" class="ei" value="${pr}" placeholder="0" style="width:75px" oninput="sv('${k}','ssi_${sid}_p',this.value);aRender()"></td>
+        <td><input type="number" class="ei" value="${ev}" placeholder="0" style="width:70px" onclick="this.select()" onfocus="this.select()" oninput="sv('${k}','ssi_${sid}_e',this.value);aRender()"></td>
+        <td><input type="number" class="ei" value="${pr}" placeholder="0" style="width:70px" onclick="this.select()" onfocus="this.select()" oninput="sv('${k}','ssi_${sid}_p',this.value);aRender()"></td>
+        <td><input type="number" class="ei" value="${dirP}" placeholder="%" step="any" style="width:65px" onclick="this.select()" onfocus="this.select()" oninput="sv('${k}','ssi_${sid}_dir',this.value);aRender()"></td>
         <td class="mn fw" style="color:${rate!==null?'#D97706':'#94A3B8'}">${rate!==null?fmt(rate,2)+'%':'—'}</td>
         <td>${rate!==null?(rate<2?'<span class="tag tg">Low</span>':rate<5?'<span class="tag ta">Monitor</span>':'<span class="tag tr">High</span>'):'—'}</td>
       </tr>`;
     }).join('');
-    const totR=totE&&totP?pct(totE,totP):null;
-    ssiTB.innerHTML+=`<tr class="sr"><td>TOTAL (Auto-calculated)</td><td class="mn">${fN(totE)}</td><td class="mn">${fN(totP)}</td><td class="mn">${totR!==null?fmt(totR,2)+'%':'—'}</td><td></td></tr>`;
+    const totR=totE&&totP?totE/totP*100:null;
+    ssiTTB.innerHTML+=`<tr class="sum-row"><td>TOTAL (Auto-calculated)</td><td class="mn">${fN(totE)}</td><td class="mn">${fN(totP)}</td><td>—</td><td class="mn">${totR!==null?fmt(totR,2)+'%':'—'}</td><td></td></tr>`;
   }
-  drawAChart();
+  aDrawChart();
 }
-function aMode(id,mode,k){sv(k,id+'_mode',mode);aRender();}
+
+function aMode(id,mode,k){sv(k,id+'_m',mode);aRender();}
 function aSave(id,f,v,k){sv(k,id+f,parseFloat(v)||0);}
 function setAmrSec(sec,el){
-  amrSec=sec;
-  document.querySelectorAll('#sec-amr .mb').forEach(b=>b.classList.remove('on'));el.classList.add('on');
-  g('amrR').style.display=sec==='R'?'block':'none';
-  g('amrI').style.display=sec==='I'?'block':'none';
+  amrSec=sec;document.querySelectorAll('#sec-amr .mb').forEach(b=>b.classList.remove('on'));el.classList.add('on');
+  g('amrR').style.display=sec==='R'?'block':'none';g('amrI').style.display=sec==='I'?'block':'none';
 }
-function drawAChart(){
+function togAmrR(id,v){const m=RMET.find(x=>x.id===id);if(m)m.sel=v;aDrawChart();}
+function togAmrI(id,v){const m=IMET.find(x=>x.id===id);if(m)m.sel=v;aDrawChart();}
+function selAllAmr(v){RMET.forEach(m=>m.sel=v);IMET.forEach(m=>m.sel=v);aRender();}
+function selAllInf(v){IMET.forEach(m=>m.sel=v);aRender();}
+
+function aDrawChart(){
   const type=chartCT['aCTB']||'bar';
   if(amrSec==='R'){
+    const selM=RMET.filter(m=>m.sel);if(!selM.length){drawNoData('aCV','Tick metrics above');return;}
     const allKeys=[];
-    YEARS.forEach(yr=>{const k=getKey('amr','Full Year',yr,'smc','ALL');if(RMET.some(m=>{const a=gv(k,m.id+'_a');const b=gv(k,m.id+'_b');const d=gv(k,m.id+'_dir');return(a&&b)||d;}))allKeys.push({k,label:yr});});
-    if(!allKeys.length)return;
-    const ds=RMET.map((m,i)=>({label:m.id.toUpperCase(),color:COLS[i%COLS.length],data:allKeys.map(({k})=>{const a=gv(k,m.id+'_a');const b=gv(k,m.id+'_b');const d=gv(k,m.id+'_dir');if(a&&b)return pct(parseFloat(a),parseFloat(b))||0;if(d)return parseFloat(d)||0;return 0;})}));
-    drawChart('aCV',ds,allKeys.map(x=>x.label),type,250);
+    YEARS.forEach(yr=>{const k=mk('amr','Full Year',yr,'smc','ALL');if(selM.some(m=>{const a=gv(k,m.id+'_a');const b=gv(k,m.id+'_b');const d=gv(k,m.id+'_dir');return(a&&b)||d;}))allKeys.push({k,lbl:yr});});
+    if(!allKeys.length){drawNoData('aCV','No resistance data entered yet');return;}
+    const ds=selM.map((m,i)=>({label:m.id.toUpperCase(),color:COLS[i%COLS.length],data:allKeys.map(({k})=>{const a=gv(k,m.id+'_a');const b=gv(k,m.id+'_b');const d=gv(k,m.id+'_dir');if(a&&b)return parseFloat(a)/parseFloat(b)*100;if(d)return parseFloat(d);return 0;})}));
+    drawChart('aCV',ds,allKeys.map(x=>x.lbl),type,250);
   }else{
+    const selM=IMET.filter(m=>m.sel);if(!selM.length){drawNoData('aCV','Tick metrics above');return;}
     const allKeys=[];
-    YEARS.forEach(yr=>PERIOD_OPTS['Q'].forEach(p=>{const k=getKey('amr',p,yr,'smc','ALL');if(IMET.some(m=>{const a=gv(k,m.id+'_a');const b=gv(k,m.id+'_b');const d=gv(k,m.id+'_dir');return(a&&b)||d;}))allKeys.push({k,label:`${p.slice(0,2)} ${yr}`});}));
-    if(!allKeys.length)return;
-    const ds=IMET.map((m,i)=>({label:m.id,color:COLS[i%COLS.length],data:allKeys.map(({k})=>{const a=gv(k,m.id+'_a');const b=gv(k,m.id+'_b');const d=gv(k,m.id+'_dir');if(a&&b)return m.fn(parseFloat(a),parseFloat(b))||0;if(d)return parseFloat(d)||0;return 0;})}));
-    drawChart('aCV',ds,allKeys.map(x=>x.label),type,250);
+    YEARS.forEach(yr=>P_OPTS['Q'].forEach(p=>{const k=mk('amr',p,yr,'smc','ALL');if(selM.some(m=>{const a=gv(k,m.id+'_a');const b=gv(k,m.id+'_b');const d=gv(k,m.id+'_dir');return(a&&b)||d;}))allKeys.push({k,lbl:`${p.slice(0,2)} ${yr}`});}));
+    if(!allKeys.length){drawNoData('aCV','No infection data entered yet');return;}
+    const ds=selM.map((m,i)=>({label:m.lbl,color:COLS[i%COLS.length],data:allKeys.map(({k})=>{const a=gv(k,m.id+'_a');const b=gv(k,m.id+'_b');const d=gv(k,m.id+'_dir');if(a&&b)return m.fn(parseFloat(a),parseFloat(b))||0;if(d)return parseFloat(d)||0;return 0;})}));
+    drawChart('aCV',ds,allKeys.map(x=>x.lbl),type,250);
   }
 }
 
-// ══════════════════════════════════════════════════════════════════════
-// PROCESS SECTION
-// ══════════════════════════════════════════════════════════════════════
-const SPMET=[
-  {id:'timing',lbl:'Antibiotic start within 60 min pre-surgery',kEl:'pk1',fillEl:'pk1f',statEl:'pk1s',col:'#059669'},
-  {id:'choice',lbl:'Correct antibiotic selection per guideline',kEl:'pk2',fillEl:'pk2f',statEl:'pk2s',col:'#DC2626'},
-  {id:'stop',  lbl:'Antibiotic stopped within 24h post-op',kEl:'pk3',fillEl:'pk3f',statEl:'pk3s',col:'#0891B2'},
-];
-const PROCMET=[
-  {id:'asp_acc',  lbl:'ASP Interventions Accepted',          form:'Accepted÷Recommended×100', aL:'Accepted',       bL:'Recommended'},
-  {id:'clin_comp',lbl:'Clinical Guideline Compliance',        form:'Compliant÷Total×100',       aL:'Compliant cases',bL:'Total treated'},
-  {id:'approp',   lbl:'Antimicrobial Appropriateness',        form:'Appropriate÷Total×100',     aL:'Appropriate',    bL:'Total evaluated'},
-  {id:'restr_pct',lbl:'% Restricted Antimicrobial Use',       form:'Restricted÷All Abx×100',    aL:'Restricted used',bL:'All Abx used'},
-];
+// ════════════════════════════════════════════════════════
+// SURGICAL PROPHYLAXIS
+// ════════════════════════════════════════════════════════
 function pRender(){
-  const k=pkey('p','process');
-  // Surgical prophylaxis aggregated
+  const k=pk('p','process');
+  // Aggregated
   const spATB=g('spATB');
   if(spATB)spATB.innerHTML=SPMET.map(m=>{
-    const mode=gv(k,m.id+'_mode')||'raw';
+    const mode=gv(k,m.id+'_m')||'raw';
     const a=gv(k,m.id+'_a')||'';const b=gv(k,m.id+'_b')||'';const dir=gv(k,m.id+'_dir')||'';
-    let res=null;if(mode==='raw'&&a&&b)res=pct(parseFloat(a),parseFloat(b));if(mode==='dir'&&dir)res=parseFloat(dir);
+    let res=null;if(mode==='raw'&&a&&b)res=parseFloat(a)/parseFloat(b)*100;if(mode==='dir'&&dir)res=parseFloat(dir);
     const met=res!==null&&res>=80;
-    const el=g(m.kEl);if(el){el.textContent=res!==null?fmt(res,1)+'%':'—';el.style.color=res!==null?(met?'#059669':'#DC2626'):'';}
-    const fEl=g(m.fillEl);if(fEl){fEl.style.width=(res||0)+'%';fEl.style.background=res>=80?'#059669':'#DC2626';}
-    const sEl=g(m.statEl);if(sEl){sEl.textContent=res!==null?(met?'✓ Above 80% target':'✗ Below 80% target'):'No data entered';sEl.style.color=res!==null?(met?'#059669':'#DC2626'):'#94A3B8';}
+    const pkEl=g(m.pk);if(pkEl){pkEl.textContent=res!==null?fmt(res,1)+'%':'—';pkEl.style.color=res!==null?(met?m.col:'#DC2626'):'';}
+    const pfEl=g(m.pf);if(pfEl){pfEl.style.width=(Math.min(res||0,100))+'%';pfEl.style.background=res>=80?m.col:'#DC2626';}
+    const psEl=g(m.ps);if(psEl){psEl.textContent=res!==null?(met?'✓ Above 80% target':'✗ Below 80% target'):'No data';psEl.style.color=res!==null?(met?m.col:'#DC2626'):'#94A3B8';}
     return`<tr>
       <td class="fw" style="font-size:11.5px">${m.lbl}</td>
       <td><div class="mtog"><button class="mb ${mode==='raw'?'on':''}" onclick="spMode('${m.id}','raw','${k}')">Raw</button><button class="mb ${mode==='dir'?'on':''}" onclick="spMode('${m.id}','dir','${k}')">Direct %</button></div></td>
-      <td>${mode==='raw'?`<input type="number" class="ei" value="${a}" placeholder="Compliant" style="width:90px" oninput="spSave('${m.id}','_a',this.value,'${k}');pRender()">`:'—'}</td>
-      <td>${mode==='raw'?`<input type="number" class="ei" value="${b}" placeholder="Total patients" style="width:100px" oninput="spSave('${m.id}','_b',this.value,'${k}');pRender()">`:'—'}</td>
-      <td>${mode==='dir'?`<input type="number" class="ei" value="${dir}" placeholder="%" step="any" style="width:80px" oninput="spSave('${m.id}','_dir',this.value,'${k}');pRender()">`:'—'}</td>
+      <td>${mode==='raw'?`<input type="number" class="ei" value="${a}" placeholder="Compliant" style="width:90px" onclick="this.select()" onfocus="this.select()" oninput="spSave('${m.id}','_a',this.value,'${k}');pRender()">`:'—'}</td>
+      <td>${mode==='raw'?`<input type="number" class="ei" value="${b}" placeholder="Total patients" style="width:100px" onclick="this.select()" onfocus="this.select()" oninput="spSave('${m.id}','_b',this.value,'${k}');pRender()">`:'—'}</td>
+      <td>${mode==='dir'?`<input type="number" class="ei" value="${dir}" placeholder="%" step="any" style="width:80px" onclick="this.select()" onfocus="this.select()" oninput="spSave('${m.id}','_dir',this.value,'${k}');pRender()">`:'—'}</td>
       <td style="font-size:10px;color:#64748B">Compliant÷Total×100</td>
-      <td class="mn fw" style="color:${res!==null?(met?'#059669':'#DC2626'):'#94A3B8'}">${res!==null?fmt(res,1)+'%':'—'}</td>
+      <td class="mn fw" style="color:${res!==null?(met?m.col:'#DC2626'):'#94A3B8'}">${res!==null?fmt(res,1)+'%':'—'}</td>
       <td class="mn">≥80%</td>
       <td>${res!==null?(met?'<span class="tag tg">✓ Met</span>':'<span class="tag tr">✗ Not Met</span>'):'<span class="tag tnd">No data</span>'}</td>
     </tr>`;
   }).join('');
-  // SP by surgery type
+
+  // By surgery type
   const spTTB=g('spTTB');
   if(spTTB){
     let ts=[0,0],cs=[0,0],ss=[0,0];
     spTTB.innerHTML=SURG_TYPES.map(st=>{
       const sid=st.replace(/[^a-z0-9]/gi,'_');
-      const tc=gv(k,'sp_'+sid+'_tc')||'',tt=gv(k,'sp_'+sid+'_tt')||'';
-      const cc=gv(k,'sp_'+sid+'_cc')||'',ct=gv(k,'sp_'+sid+'_ct')||'';
-      const sc=gv(k,'sp_'+sid+'_sc')||'',st2=gv(k,'sp_'+sid+'_st')||'';
-      const tp=tc&&tt?pct(parseFloat(tc),parseFloat(tt)):null;
-      const cp=cc&&ct?pct(parseFloat(cc),parseFloat(ct)):null;
-      const sp=sc&&st2?pct(parseFloat(sc),parseFloat(st2)):null;
+      // Each row has its own mode per parameter
+      const tm=gv(k,'sp_'+sid+'_tm')||'raw';
+      const tc=gv(k,'sp_'+sid+'_tc')||'',tt=gv(k,'sp_'+sid+'_tt')||'',td=gv(k,'sp_'+sid+'_tdir')||'';
+      const cm=gv(k,'sp_'+sid+'_cm')||'raw';
+      const cc=gv(k,'sp_'+sid+'_cc')||'',ct=gv(k,'sp_'+sid+'_ct')||'',cd=gv(k,'sp_'+sid+'_cdir')||'';
+      const sm=gv(k,'sp_'+sid+'_sm')||'raw';
+      const sc=gv(k,'sp_'+sid+'_sc')||'',st2=gv(k,'sp_'+sid+'_st')||'',sd=gv(k,'sp_'+sid+'_sdir')||'';
+      let tp=null,cp=null,sp=null;
+      if(tm==='raw'&&tc&&tt)tp=parseFloat(tc)/parseFloat(tt)*100;else if(td)tp=parseFloat(td);
+      if(cm==='raw'&&cc&&ct)cp=parseFloat(cc)/parseFloat(ct)*100;else if(cd)cp=parseFloat(cd);
+      if(sm==='raw'&&sc&&st2)sp=parseFloat(sc)/parseFloat(st2)*100;else if(sd)sp=parseFloat(sd);
       if(tc)ts[0]+=parseFloat(tc);if(tt)ts[1]+=parseFloat(tt);
       if(cc)cs[0]+=parseFloat(cc);if(ct)cs[1]+=parseFloat(ct);
       if(sc)ss[0]+=parseFloat(sc);if(st2)ss[1]+=parseFloat(st2);
-      const inp=(id)=>`<input type="number" class="ei" value="${gv(k,'sp_'+sid+'_'+id)||''}" placeholder="0" style="width:62px" oninput="sv('${k}','sp_${sid}_${id}',this.value);pRender()">`;
       const pr=v=>v!==null?`<span style="font-weight:700;color:${v>=80?'#059669':'#DC2626'}">${fmt(v,1)}%</span>`:'—';
-      return`<tr><td class="fw" style="font-size:11px">${st}</td>${inp('tc')}${inp('tt')}${inp('cc')}${inp('ct')}${inp('sc')}${inp('st')}<td>${pr(tp)}</td><td>${pr(cp)}</td><td>${pr(sp)}</td></tr>`;
+      const inp=(field,val,phold)=>`<input type="number" class="ei" value="${val}" placeholder="${phold}" style="width:60px" onclick="this.select()" onfocus="this.select()" oninput="sv('${k}','sp_${sid}_${field}',this.value);pRender()">`;
+      const modeBtn=(param,cur)=>`<div style="display:flex;gap:2px"><button style="padding:2px 5px;border-radius:4px;font-size:9px;cursor:pointer;border:1px solid #CBD5E1;background:${cur==='raw'?'#0A1628':'#fff'};color:${cur==='raw'?'#fff':'#475569'}" onclick="sv('${k}','sp_${sid}_${param}m','raw');pRender()">Raw</button><button style="padding:2px 5px;border-radius:4px;font-size:9px;cursor:pointer;border:1px solid #CBD5E1;background:${cur==='dir'?'#0A1628':'#fff'};color:${cur==='dir'?'#fff':'#475569'}" onclick="sv('${k}','sp_${sid}_${param}m','dir');pRender()">%</button></div>`;
+      return`<tr>
+        <td class="fw" style="font-size:11px">${st}</td>
+        <td style="min-width:80px">${modeBtn('t',tm)}</td>
+        <td>${tm==='raw'?inp('tc',tc,'Comp'):'—'}</td>
+        <td>${tm==='raw'?inp('tt',tt,'Total'):`<input type="number" class="ei" value="${td}" placeholder="%" style="width:60px" onclick="this.select()" onfocus="this.select()" oninput="sv('${k}','sp_${sid}_tdir',this.value);pRender()">`}</td>
+        <td>${cm==='raw'?inp('cc',cc,'Comp'):'—'}</td>
+        <td>${cm==='raw'?inp('ct',ct,'Total'):`<input type="number" class="ei" value="${cd}" placeholder="%" style="width:60px" onclick="this.select()" onfocus="this.select()" oninput="sv('${k}','sp_${sid}_cdir',this.value);pRender()">`}</td>
+        <td>${sm==='raw'?inp('sc',sc,'Comp'):'—'}</td>
+        <td>${sm==='raw'?inp('st',st2,'Total'):`<input type="number" class="ei" value="${sd}" placeholder="%" style="width:60px" onclick="this.select()" onfocus="this.select()" oninput="sv('${k}','sp_${sid}_sdir',this.value);pRender()">`}</td>
+        <td>${pr(tp)}</td><td>${pr(cp)}</td><td>${pr(sp)}</td>
+      </tr>`;
     }).join('');
-    const tT=ts[1]>0?pct(ts[0],ts[1]):null,cT=cs[1]>0?pct(cs[0],cs[1]):null,sT=ss[1]>0?pct(ss[0],ss[1]):null;
-    spTTB.innerHTML+=`<tr class="sr"><td>TOTAL (Auto-calc)</td><td class="mn">${fN(ts[0])}</td><td class="mn">${fN(ts[1])}</td><td class="mn">${fN(cs[0])}</td><td class="mn">${fN(cs[1])}</td><td class="mn">${fN(ss[0])}</td><td class="mn">${fN(ss[1])}</td>
+    const tT=ts[1]>0?ts[0]/ts[1]*100:null,cT=cs[1]>0?cs[0]/cs[1]*100:null,sT=ss[1]>0?ss[0]/ss[1]*100:null;
+    spTTB.innerHTML+=`<tr class="sum-row"><td>TOTAL (Auto-calc)</td><td></td><td class="mn">${fN(ts[0])}</td><td class="mn">${fN(ts[1])}</td><td class="mn">${fN(cs[0])}</td><td class="mn">${fN(cs[1])}</td><td class="mn">${fN(ss[0])}</td><td class="mn">${fN(ss[1])}</td>
       <td class="mn" style="color:${tT>=80?'#059669':'#DC2626'}">${tT!==null?fmt(tT,1)+'%':'—'}</td>
       <td class="mn" style="color:${cT>=80?'#059669':'#DC2626'}">${cT!==null?fmt(cT,1)+'%':'—'}</td>
       <td class="mn" style="color:${sT>=80?'#059669':'#DC2626'}">${sT!==null?fmt(sT,1)+'%':'—'}</td></tr>`;
   }
-  // Other process
-  const procOTB=g('procOTB');
-  if(procOTB)procOTB.innerHTML=PROCMET.map(m=>{
-    const mode=gv(k,m.id+'_mode')||'raw';
-    const a=gv(k,m.id+'_a')||'';const b=gv(k,m.id+'_b')||'';const dir=gv(k,m.id+'_dir')||'';
-    let res=null;if(mode==='raw'&&a&&b)res=pct(parseFloat(a),parseFloat(b));if(mode==='dir'&&dir)res=parseFloat(dir);
-    return`<tr>
-      <td class="fw" style="font-size:11.5px">${m.lbl}</td>
-      <td><div class="mtog"><button class="mb ${mode==='raw'?'on':''}" onclick="poMode('${m.id}','raw','${k}')">Raw</button><button class="mb ${mode==='dir'?'on':''}" onclick="poMode('${m.id}','dir','${k}')">Direct %</button></div></td>
-      <td>${mode==='raw'?`<input type="number" class="ei" value="${a}" placeholder="${m.aL}" style="width:100px" oninput="poSave('${m.id}','_a',this.value,'${k}');pRender()">`:'—'}</td>
-      <td>${mode==='raw'?`<input type="number" class="ei" value="${b}" placeholder="${m.bL}" style="width:100px" oninput="poSave('${m.id}','_b',this.value,'${k}');pRender()">`:'—'}</td>
-      <td>${mode==='dir'?`<input type="number" class="ei" value="${dir}" placeholder="%" step="any" style="width:80px" oninput="poSave('${m.id}','_dir',this.value,'${k}');pRender()">`:'—'}</td>
-      <td style="font-size:10px;color:#64748B;white-space:nowrap">${m.form}</td>
-      <td class="mn fw" style="color:${res!==null?'#0A1628':'#94A3B8'}">${res!==null?fmt(res,1)+'%':'—'}</td>
-      <td>—</td>
-    </tr>`;
-  }).join('');
-  drawPChart();
+  pDrawChart();
 }
-function spMode(id,mode,k){sv(k,id+'_mode',mode);pRender();}
+function spMode(id,mode,k){sv(k,id+'_m',mode);pRender();}
 function spSave(id,f,v,k){sv(k,id+f,parseFloat(v)||0);}
-function poMode(id,mode,k){sv(k,id+'_mode',mode);pRender();}
-function poSave(id,f,v,k){sv(k,id+f,parseFloat(v)||0);}
-function drawPChart(){
+
+function pDrawChart(){
   const type=chartCT['pCTB']||'bar';
   const allKeys=[];
-  YEARS.forEach(yr=>PERIOD_OPTS['Q'].forEach(p=>{const k=getKey('process',p,yr,'smc','ALL');if(SPMET.some(m=>{const a=gv(k,m.id+'_a');const b=gv(k,m.id+'_b');const d=gv(k,m.id+'_dir');return(a&&b)||d;}))allKeys.push({k,label:`${p.slice(0,2)} ${yr}`});}));
+  YEARS.forEach(yr=>P_OPTS['Q'].forEach(p=>{
+    const k=mk('process',p,yr,'smc','ALL');
+    if(SPMET.some(m=>{const a=gv(k,m.id+'_a');const b=gv(k,m.id+'_b');const d=gv(k,m.id+'_dir');return(a&&b)||d;}))allKeys.push({k,lbl:`${p.slice(0,2)} ${yr}`});
+  }));
   if(!allKeys.length)return;
   const ds=SPMET.map((m,i)=>({label:m.lbl.split(' ').slice(0,2).join(' '),color:[COLS[2],COLS[4],COLS[0]][i],
-    data:allKeys.map(({k})=>{const a=gv(k,m.id+'_a');const b=gv(k,m.id+'_b');const d=gv(k,m.id+'_dir');if(a&&b)return pct(parseFloat(a),parseFloat(b))||0;if(d)return parseFloat(d)||0;return 0;})}));
-  drawChart('pCV',ds,allKeys.map(x=>x.label),type,250);
+    data:allKeys.map(({k})=>{const a=gv(k,m.id+'_a');const b=gv(k,m.id+'_b');const d=gv(k,m.id+'_dir');if(a&&b)return parseFloat(a)/parseFloat(b)*100;if(d)return parseFloat(d);return 0;})}));
+  drawChart('pCV',ds,allKeys.map(x=>x.lbl),type,250);
 }
 
-// ══════════════════════════════════════════════════════════════════════
-// ANALYSIS SECTION
-// ══════════════════════════════════════════════════════════════════════
-const AN_METRICS={
-  consumption:[
-    {id:'ddd_mem',lbl:'Meropenem DDD/1000PD',fn:(k)=>{const pd=getPDFromKey(k,'c');const v=gv(k,'mem_v')||0;const s=gv(k,'mem_s')||500;return pd?(v*s/3000/pd*1000):null;}},
-    {id:'ddd_colist',lbl:'Colistin DDD/1000PD',fn:(k)=>{const pd=getPDFromKey(k,'c');const v=gv(k,'colist_v')||0;return pd?(v*1/9/pd*1000):null;}},
-    {id:'ddd_lzdIV',lbl:'Linezolid IV DDD/1000PD',fn:(k)=>{const pd=getPDFromKey(k,'c');const v=gv(k,'lzdIV_v')||0;return pd?(v*600/1200/pd*1000):null;}},
-    {id:'ddd_tzp',lbl:'TZP DDD/1000PD',fn:(k)=>{const pd=getPDFromKey(k,'c');const v=gv(k,'tzp_v')||0;return pd?(v*4500/14000/pd*1000):null;}},
-    {id:'ddd_cazAvi',lbl:'CAZ-AVI DDD/1000PD',fn:(k)=>{const pd=getPDFromKey(k,'c');const v=gv(k,'cazAvi_v')||0;return pd?(v*2000/6000/pd*1000):null;}},
-    {id:'ddd_tgc',lbl:'Tigecycline DDD/1000PD',fn:(k)=>{const pd=getPDFromKey(k,'c');const v=gv(k,'tgc_v')||0;return pd?(v*50/100/pd*1000):null;}},
-    {id:'ddd_anid',lbl:'Anidulafungin DDD/1000PD',fn:(k)=>{const pd=getPDFromKey(k,'c');const v=gv(k,'anid_v')||0;return pd?(v*100/100/pd*1000):null;}},
-    {id:'restricted_total',lbl:'Total Restricted DDD/1000PD',fn:(k)=>{
-      const pd=getPDFromKey(k,'c');if(!pd)return null;
-      return DRUGS.filter(d=>d.ty==='restricted').reduce((s,d)=>{const v=gv(k,d.id+'_v')||0;const str=gv(k,d.id+'_s')||d.str;return s+(v*str/d.ddd/pd*1000);},0)||null;
-    }},
-    {id:'dot_mem',lbl:'Meropenem DOT/1000PD',fn:(k)=>{const pd=getPDFromKey(k,'c');const dot=gv(k,'mem_dot')||0;return pd&&dot?(dot/pd*1000):null;}},
-  ],
-  outcomes:[
-    {id:'los',lbl:'Hospital LOS (days)',fn:(k)=>getOResult(k,OMET[0])},
-    {id:'mort',lbl:'Hospital Mortality (%)',fn:(k)=>getOResult(k,OMET[1])},
-    {id:'sep',lbl:'Sepsis Mortality (%)',fn:(k)=>getOResult(k,OMET[2])},
-    {id:'read',lbl:'30-Day Readmission (%)',fn:(k)=>getOResult(k,OMET[3])},
-  ],
-  amr:[
-    {id:'ecoli',lbl:'E. coli 3rd Gen Resistance (%)',fn:(k)=>{const a=gv(k,'ecoli_a');const b=gv(k,'ecoli_b');const d=gv(k,'ecoli_dir');if(a&&b)return pct(parseFloat(a),parseFloat(b));if(d)return parseFloat(d);return null;}},
-    {id:'klebs',lbl:'Klebsiella Resistance (%)',fn:(k)=>{const a=gv(k,'klebs_a');const b=gv(k,'klebs_b');const d=gv(k,'klebs_dir');if(a&&b)return pct(parseFloat(a),parseFloat(b));if(d)return parseFloat(d);return null;}},
-    {id:'mrsa',lbl:'MRSA Rate (%)',fn:(k)=>{const a=gv(k,'mrsa_a');const b=gv(k,'mrsa_b');const d=gv(k,'mrsa_dir');if(a&&b)return pct(parseFloat(a),parseFloat(b));if(d)return parseFloat(d);return null;}},
-    {id:'mrsab',lbl:'MRSA Bacteraemia /1000PD',fn:(k)=>{const a=gv(k,'mrsab_a');const b=gv(k,'mrsab_b');const d=gv(k,'mrsab_dir');if(a&&b)return per1k(parseFloat(a),parseFloat(b));if(d)return parseFloat(d);return null;}},
-    {id:'cdiff',lbl:'C. diff Rate /1000PD',fn:(k)=>{const a=gv(k,'cdiff_a');const b=gv(k,'cdiff_b');const d=gv(k,'cdiff_dir');if(a&&b)return per1k(parseFloat(a),parseFloat(b));if(d)return parseFloat(d);return null;}},
-    {id:'mdro',lbl:'MDRO Incidence /10,000PD',fn:(k)=>{const a=gv(k,'mdro_a');const b=gv(k,'mdro_b');const d=gv(k,'mdro_dir');if(a&&b)return per10k(parseFloat(a),parseFloat(b));if(d)return parseFloat(d);return null;}},
-  ],
-  process:[
-    {id:'timing',lbl:'Timing Compliance (%)',fn:(k)=>{const a=gv(k,'timing_a');const b=gv(k,'timing_b');const d=gv(k,'timing_dir');if(a&&b)return pct(parseFloat(a),parseFloat(b));if(d)return parseFloat(d);return null;}},
-    {id:'choice',lbl:'Choice Compliance (%)',fn:(k)=>{const a=gv(k,'choice_a');const b=gv(k,'choice_b');const d=gv(k,'choice_dir');if(a&&b)return pct(parseFloat(a),parseFloat(b));if(d)return parseFloat(d);return null;}},
-    {id:'stop',lbl:'Stopping Compliance (%)',fn:(k)=>{const a=gv(k,'stop_a');const b=gv(k,'stop_b');const d=gv(k,'stop_dir');if(a&&b)return pct(parseFloat(a),parseFloat(b));if(d)return parseFloat(d);return null;}},
-    {id:'asp_acc',lbl:'ASP Interventions Accepted (%)',fn:(k)=>{const a=gv(k,'asp_acc_a');const b=gv(k,'asp_acc_b');if(a&&b)return pct(parseFloat(a),parseFloat(b));return null;}},
-    {id:'approp',lbl:'Antimicrobial Appropriateness (%)',fn:(k)=>{const a=gv(k,'approp_a');const b=gv(k,'approp_b');if(a&&b)return pct(parseFloat(a),parseFloat(b));return null;}},
-  ],
-};
-
-function getPDFromKey(k,pfx){
-  // Extract period and year from key: hospId|pillar|year|period|locKey
-  const parts=k.split('|');if(parts.length<4)return 0;
-  const yr=parts[2],p=parts[3];
-  return gv(`pd|${pfx}|${yr}|${p}`,'pd')||0;
-}
-
-const PILLAR_PERIOD_TYPE={consumption:'H',outcomes:'Q',amr:'A',process:'Q'};
-const PILLAR_PFX={consumption:'c',outcomes:'o',amr:'a',process:'p'};
-
-function getAnKeys(pillar,hosp='smc'){
-  const pt=PILLAR_PERIOD_TYPE[pillar];
-  const allKeys=[];
-  YEARS.forEach(yr=>{
-    (pt==='A'?['Full Year']:pt==='H'?PERIOD_OPTS['H']:PERIOD_OPTS['Q']).forEach(p=>{
-      allKeys.push({k:getKey(pillar,p,yr,hosp,'ALL'),label:`${p.slice(0,2)==='Fu'?yr:p.slice(0,2)+' '+yr}`,p,yr});
-    });
+// ════════════════════════════════════════════════════════
+// ANALYSIS & COMPARISON
+// ════════════════════════════════════════════════════════
+// All available metrics for analysis
+function getAllMetrics(){
+  const mets=[];
+  // Consumption — per drug
+  DRUGS.forEach(d=>{
+    mets.push({id:`c_ddd_${d.id}`,lbl:`${d.sh} DDD/1000PD`,cat:'consumption',drug:d.id,type:'DDD'});
+    mets.push({id:`c_dot_${d.id}`,lbl:`${d.sh} DOT/1000PD`,cat:'consumption',drug:d.id,type:'DOT'});
   });
-  return allKeys;
+  mets.push({id:'c_ragg_r',lbl:'Restricted Total DDD/1000PD',cat:'consumption',type:'RAGG_R'});
+  mets.push({id:'c_ragg_c',lbl:'Comparator Total DDD/1000PD',cat:'consumption',type:'RAGG_C'});
+  // Outcomes
+  OMET.forEach(m=>mets.push({id:'o_'+m.id,lbl:m.lbl,cat:'outcomes',omet:m}));
+  // AMR Resistance
+  RMET.forEach(m=>mets.push({id:'r_'+m.id,lbl:m.lbl,cat:'amr_r',rmet:m}));
+  // Infection
+  IMET.forEach(m=>mets.push({id:'i_'+m.id,lbl:m.lbl,cat:'amr_i',imet:m}));
+  mets.push({id:'i_ssi',lbl:'SSI Rate',cat:'amr_i',type:'SSI'});
+  // Process
+  SPMET.forEach(m=>mets.push({id:'p_'+m.id,lbl:m.lbl,cat:'process',spmet:m}));
+  return mets;
 }
 
-function buildAnPicker(){
-  const mp=g('aMetricPick');if(!mp)return;
-  const mets=AN_METRICS[curPillar]||[];
-  mp.innerHTML=mets.map((m,i)=>`<div class="mpill ${i===0?'on':''}" onclick="setMetric(this,'${m.id}')">${m.lbl}</div>`).join('');
-  curMetric=mets[0]?.id||'';
-}
-function setPillar(el,pillar){
-  curPillar=pillar;
-  document.querySelectorAll('#aPillarPick .mpill').forEach(b=>b.classList.remove('on'));el.classList.add('on');
-  buildAnPicker();
-}
-function setMetric(el,id){
-  curMetric=id;
-  document.querySelectorAll('#aMetricPick .mpill').forEach(b=>b.classList.remove('on'));el.classList.add('on');
-}
-function renderAnHospSel(){
-  const sel=g('anHosp');if(!sel)return;
-  sel.innerHTML=HOSPITALS.map(h=>`<option value="${h.id}">${h.nm} (${h.cd})</option>`).join('');
-  locList2('an');
+function getMetricValue(met,k,pd){
+  if(met.type==='DDD'){
+    const v=gv(k,met.drug+'_v')||0;const s=gv(k,met.drug+'_s')||DRUGS.find(d=>d.id===met.drug)?.str||0;
+    const ddd=DRUGS.find(d=>d.id===met.drug)?.ddd||1;
+    const tot=v*s;const tDDD=tot/ddd;return pd>0?(tDDD/pd)*1000:null;
+  }
+  if(met.type==='DOT'){const dot=gv(k,met.drug+'_dot')||0;return pd>0&&dot?(dot/pd)*1000:null;}
+  if(met.type==='RAGG_R'){return DRUGS.filter(d=>d.ty==='restricted').reduce((s,d)=>{const v=gv(k,d.id+'_v')||0;const str=gv(k,d.id+'_s')||d.str;const tot=v*str;const tDDD=d.ddd>0?tot/d.ddd:0;return s+(pd>0?(tDDD/pd)*1000:0);},0)||null;}
+  if(met.type==='RAGG_C'){return DRUGS.filter(d=>d.ty==='comparator').reduce((s,d)=>{const v=gv(k,d.id+'_v')||0;const str=gv(k,d.id+'_s')||d.str;const tot=v*str;const tDDD=d.ddd>0?tot/d.ddd:0;return s+(pd>0?(tDDD/pd)*1000:0);},0)||null;}
+  if(met.omet)return getORes(k,met.omet);
+  if(met.rmet){const a=gv(k,met.rmet.id+'_a');const b=gv(k,met.rmet.id+'_b');const d=gv(k,met.rmet.id+'_dir');if(a&&b)return parseFloat(a)/parseFloat(b)*100;if(d)return parseFloat(d);return null;}
+  if(met.imet){const a=gv(k,met.imet.id+'_a');const b=gv(k,met.imet.id+'_b');const d=gv(k,met.imet.id+'_dir');if(a&&b)return met.imet.fn(parseFloat(a),parseFloat(b));if(d)return parseFloat(d);return null;}
+  if(met.type==='SSI'){const ev=gv(k,'ssi_ev');const pr=gv(k,'ssi_pr');return ev&&pr?parseFloat(ev)/parseFloat(pr)*100:null;}
+  if(met.spmet){const a=gv(k,met.spmet.id+'_a');const b=gv(k,met.spmet.id+'_b');const d=gv(k,met.spmet.id+'_dir');if(a&&b)return parseFloat(a)/parseFloat(b)*100;if(d)return parseFloat(d);return null;}
+  return null;
 }
 
-function runAn(){
-  const mode=g('anMode')?.value||'periods';
-  const hospId=g('anHosp')?.value||'smc';
-  const met=AN_METRICS[curPillar]?.find(m=>m.id===curMetric);
-  if(!met){g('anTitle').textContent='Select a metric above';return;}
-  const type=chartCT['anCTB']||'bar';
-  g('anTitle').textContent=met.lbl;
+function getPDForMet(met,yr,p){
+  if(met.cat==='consumption')return gv(`_pd|c|${yr}|${p}`,'v')||0;
+  return 1; // other metrics don't need PD in formula
+}
 
-  if(mode==='periods'){
-    // All periods for selected hospital
-    const allKeys=getAnKeys(curPillar,hospId);
-    const validKeys=allKeys.filter(({k})=>met.fn(k)!==null);
-    if(!validKeys.length){
-      const s=setupC('anCV',340);if(s)noDataMsg(s,'No data entered for this metric yet');
-      g('anSub').textContent='No data found for selected metric';
-      renderHospComp(met,hospId);genInsights(met,validKeys,hospId);return;
-    }
-    g('anSub').textContent=`${met.lbl} · ${validKeys.map(x=>x.label).join(' · ')}`;
-    const hosp=HOSPITALS.find(h=>h.id===hospId);
-    const ds=[{label:hosp?.cd||hospId,color:COLS[0],data:validKeys.map(({k})=>parseFloat((met.fn(k)||0).toFixed(2)))}];
-    drawChart('anCV',ds,validKeys.map(x=>x.label),type,340);
-    renderHospComp(met,hospId);genInsights(met,validKeys,hospId);
-  }else if(mode==='hospitals'){
-    // All hospitals, all periods combined
-    const allKeys=getAnKeys(curPillar,'smc');
-    const validKeys=allKeys.filter(({k})=>met.fn(getKey(curPillar,k.split('|')[3],k.split('|')[2],'smc','ALL'))!==null||HOSPITALS.some(h=>met.fn(getKey(curPillar,k.split('|')[3],k.split('|')[2],h.id,'ALL'))!==null));
-    const labels=getAnKeys(curPillar,'smc').map(x=>x.label);
-    const ds=HOSPITALS.map((h,i)=>({
-      label:h.cd,color:COLS[i%COLS.length],
-      data:getAnKeys(curPillar,h.id).map(({k})=>{const v=met.fn(k);return v!==null?parseFloat(v.toFixed(2)):0;})
-    })).filter(d=>d.data.some(v=>v>0));
-    g('anSub').textContent=`${met.lbl} · Hospital Comparison`;
-    if(!ds.length){const s=setupC('anCV',340);if(s)noDataMsg(s,'Enter data for multiple hospitals to compare');return;}
-    drawChart('anCV',ds,labels,type,340);
-    renderHospComp(met,hospId);genInsights(met,[],hospId);
-  }else{
-    g('anSub').textContent='Location comparison — enter location-specific data in pillars';
-    const s=setupC('anCV',340);if(s)noDataMsg(s,'Enter location-specific data using the Location toggle in each pillar');
+function getPeriodListForCat(cat){
+  if(cat==='consumption')return{ptypes:['H'],defaultPT:'H'};
+  if(cat==='outcomes')return{ptypes:['Q'],defaultPT:'Q'};
+  if(cat==='amr_r')return{ptypes:['A'],defaultPT:'A'};
+  if(cat==='amr_i')return{ptypes:['Q'],defaultPT:'Q'};
+  if(cat==='process')return{ptypes:['Q'],defaultPT:'Q'};
+  return{ptypes:['H','Q','A'],defaultPT:'H'};
+}
+
+function getPillarKey(met,yr,p,hosp){
+  const cat=met.cat;
+  if(cat==='consumption')return mk('consumption',p,yr,hosp,'ALL');
+  if(cat==='outcomes')return mk('outcomes',p,yr,hosp,'ALL');
+  if(cat==='amr_r')return mk('amr','Full Year',yr,hosp,'ALL');
+  if(cat==='amr_i')return mk('amr',p,yr,hosp,'ALL');
+  if(cat==='process')return mk('process',p,yr,hosp,'ALL');
+  return mk('consumption',p,yr,hosp,'ALL');
+}
+
+function buildAnPanels(){
+  const allMets=getAllMetrics();
+  // Update metric selector based on selected cats
+  const metSel=g('anMetricSel');
+  if(metSel){
+    metSel.innerHTML=allMets.filter(m=>anSelCats.has(m.cat)).map(m=>`
+      <div class="multi-sel-item ${anSelMetrics.has(m.id)?'on':''}" onclick="togAnMet(this,'${m.id}')">
+        <input type="checkbox" ${anSelMetrics.has(m.id)?'checked':''}>
+        <span style="font-size:11px">${m.lbl}</span>
+      </div>`).join('');
+  }
+  // Drug selector
+  const drugSel=g('anDrugSel');
+  if(drugSel){
+    drugSel.innerHTML=DRUGS.map(d=>`
+      <div class="multi-sel-item ${anSelDrugs.has(d.id)?'on':''}" onclick="togAnDrug(this,'${d.id}')">
+        <input type="checkbox" ${anSelDrugs.has(d.id)?'checked':''}>
+        <span style="font-size:11px">${d.sh} <span style="color:#94A3B8;font-size:10px">${d.ty==='restricted'?'R':'C'}</span></span>
+      </div>`).join('');
+  }
+  // Period selector
+  const perSel=g('anPeriodSel');
+  if(perSel){
+    const allPeriods=[];
+    YEARS.forEach(yr=>['H1 (Jan–Jun)','H2 (Jul–Dec)','Q1 (Jan–Mar)','Q2 (Apr–Jun)','Q3 (Jul–Sep)','Q4 (Oct–Dec)','Full Year'].forEach(p=>{allPeriods.push({lbl:`${p.slice(0,2)==='Fu'?yr:p.slice(0,2)+' '+yr}`,yr,p});}));
+    // dedup
+    const seen=new Set();const uniq=allPeriods.filter(x=>{if(seen.has(x.lbl))return false;seen.add(x.lbl);return true;});
+    perSel.innerHTML=uniq.map(({lbl,yr,p})=>`
+      <div class="multi-sel-item ${anSelPeriods.has(lbl)?'on':''}" onclick="togAnPeriod(this,'${lbl}','${yr}','${p}')">
+        <input type="checkbox" ${anSelPeriods.has(lbl)?'checked':''}>
+        <span style="font-size:11px">${lbl}</span>
+      </div>`).join('');
+  }
+  // Hospital selector in analysis
+  const hcards=g('anHospCards');
+  if(hcards){
+    const hcols=['#0891B2','#7C3AED','#059669','#D97706','#DC2626'];
+    hcards.innerHTML=HOSPITALS.map((h,i)=>`
+      <div class="hcard ${h.anSel?'hon':''}" onclick="togAnHosp('${h.id}')" style="${h.anSel?'border-color:'+hcols[i%hcols.length]:''}" >
+        <div style="display:flex;align-items:center;gap:8px">
+          <div style="width:28px;height:28px;border-radius:6px;background:${hcols[i%hcols.length]};display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#fff">${h.cd.slice(0,2)}</div>
+          <div>
+            <div style="font-size:12px;font-weight:700;color:#0A1628">${h.nm}</div>
+            <div style="font-size:9.5px;color:#64748B">${h.cd} · ${h.cy}</div>
+          </div>
+          <input type="checkbox" class="ck" style="margin-left:auto" ${h.anSel?'checked':''} onclick="event.stopPropagation();togAnHosp('${h.id}')">
+        </div>
+      </div>`).join('')+`<div onclick="openM('mHosp')" style="border:2px dashed #CBD5E1;border-radius:10px;padding:10px 13px;cursor:pointer;display:flex;align-items:center;gap:7px;color:#94A3B8;font-size:12px;background:#F8FAFC" onmouseover="this.style.borderColor='#0891B2'" onmouseout="this.style.borderColor='#CBD5E1'"><span style="font-size:18px">+</span>Add</div>`;
   }
 }
 
-function renderHospComp(met,selHosp){
-  const hdr=g('hcHdr');const tb=g('hcTB');if(!hdr||!tb)return;
-  const allKeys=getAnKeys(curPillar,'smc');
-  const labels=allKeys.map(x=>x.label);
-  hdr.innerHTML=`<th>Hospital</th>${labels.map(l=>`<th>${l}</th>`).join('')}<th>Best Value</th>`;
-  tb.innerHTML=HOSPITALS.map((h,hi)=>{
-    const vals=getAnKeys(curPillar,h.id).map(({k})=>met.fn(k));
-    const hasAny=vals.some(v=>v!==null);
-    const best=vals.filter(v=>v!==null);const bestV=best.length?Math.min(...best):null;
-    const col=COLS[hi%COLS.length];
-    return`<tr>
-      <td><span style="display:inline-flex;align-items:center;gap:6px"><span style="width:9px;height:9px;border-radius:50%;background:${col};display:inline-block"></span><strong>${h.nm}</strong></span></td>
-      ${vals.map(v=>v!==null?`<td class="mn fw" style="color:${col}">${fmt(v,2)}</td>`:`<td><span class="tag tnd">No data</span></td>`).join('')}
-      <td class="mn fw" style="color:#059669">${bestV!==null?fmt(bestV,2):'—'}</td>
-    </tr>`;
-  }).join('');
-  g('hcSub').textContent=`${met.lbl} · ${HOSPITALS.length} hospital${HOSPITALS.length>1?'s':''}`;
+function togAnCat(el,cat){
+  const cb=el.querySelector('input');
+  if(anSelCats.has(cat)){anSelCats.delete(cat);el.classList.remove('on');cb.checked=false;}
+  else{anSelCats.add(cat);el.classList.add('on');cb.checked=true;}
+  buildAnPanels();
+}
+function togAnMet(el,id){
+  const cb=el.querySelector('input');
+  if(anSelMetrics.has(id)){anSelMetrics.delete(id);el.classList.remove('on');cb.checked=false;}
+  else{anSelMetrics.add(id);el.classList.add('on');cb.checked=true;}
+}
+function togAnDrug(el,id){
+  const cb=el.querySelector('input');
+  if(anSelDrugs.has(id)){anSelDrugs.delete(id);el.classList.remove('on');cb.checked=false;}
+  else{anSelDrugs.add(id);el.classList.add('on');cb.checked=true;}
+}
+function togAnPeriod(el,lbl,yr,p){
+  const cb=el.querySelector('input');
+  if(anSelPeriods.has(lbl)){anSelPeriods.delete(lbl);el.classList.remove('on');cb.checked=false;}
+  else{anSelPeriods.add(lbl);el.classList.add('on');cb.checked=true;}
+}
+function togAnHosp(id){
+  const h=HOSPITALS.find(x=>x.id===id);if(h)h.anSel=!h.anSel;buildAnPanels();
 }
 
-function genInsights(met,validKeys,hospId){
-  const box=g('insBox');if(!box)return;
-  const vals=validKeys.map(({k})=>met.fn(k)).filter(v=>v!==null);
-  if(!vals.length){box.innerHTML='<div style="text-align:center;padding:20px;color:#94A3B8">Enter data to generate insights</div>';return;}
+function runAnalysis(){
+  const allMets=getAllMetrics();
+  const selHosps=HOSPITALS.filter(h=>h.anSel);
+  const selMets=allMets.filter(m=>anSelMetrics.has(m.id));
+  const type=chartCT['anCTB']||'bar';
+  const hcols=['#0891B2','#7C3AED','#059669','#D97706','#DC2626'];
+
+  if(!selHosps.length){drawNoData('anCV','Select at least one hospital above');g('anInsights').innerHTML='<div style="text-align:center;padding:20px;color:#94A3B8">Select a hospital to begin</div>';return;}
+  if(!selMets.length){drawNoData('anCV','Select at least one metric in Step 2');g('anInsights').innerHTML='<div style="text-align:center;padding:20px;color:#94A3B8">Select metrics to compare</div>';return;}
+
+  // Build period list — use selected periods or all available
+  let periodList=[];
+  if(anSelPeriods.size>0){
+    // parse selected period labels back to yr+p
+    const allPeriods=[];
+    YEARS.forEach(yr=>['H1 (Jan–Jun)','H2 (Jul–Dec)','Q1 (Jan–Mar)','Q2 (Apr–Jun)','Q3 (Jul–Sep)','Q4 (Oct–Dec)','Full Year'].forEach(p=>{
+      const lbl=p.slice(0,2)==='Fu'?yr:`${p.slice(0,2)} ${yr}`;
+      if(anSelPeriods.has(lbl))allPeriods.push({lbl,yr,p});
+    }));
+    const seen=new Set();periodList=allPeriods.filter(x=>{if(seen.has(x.lbl))return false;seen.add(x.lbl);return true;});
+  }else{
+    // Auto-detect periods with data
+    const seen=new Set();
+    YEARS.forEach(yr=>['H1 (Jan–Jun)','H2 (Jul–Dec)','Q1 (Jan–Mar)','Q2 (Apr–Jun)','Q3 (Jul–Sep)','Q4 (Oct–Dec)','Full Year'].forEach(p=>{
+      const lbl=p.slice(0,2)==='Fu'?yr:`${p.slice(0,2)} ${yr}`;
+      if(seen.has(lbl))return;
+      const hasData=selHosps.some(h=>selMets.some(m=>{const k=getPillarKey(m,yr,p,h.id);const pd=getPDForMet(m,yr,p);return getMetricValue(m,k,pd)!==null;}));
+      if(hasData){seen.add(lbl);periodList.push({lbl,yr,p});}
+    }));
+  }
+
+  if(!periodList.length){drawNoData('anCV','No data found for selected metrics and periods');return;}
+
+  const title=selMets.length===1?selMets[0].lbl:`${selMets.length} Metrics Comparison`;
+  g('anTitle').textContent=title;
+  g('anSub').textContent=`${selHosps.map(h=>h.cd).join(' vs ')} · ${periodList.length} period${periodList.length>1?'s':''}`;
+
+  // Build datasets
+  let ds=[];
+  if(selHosps.length===1&&selMets.length>1){
+    // Multiple metrics for one hospital
+    const h=selHosps[0];
+    ds=selMets.map((m,i)=>({
+      label:m.lbl.length>25?m.lbl.slice(0,23)+'…':m.lbl,color:COLS[i%COLS.length],
+      data:periodList.map(({yr,p})=>{const k=getPillarKey(m,yr,p,h.id);const pd=getPDForMet(m,yr,p);const v=getMetricValue(m,k,pd);return v!==null?parseFloat(v.toFixed(2)):0;})
+    })).filter(d=>d.data.some(v=>v>0));
+  }else if(selHosps.length>1&&selMets.length===1){
+    // One metric, multiple hospitals
+    const m=selMets[0];
+    ds=selHosps.map((h,i)=>({
+      label:h.cd,color:hcols[i%hcols.length],
+      data:periodList.map(({yr,p})=>{const k=getPillarKey(m,yr,p,h.id);const pd=getPDForMet(m,yr,p);const v=getMetricValue(m,k,pd);return v!==null?parseFloat(v.toFixed(2)):0;})
+    })).filter(d=>d.data.some(v=>v>0));
+  }else{
+    // Multiple metrics × multiple hospitals — group by hospital
+    ds=selHosps.flatMap((h,hi)=>selMets.map((m,mi)=>({
+      label:`${h.cd} — ${m.lbl.split(' ').slice(0,3).join(' ')}`,
+      color:COLS[(hi*selMets.length+mi)%COLS.length],
+      data:periodList.map(({yr,p})=>{const k=getPillarKey(m,yr,p,h.id);const pd=getPDForMet(m,yr,p);const v=getMetricValue(m,k,pd);return v!==null?parseFloat(v.toFixed(2)):0;})
+    }))).filter(d=>d.data.some(v=>v>0));
+  }
+
+  if(!ds.length){drawNoData('anCV','No data found for selection');return;}
+  drawChart('anCV',ds,periodList.map(x=>x.lbl),type,360);
+
+  // Comparison table
+  buildAnTable(selHosps,selMets,periodList,hcols);
+  genInsights(ds,selMets,periodList);
+}
+
+function buildAnTable(selHosps,selMets,periodList,hcols){
+  const hdr=g('anTblHdr');const tb=g('anTblBody');
+  if(!hdr||!tb)return;
+  hdr.innerHTML=`<th>Hospital</th><th>Metric</th>${periodList.map(x=>`<th>${x.lbl}</th>`).join('')}<th>Trend</th>`;
+  let rows='';
+  selHosps.forEach((h,hi)=>{
+    selMets.forEach((m,mi)=>{
+      const col=hcols[hi%hcols.length];
+      const vals=periodList.map(({yr,p})=>{const k=getPillarKey(m,yr,p,h.id);const pd=getPDForMet(m,yr,p);return getMetricValue(m,k,pd);});
+      const nz=vals.filter(v=>v!==null);
+      let trend='—';
+      if(nz.length>=2){const up=nz.every((v,i)=>i===0||v>=nz[i-1]);const dn=nz.every((v,i)=>i===0||v<=nz[i-1]);trend=up?'<span style="color:#DC2626">↑ Rising</span>':dn?'<span style="color:#059669">↓ Falling</span>':'<span style="color:#D97706">~ Mixed</span>';}
+      rows+=`<tr>
+        <td><span style="display:inline-flex;align-items:center;gap:5px"><span style="width:8px;height:8px;border-radius:50%;background:${col};display:inline-block"></span><strong>${h.cd}</strong></span></td>
+        <td style="font-size:11px">${m.lbl}</td>
+        ${vals.map(v=>v!==null?`<td class="mn fw" style="color:${col}">${fmt(v,2)}</td>`:`<td><span class="tag tnd">No data</span></td>`).join('')}
+        <td>${trend}</td>
+      </tr>`;
+    });
+  });
+  tb.innerHTML=rows;
+  g('anTblSub').textContent=`${selMets.length} metric${selMets.length>1?'s':''} · ${selHosps.length} hospital${selHosps.length>1?'s':''} · ${periodList.length} periods`;
+}
+
+function genInsights(ds,selMets,periodList){
+  const box=g('anInsights');if(!box)return;
   const flags=[];
-  const last=vals[vals.length-1],first=vals[0];
-  const chg=vals.length>1?((last-first)/first*100):null;
-  flags.push({t:'fi',i:'📊',m:`<strong>${met.lbl}</strong> — Latest value: <strong>${fmt(last,2)}</strong> across ${vals.length} period${vals.length>1?'s':''}.`});
-  if(chg!==null)flags.push({t:chg>5?'fa':chg<-5?'fg2':'fw2',i:chg>5?'📈':chg<-5?'📉':'→',m:`Trend: <strong>${chg>=0?'+':''}${fmt(chg,1)}%</strong> from first to latest period.`});
-  if(curPillar==='process'&&last<80)flags.push({t:'fa',i:'⚠️',m:`<strong>${met.lbl}</strong> is <strong>${fmt(last,1)}%</strong> — below the ≥80% target. Action required.`});
-  if(curPillar==='process'&&last>=80)flags.push({t:'fg2',i:'✅',m:`<strong>${met.lbl}</strong> is <strong>${fmt(last,1)}%</strong> — meeting the ≥80% target.`});
-  flags.push({t:'fi',i:'💡',m:'Export this chart as Excel, PDF, or PPT using buttons above the chart.'});
+  ds.forEach(d=>{
+    const vals=d.data.filter(v=>v>0);if(vals.length<2)return;
+    const chg=(vals[vals.length-1]-vals[0])/vals[0]*100;
+    if(Math.abs(chg)>10)flags.push({t:chg>0?'fa':'fg2',i:chg>0?'📈':'📉',m:`<strong>${d.label}</strong>: ${chg>=0?'+':''}${fmt(chg,1)}% from first to latest period (${fmt(vals[0],2)} → ${fmt(vals[vals.length-1],2)}).`});
+  });
+  if(selMets.some(m=>m.cat==='process')){
+    ds.forEach(d=>{const last=d.data.filter(v=>v>0).pop();if(last&&last<80)flags.push({t:'fa',i:'⚠️',m:`<strong>${d.label}</strong> is ${fmt(last,1)}% — below the ≥80% target for surgical prophylaxis.`});});
+  }
+  if(!flags.length)flags.push({t:'fi',i:'ℹ️',m:'No significant trends detected. Enter more periods to generate trend analysis.'});
+  flags.push({t:'fi',i:'💡',m:'Export as CSV, PDF, or PPT using the buttons above the chart.'});
   box.innerHTML=flags.map(f=>`<div class="flag ${f.t}"><span style="font-size:14px">${f.i}</span><div>${f.m}</div></div>`).join('');
 }
 
-// ══════════════════════════════════════════════════════════════════════
+// ════════════════════════════════════════════════════════
 // HOSPITALS
-// ══════════════════════════════════════════════════════════════════════
+// ════════════════════════════════════════════════════════
 function renderHCards(){
   const c=g('hCards');if(!c)return;
   const hcols=['#0891B2','#7C3AED','#059669','#D97706','#DC2626'];
   c.innerHTML=HOSPITALS.map((h,i)=>{
-    const col=hcols[i%hcols.length];const isA=activeHosp===h.id;
-    return`<div class="hcard ${isA?'hon':''}" onclick="selHosp('${h.id}')" style="${isA?'border-color:'+col+';background:'+col+'10':''}">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:7px">
+    const col=hcols[i%hcols.length];
+    return`<div class="hcard">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
         <div style="width:30px;height:30px;border-radius:7px;background:${col};display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#fff">${h.cd.slice(0,2)}</div>
-        ${!h.primary?`<button onclick="event.stopPropagation();rmHosp('${h.id}')" style="background:none;border:1.5px solid #FCA5A5;border-radius:4px;cursor:pointer;color:#EF4444;font-size:10px;padding:2px 6px">✕</button>`:'<span style="font-size:8.5px;color:#94A3B8;font-style:italic">Primary</span>'}
+        ${!h.primary?`<button onclick="rmHosp('${h.id}')" style="background:none;border:1.5px solid #FCA5A5;border-radius:4px;cursor:pointer;color:#EF4444;font-size:10px;padding:2px 6px">✕</button>`:'<span style="font-size:8.5px;color:#94A3B8">Primary</span>'}
       </div>
       <div style="font-size:12px;font-weight:700;color:#0A1628">${h.nm}</div>
       <div style="font-size:9.5px;color:#64748B;margin-top:2px">${h.cd} · ${h.cy} · ${h.ty}</div>
-      ${isA?`<div style="font-size:9px;color:${col};margin-top:5px;font-weight:700">▶ Entering data</div>`:''}
     </div>`;
   }).join('')+`<div onclick="openM('mHosp')" style="border:2px dashed #CBD5E1;border-radius:10px;padding:11px 13px;cursor:pointer;min-width:155px;display:flex;align-items:center;justify-content:center;gap:7px;color:#94A3B8;font-size:12px;background:#F8FAFC" onmouseover="this.style.borderColor='#0891B2'" onmouseout="this.style.borderColor='#CBD5E1'"><span style="font-size:18px">+</span>Add Hospital</div>`;
-  const panel=g('hEntryP');
-  const h=HOSPITALS.find(x=>x.id===activeHosp);
-  if(panel)panel.style.display=(h&&!h.primary)?'block':'none';
-  if(h&&h.primary&&panel)panel.style.display='none';
-  // populate period select for hosp entry
-  const heSel=g('hePeriod');
-  if(heSel)heSel.innerHTML=[...PERIOD_OPTS['H'],...PERIOD_OPTS['Q']].map(p=>`<option>${p}</option>`).join('');
 }
-function selHosp(id){activeHosp=id;renderHCards();}
-function rmHosp(id){if(!confirm('Remove hospital and its data?'))return;HOSPITALS=HOSPITALS.filter(h=>h.id!==id);if(activeHosp===id)activeHosp='smc';save();renderHCards();}
+function rmHosp(id){if(!confirm('Remove hospital?'))return;HOSPITALS=HOSPITALS.filter(h=>h.id!==id);cloudSave();renderHCards();}
 function addHospital(){
   const nm=g('nh-nm').value.trim();const cd=(g('nh-cd').value.trim()||nm.slice(0,4)).toUpperCase();
   const cy=g('nh-cy').value.trim()||'—';const ty=g('nh-ty').value;
   if(!nm){alert('Enter hospital name.');return;}
-  HOSPITALS.push({id:'h_'+Date.now(),nm,cd,cy,ty,primary:false});
-  save();closeM('mHosp');renderHCards();renderAnHospSel();
+  HOSPITALS.push({id:'h_'+Date.now(),nm,cd,cy,ty,primary:false,anSel:false});
+  cloudSave();closeM('mHosp');renderHCards();buildAnPanels();
   ['nh-nm','nh-cd','nh-cy'].forEach(i=>{const el=g(i);if(el)el.value='';});
 }
-function renderHospEntry(){
-  const c=g('hEntryC');if(!c){c.innerHTML='<p>Select a pillar</p>';return;}
-  c.innerHTML='<p style="color:#64748B;font-size:12px">Consumption and metric data for other hospitals is entered through the Analysis section — select the hospital in the Hospital Comparison view. Use this section to register hospitals and manage their profiles.</p>';
-}
 
-// ══════════════════════════════════════════════════════════════════════
+// ════════════════════════════════════════════════════════
 // ADD DRUG / SURGERY TYPE
-// ══════════════════════════════════════════════════════════════════════
+// ════════════════════════════════════════════════════════
 function addDrug(){
-  const nm=g('nd-nm').value.trim();const sh=g('nd-sh').value.trim()||nm.slice(0,6);const atc=g('nd-atc').value.trim()||'—';
-  const ddd=parseFloat(g('nd-ddd').value);const unt=g('nd-unt').value;const str=parseFloat(g('nd-str').value)||ddd;
-  const note=g('nd-nt').value.trim()||str+' '+unt+'/unit';const ty=g('nd-ty').value;
-  if(!nm||!ddd){alert('Enter drug name and WHO DDD value.');return;}
-  DRUGS.push({id:'c_'+Date.now(),nm,sh,atc,ddd,unt,str,note,ty});save();closeM('mDrug');cRender();
+  const nm=g('nd-nm').value.trim();if(!nm){alert('Enter drug name.');return;}
+  const ddd=parseFloat(g('nd-ddd').value);if(!ddd){alert('Enter WHO DDD value.');return;}
+  const sh=g('nd-sh').value.trim()||nm.slice(0,6);
+  DRUGS.push({id:'c_'+Date.now(),nm,sh,atc:g('nd-atc').value.trim()||'—',ddd,unt:g('nd-unt').value,str:parseFloat(g('nd-str').value)||ddd,note:g('nd-nt').value.trim()||'custom',ty:g('nd-ty').value,sel:true});
+  cloudSave();closeM('mDrug');cRender();
   ['nd-nm','nd-sh','nd-atc','nd-ddd','nd-str','nd-nt'].forEach(i=>{const el=g(i);if(el)el.value='';});
 }
 function addST(){
   const nm=g('ns-nm').value.trim();if(!nm){alert('Enter surgery type name.');return;}
   if(!SURG_TYPES.includes(nm))SURG_TYPES.push(nm);
-  save();closeM('mST');pRender();aRender();
-  g('ns-nm').value='';
+  cloudSave();closeM('mST');pRender();aRender();g('ns-nm').value='';
 }
 
-// ══════════════════════════════════════════════════════════════════════
+// ════════════════════════════════════════════════════════
 // CHART ENGINE
-// ══════════════════════════════════════════════════════════════════════
+// ════════════════════════════════════════════════════════
 function setupC(id,h){
   const cv=g(id);if(!cv)return null;
   const W=cv.parentElement.clientWidth||600,H=h||280;
@@ -1600,45 +1867,53 @@ function setupC(id,h){
   const ctx=cv.getContext('2d');ctx.scale(PX,PX);ctx.clearRect(0,0,W,H);
   return{ctx,W,H};
 }
-function noDataMsg(s,msg='No data'){const{ctx,W,H}=s;ctx.fillStyle='#94A3B8';ctx.font='13px Inter';ctx.textAlign='center';ctx.fillText(msg,W/2,H/2);}
+function drawNoData(id,msg){
+  const s=setupC(id,280);if(!s)return;
+  const{ctx,W,H}=s;
+  ctx.fillStyle='#94A3B8';ctx.font='13px Inter';ctx.textAlign='center';ctx.textBaseline='middle';
+  ctx.fillText(msg,W/2,H/2);
+}
 
 function drawChart(id,datasets,labels,type,height){
   const s=setupC(id,height);if(!s)return;
   const{ctx,W,H}=s;
-  if(!labels.length||!datasets.length){noDataMsg(s);return;}
-  const PAD={t:38,r:16,b:48,l:58};
+  if(!labels.length||!datasets.length){drawNoData(id,'No data');return;}
+  const PAD={t:40,r:16,b:52,l:58};
   const pw=W-PAD.l-PAD.r,ph=H-PAD.t-PAD.b;
-  const allVals=datasets.flatMap(d=>d.data.filter(v=>v>0));
-  let mx=allVals.length?Math.max(...allVals):10;mx*=1.18;if(!mx)mx=10;
-  // axes
-  ctx.strokeStyle='#E2E8F0';ctx.lineWidth=.8;
-  for(let i=0;i<=5;i++){
-    const y=PAD.t+ph-(i/5)*ph;ctx.beginPath();ctx.moveTo(PAD.l,y);ctx.lineTo(PAD.l+pw,y);ctx.stroke();
-    ctx.fillStyle='#94A3B8';ctx.font='9px Inter';ctx.textAlign='right';ctx.fillText(fmt(mx*i/5,1),PAD.l-4,y+3);
+  const allV=datasets.flatMap(d=>d.data).filter(v=>v>0);
+  let mx=allV.length?Math.max(...allV):10;mx*=1.18;if(!mx||isNaN(mx))mx=10;
+  // grid lines
+  const steps=5;
+  for(let i=0;i<=steps;i++){
+    const y=PAD.t+ph-(i/steps)*ph;
+    ctx.strokeStyle='#E2E8F0';ctx.lineWidth=.7;ctx.beginPath();ctx.moveTo(PAD.l,y);ctx.lineTo(PAD.l+pw,y);ctx.stroke();
+    ctx.fillStyle='#94A3B8';ctx.font='9px Inter';ctx.textAlign='right';ctx.textBaseline='middle';
+    ctx.fillText(fmt(mx*i/steps,1),PAD.l-4,y);
   }
   ctx.strokeStyle='#CBD5E1';ctx.lineWidth=1.5;
   ctx.beginPath();ctx.moveTo(PAD.l,PAD.t);ctx.lineTo(PAD.l,PAD.t+ph);ctx.lineTo(PAD.l+pw,PAD.t+ph);ctx.stroke();
   const n=labels.length;
   const xOf=i=>PAD.l+(n===1?pw/2:i/(n-1)*pw);
   const xBar=i=>PAD.l+(i+0.5)/n*pw;
-
   // x labels
   labels.forEach((l,i)=>{
-    const lbl=l.length>10?l.slice(0,9)+'…':l;
-    ctx.fillStyle='#475569';ctx.font='9.5px Inter';ctx.textAlign='center';
-    ctx.fillText(lbl,type==='bar'?xBar(i):xOf(i),H-10);
+    const short=l.length>10?l.slice(0,9)+'…':l;
+    ctx.fillStyle='#475569';ctx.font='9.5px Inter';ctx.textAlign='center';ctx.textBaseline='top';
+    ctx.fillText(short,type==='bar'||type==='horiz'?xBar(i):xOf(i),H-42+8);
   });
-
   if(type==='bar'||type==='horiz'){
-    const bw=Math.max(4,(pw/n)*0.68/Math.max(datasets.length,1));
-    const gw=bw*datasets.length+(datasets.length-1)*2;
+    const bw=Math.max(4,(pw/n)*0.7/Math.max(datasets.length,1));
+    const gw=(bw+2)*datasets.length;
     datasets.forEach((ds,di)=>{
       ds.data.forEach((v,i)=>{
         if(!v)return;
         const cx=xBar(i)-gw/2+di*(bw+2);const bh=(v/mx)*ph;
         ctx.fillStyle=ds.color;ctx.fillRect(cx,PAD.t+ph-bh,bw,bh);
-        if(bh>14){ctx.fillStyle='rgba(255,255,255,.9)';ctx.font='8px JetBrains Mono';ctx.textAlign='center';ctx.fillText(fmt(v,1),cx+bw/2,PAD.t+ph-bh/2+3);}
-        else{ctx.fillStyle='#1E293B';ctx.font='8px JetBrains Mono';ctx.textAlign='center';ctx.fillText(fmt(v,1),cx+bw/2,PAD.t+ph-bh-3);}
+        // value label inside if tall enough
+        ctx.fillStyle=bh>16?'rgba(255,255,255,.9)':'#1E293B';
+        ctx.font='8px JetBrains Mono';ctx.textAlign='center';ctx.textBaseline='middle';
+        if(bh>16)ctx.fillText(fmt(v,1),cx+bw/2,PAD.t+ph-bh/2);
+        else ctx.fillText(fmt(v,1),cx+bw/2,PAD.t+ph-bh-7);
       });
     });
   }else{
@@ -1647,76 +1922,74 @@ function drawChart(id,datasets,labels,type,height){
       if(type==='area'){
         ctx.beginPath();pts.forEach((p,i)=>i===0?ctx.moveTo(p.x,p.y):ctx.lineTo(p.x,p.y));
         ctx.lineTo(pts[pts.length-1].x,PAD.t+ph);ctx.lineTo(pts[0].x,PAD.t+ph);ctx.closePath();
-        ctx.fillStyle=ds.color+'22';ctx.fill();
+        ctx.fillStyle=ds.color+'25';ctx.fill();
       }
       ctx.beginPath();ctx.strokeStyle=ds.color;ctx.lineWidth=2.5;ctx.lineJoin='round';ctx.lineCap='round';
       pts.forEach((p,i)=>i===0?ctx.moveTo(p.x,p.y):ctx.lineTo(p.x,p.y));ctx.stroke();
       pts.forEach((p,i)=>{
         if(!ds.data[i])return;
-        ctx.beginPath();ctx.arc(p.x,p.y,4,0,Math.PI*2);ctx.fillStyle=ds.color;ctx.fill();ctx.strokeStyle='#fff';ctx.lineWidth=2;ctx.stroke();
-        ctx.fillStyle='#1E293B';ctx.font='8px JetBrains Mono';ctx.textAlign='center';ctx.fillText(fmt(ds.data[i],2),p.x,p.y-9);
+        ctx.beginPath();ctx.arc(p.x,p.y,4,0,Math.PI*2);ctx.fillStyle=ds.color;ctx.fill();
+        ctx.strokeStyle='#fff';ctx.lineWidth=1.8;ctx.stroke();
+        ctx.fillStyle='#1E293B';ctx.font='8px JetBrains Mono';ctx.textAlign='center';ctx.textBaseline='bottom';
+        ctx.fillText(fmt(ds.data[i],2),p.x,p.y-6);
       });
     });
   }
-
   // legend
-  let lx=PAD.l,ly=18;
+  let lx=PAD.l,ly=16;
   datasets.forEach(ds=>{
-    ctx.fillStyle=ds.color;type==='bar'?ctx.fillRect(lx,ly-9,12,10):ctx.fillRect(lx,ly-4,18,3);
-    ctx.fillStyle='#334155';ctx.font='9.5px Inter';ctx.textAlign='left';
-    const lbl=ds.label.length>20?ds.label.slice(0,18)+'…':ds.label;
-    ctx.fillText(lbl,lx+(type==='bar'?16:22),ly);lx+=ctx.measureText(lbl).width+30;
+    ctx.fillStyle=ds.color;
+    if(type==='bar'||type==='horiz')ctx.fillRect(lx,ly-8,12,10);else{ctx.fillRect(lx,ly-3,18,3);}
+    ctx.fillStyle='#334155';ctx.font='9.5px Inter';ctx.textAlign='left';ctx.textBaseline='middle';
+    const lbl=ds.label.length>22?ds.label.slice(0,20)+'…':ds.label;
+    ctx.fillText(lbl,lx+(type==='bar'?16:22),ly);
+    lx+=ctx.measureText(lbl).width+36;
     if(lx>W-80){lx=PAD.l;ly+=14;}
   });
 }
 
-// ══════════════════════════════════════════════════════════════════════
+// ════════════════════════════════════════════════════════
 // EXPORT
-// ══════════════════════════════════════════════════════════════════════
-function expXLS(){
-  let csv='Pillar,Period,Year,Metric,Value\n';
-  // Consumption
-  YEARS.forEach(yr=>PERIOD_OPTS['H'].forEach(p=>{
-    const k=getKey('consumption',p,yr,'smc','ALL');
-    const pd=gv(`pd|c|${yr}|${p}`,'pd')||0;
-    DRUGS.forEach(d=>{
-      const v=gv(k,d.id+'_v')||0;if(!v)return;
-      const str=gv(k,d.id+'_s')||d.str;const tot=v*str;const tDDD=d.ddd>0?tot/d.ddd:0;const dddP=pd>0?(tDDD/pd)*1000:0;
-      csv+=`Consumption,${p},${yr},${d.sh} DDD/1000PD,${fmt(dddP,2)}\n`;
+// ════════════════════════════════════════════════════════
+function expCSV(){
+  let csv='Pillar,Hospital,Year,Period,Metric,Value\n';
+  HOSPITALS.forEach(h=>{
+    YEARS.forEach(yr=>{
+      // Consumption
+      ['H1 (Jan–Jun)','H2 (Jul–Dec)'].forEach(p=>{
+        const k=mk('consumption',p,yr,h.id,'ALL');const pd=gv(`_pd|c|${yr}|${p}`,'v')||0;
+        DRUGS.forEach(d=>{const v=gv(k,d.id+'_v')||0;if(!v)return;const s=gv(k,d.id+'_s')||d.str;const tot=v*s;const tDDD=d.ddd>0?tot/d.ddd:0;const dddP=pd>0?(tDDD/pd)*1000:0;csv+=`Consumption,${h.cd},${yr},${p},${d.sh} DDD/1000PD,${fmt(dddP,2)}\n`;});
+      });
+      // Outcomes
+      ['Q1 (Jan–Mar)','Q2 (Apr–Jun)','Q3 (Jul–Sep)','Q4 (Oct–Dec)'].forEach(p=>{
+        const k=mk('outcomes',p,yr,h.id,'ALL');
+        OMET.forEach(m=>{const r=getORes(k,m);if(r!==null)csv+=`Outcomes,${h.cd},${yr},${p},${m.lbl},${fmt(r,2)}\n`;});
+      });
     });
-  }));
-  // Outcomes
-  YEARS.forEach(yr=>PERIOD_OPTS['Q'].forEach(p=>{
-    const k=getKey('outcomes',p,yr,'smc','ALL');
-    OMET.forEach(m=>{const r=getOResult(k,m);if(r!==null)csv+=`Quality Outcomes,${p},${yr},${m.lbl},${fmt(r,2)}\n`;});
-  }));
-  const blob=new Blob([csv],{type:'text/csv'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='ASP_KPI_Export.csv';a.click();
+  });
+  const b=new Blob([csv],{type:'text/csv'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='ASP_KPI.csv';a.click();
 }
 function expPDF(){window.print();}
-function expPPT(){alert('PPT export: the currently displayed chart will be exported as a styled PowerPoint slide in the full implementation.');}
-function expPPTChart(){expPPT();}
-function resetAll(){if(!confirm('Reset ALL data? This cannot be undone.'))return;DB={};save();initAll();}
+function expPPT(){alert('PPT export: the currently displayed analysis chart will be exported as a styled PowerPoint slide in the full implementation.');}
+function resetAll(){if(!confirm('Reset ALL entered data?'))return;DB={};cloudSave();loadDemoData();initAll();}
 
-// ══════════════════════════════════════════════════════════════════════
+// ════════════════════════════════════════════════════════
 // INIT
-// ══════════════════════════════════════════════════════════════════════
+// ════════════════════════════════════════════════════════
 function initAll(){
-  // Build all period dropdowns
-  ['c','o','a','p'].forEach(pfx=>{
-    buildPOpts(pfx);
-    const pd=gv(pdKey(pfx),'pd');if(pd&&g(pfx+'PD'))g(pfx+'PD').value=pd;
-  });
-  cRender();oRender();aRender();pRender();
-  renderHCards();buildAnPicker();renderAnHospSel();
+  ['c','o','a','p'].forEach(pfx=>buildPeriods(pfx));
+  cLoad();oRender();aRender();pRender();
+  renderHCards();buildAnPanels();
 }
 
 window.addEventListener('DOMContentLoaded',()=>{
   g('SB').style.display='none';g('MW').style.display='none';
   document.querySelectorAll('.mov').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('open');}));
-  window.addEventListener('resize',()=>{drawCChart();drawOChart();drawAChart();drawPChart();});
-  g('anLocT').addEventListener('change',()=>{locList2('an');});
+  window.addEventListener('resize',()=>{cDrawChart();oDrawChart();aDrawChart();pDrawChart();});
 
-  // Firebase auth check
+  // Ctrl+S to save
+  document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key==='s'){e.preventDefault();forceSave();}});
+
   const waitFB=setInterval(()=>{
     if(!window._FB)return;clearInterval(waitFB);
     window._FB.onAuthStateChanged(window._FB.auth,user=>{
